@@ -175,6 +175,196 @@ export const de: LangContent = {
   },
   pages: [
     {
+      slug: "was-ist-evisitor",
+      title: "Was ist das eVisitor-Visum (Subclass 651)?",
+      description:
+        "Das eVisitor ist ein echtes Visum, keine Reisegenehmigung. Wer es bekommt, was damit erlaubt ist und wo die Grenzen liegen.",
+      blocks: [
+        { h2: "Ein Visum, kein ESTA-Äquivalent" },
+        {
+          p: "Das eVisitor (Subclass 651) ist ein vollwertiges australisches Besuchervisum, das elektronisch erteilt und mit Ihrem Reisepass verknüpft wird. Es gibt weder Aufkleber noch Stempel. Der Vergleich mit dem US-ESTA oder der neuseeländischen NZeTA führt in die Irre: jene sind Einreisegenehmigungen, das eVisitor ist ein Visum.",
+        },
+        {
+          p: `Deutschland gehört zu den ${F.eligibleCountries} Ländern, für die dieses Visum vorgesehen ist. Wer einen dieser Pässe besitzt, beantragt das eVisitor – und zahlt dafür ${F.fee}.`,
+        },
+        { h2: "Was erlaubt ist" },
+        {
+          ul: [
+            "Tourismus, Besuch von Familie und Freunden",
+            "Geschäftliche Besuchstätigkeiten: Verhandlungen, Messen, Konferenzen",
+            `Studium oder Ausbildung bis zu ${F.studyMonths} Monaten`,
+            "Beliebig viele Einreisen innerhalb der Gültigkeit",
+          ],
+        },
+        { h2: "Was nicht erlaubt ist" },
+        {
+          ul: [
+            "Arbeit für einen australischen Arbeitgeber",
+            "Verkauf von Waren oder Dienstleistungen an die Öffentlichkeit",
+            "Medizinische Behandlung als Reisezweck",
+            `Aufenthalte über ${F.stayMonths} Monate pro Einreise`,
+          ],
+        },
+        {
+          note: "Wer arbeiten möchte, braucht ein anderes Visum. Das eVisitor lässt sich dafür nicht nachträglich umwandeln.",
+        },
+        { h2: "Voraussetzung: Sie sind außerhalb Australiens" },
+        {
+          p: "Sowohl bei der Antragstellung als auch bei der Erteilung müssen Sie sich außerhalb Australiens aufhalten. Aus Australien heraus lässt sich das eVisitor nicht beantragen und auch nicht verlängern.",
+        },
+      ],
+    },
+    {
+      slug: "evisitor-kosten",
+      title: "Was kostet das eVisitor wirklich?",
+      description:
+        "Die Behörde erhebt keine Gebühr. Warum trotzdem überall Preise stehen und woran Sie die offizielle Seite erkennen.",
+      blocks: [
+        { h2: "Die Antwort: nichts" },
+        {
+          p: `Für das eVisitor verlangt das Department of Home Affairs keine Gebühr: ${F.fee}. Es gibt auch keine Servicegebühr und keine Bearbeitungspauschale. Sie brauchen für den Antrag keine Kreditkarte.`,
+        },
+        { h2: "Warum stehen dann überall Preise?" },
+        {
+          p: "Wer im Internet einen Betrag für ein eVisitor sieht, sieht das Honorar eines Vermittlers für das Ausfüllen des Formulars. Das Visum selbst wird dadurch weder schneller erteilt noch sicherer bewilligt. Solche Seiten sind nicht verboten, aber Sie zahlen für etwas, das Sie in wenigen Minuten selbst erledigen können.",
+        },
+        { h2: "Verwechslungsgefahr: die ETA kostet Geld" },
+        {
+          p: `Wer keinen der ${F.eligibleCountries} berechtigten Pässe besitzt, braucht statt des eVisitor die ETA (Subclass 601). Diese kostet ${F.etaFee} und wird ausschließlich über eine App beantragt. Preisangaben im Netz beziehen sich häufig auf die ETA – nicht auf Ihr Visum.`,
+        },
+        {
+          note: "Merksatz: Deutscher Pass → eVisitor → kostenlos. Wer einen Preis nennt, meint entweder eine Dienstleistung oder ein anderes Visum.",
+        },
+        { h2: "Woran Sie die offizielle Seite erkennen" },
+        {
+          ul: [
+            "Die Adresse endet auf immi.homeaffairs.gov.au",
+            "Es wird keine Zahlung verlangt",
+            "Es gibt keine Werbung und keine Eilbearbeitung gegen Aufpreis",
+          ],
+        },
+      ],
+    },
+    {
+      slug: "evisitor-unterlagen",
+      title: "Welche Unterlagen brauchen Sie für den Antrag?",
+      description:
+        "Für das eVisitor brauchen Sie weder Foto noch Zahlungsdaten. Was tatsächlich abgefragt wird und welche Angaben Rückfragen auslösen.",
+      blocks: [
+        { h2: "Kein Foto, keine Zahlungsdaten" },
+        {
+          p: "Das ist der auffälligste Unterschied zu anderen Reisegenehmigungen: Für das eVisitor müssen Sie kein Passfoto hochladen und keine Kreditkarte angeben. Beides entfällt, weil das Visum kostenlos ist und rein datenbasiert erteilt wird.",
+        },
+        { h2: "Was Sie bereithalten sollten" },
+        {
+          ul: [
+            "Reisepass: Nummer, Ausstellungs- und Ablaufdatum, ausstellender Staat",
+            "Persönliche Daten genau wie im Pass geschrieben",
+            "Kontakt-E-Mail-Adresse, die Sie auf Reisen abrufen können",
+            "Angaben zu Aufenthaltszweck und ungefährem Reisezeitraum",
+          ],
+        },
+        { h2: "Die Angaben, bei denen es hakt" },
+        {
+          p: "Abgefragt werden außerdem Gesundheit und Vorstrafen. Wer hier etwas angibt – etwa Tuberkulose in der Vorgeschichte oder eine Verurteilung – bekommt nicht automatisch eine Ablehnung, aber die Behörde kann Nachweise anfordern. Dann dauert die Bearbeitung länger als die üblichen Minuten.",
+        },
+        {
+          note: "Falsche Angaben sind das größere Risiko als der Sachverhalt selbst. Eine offengelegte Vorgeschichte führt seltener zur Ablehnung als eine verschwiegene.",
+        },
+        { h2: "Namen genau übernehmen" },
+        {
+          p: "Umlaute und Doppelnamen sind die häufigste Fehlerquelle. Übernehmen Sie die Schreibweise exakt aus der maschinenlesbaren Zone Ihres Passes – dort steht etwa MUELLER statt MÜLLER. Weicht der Name ab, wird das Visum beim Check-in unter Umständen nicht gefunden.",
+        },
+      ],
+    },
+    {
+      slug: "evisitor-bearbeitungszeit",
+      title: "Wie lange dauert die Bearbeitung?",
+      description:
+        "Meist Minuten, manchmal Tage. Was die Bearbeitung verzögert und warum es keine kostenpflichtige Expressbearbeitung gibt.",
+      blocks: [
+        { h2: "In der Regel sehr schnell" },
+        {
+          p: `Die meisten Anträge werden automatisch geprüft und innerhalb weniger Minuten entschieden. Die Behörde nennt als typische Spanne ${F.decisionTypical}. Eine Garantie ist das nicht – es ist eine Erfahrungsgröße.`,
+        },
+        { h2: "Was die Bearbeitung verlängert" },
+        {
+          ul: [
+            "Angaben zu Gesundheit oder Vorstrafen, die eine manuelle Prüfung auslösen",
+            "Abweichungen zwischen Antrag und Passdaten",
+            "Ein Reisepass, der bald abläuft",
+            "Frühere Visumsablehnungen in Australien",
+          ],
+        },
+        { h2: "Es gibt keine bezahlte Expressbearbeitung" },
+        {
+          p: "Kein Anbieter kann die Erteilung beschleunigen. Wer eine Eilbearbeitung gegen Aufpreis verkauft, verkauft nichts, was die Behörde anbietet. Die Reihenfolge der Prüfung lässt sich nicht kaufen.",
+        },
+        {
+          note: `Planen Sie trotzdem Puffer ein: Beantragen Sie das Visum, sobald der Reisetermin feststeht, nicht erst am Abflugtag. Es ist ${F.validMonths} Monate gültig – ein früher Antrag kostet Sie nichts.`,
+        },
+      ],
+    },
+    {
+      slug: "evisitor-status-pruefen",
+      title: "Status prüfen: Wurde mein Visum erteilt?",
+      description:
+        "Wie Sie den Status Ihres eVisitor überprüfen, wenn keine E-Mail ankommt – und wo Sie Ihre Passnummer niemals eingeben sollten.",
+      blocks: [
+        { h2: "Die Bestätigung kommt per E-Mail" },
+        {
+          p: "Nach der Erteilung erhalten Sie eine Bestätigung an die angegebene Adresse. Ein Dokument zum Ausdrucken gibt es nicht und wird auch nicht verlangt: Das Visum ist elektronisch mit Ihrem Pass verknüpft und wird beim Check-in automatisch abgefragt.",
+        },
+        { h2: "Wenn keine E-Mail ankommt" },
+        {
+          ul: [
+            "Spam- und Werbeordner prüfen",
+            "Kontrollieren, ob die Adresse im Antrag ohne Tippfehler war",
+            "Über VEVO (Visa Entitlement Verification Online) den Status direkt abfragen",
+          ],
+        },
+        { h2: "VEVO ist der offizielle Weg" },
+        {
+          p: "VEVO ist der kostenlose Auskunftsdienst der australischen Behörde. Damit sehen Sie, ob und welches Visum zu Ihrem Pass gespeichert ist. Auch Fluggesellschaften greifen auf diese Datenbank zu.",
+        },
+        {
+          note: "Geben Sie Ihre Passnummer ausschließlich auf Seiten ein, die auf homeaffairs.gov.au enden. Drittanbieter, die eine „Statusprüfung“ gegen Gebühr anbieten, brauchen Sie nicht.",
+        },
+      ],
+    },
+    {
+      slug: "evisitor-haeufige-fragen",
+      title: "Häufige Fragen zum eVisitor",
+      description:
+        "Kurze Antworten auf die Fragen, die vor der Australienreise am häufigsten gestellt werden.",
+      blocks: [
+        { h2: "Brauche ich als Deutscher überhaupt ein Visum?" },
+        {
+          p: "Ja. Australien kennt keine visumfreie Einreise für Touristen. Auch für einen Zwischenstopp mit Verlassen des Transitbereichs benötigen Sie ein Visum. Für deutsche Pässe ist das eVisitor vorgesehen.",
+        },
+        { h2: "Muss ich das Visum ausdrucken?" },
+        {
+          p: "Nein. Es ist elektronisch mit dem Pass verknüpft. Viele nehmen die Bestätigungs-E-Mail trotzdem mit – das schadet nicht, ist aber nicht erforderlich.",
+        },
+        { h2: "Ich habe einen neuen Reisepass. Gilt das Visum weiter?" },
+        {
+          p: "Nein. Das Visum hängt an der Passnummer. Nach Verlust, Diebstahl oder Erneuerung müssen Sie erneut beantragen – auch das ist wieder kostenlos.",
+        },
+        { h2: "Ich habe zwei Staatsangehörigkeiten. Welcher Pass gilt?" },
+        {
+          p: "Der Pass, mit dem Sie einreisen. Beantragen Sie das Visum für genau diesen Pass und reisen Sie dann auch mit ihm.",
+        },
+        { h2: "Kann ich vor Ort verlängern?" },
+        {
+          p: `Nein. Ein eVisitor lässt sich innerhalb Australiens weder verlängern noch neu beantragen. Wer länger als ${F.stayMonths} Monate bleiben will, braucht ein anderes Visum – und muss das rechtzeitig klären.`,
+        },
+        { h2: "Ist eine Reiseversicherung Pflicht?" },
+        {
+          p: "Nicht für das Visum. Australien verlangt keinen Nachweis. Da die medizinische Versorgung für Besucher teuer ist, wird eine Versicherung dennoch dringend empfohlen.",
+        },
+      ],
+    },
+    {
       slug: "impressum",
       title: "Impressum und Angaben zum Betreiber",
       description:
