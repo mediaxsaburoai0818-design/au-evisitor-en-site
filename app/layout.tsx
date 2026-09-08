@@ -30,7 +30,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   /** ⚠️ Search Consoleの所有権確認はMETA方式。
    *  FILE方式は trailingSlash:true のせいで /googleXXXX.html が308になり使えなかった。 */
-  verification: { google: "3TYln4d1lpm1cITjE989pRaDpDBiADp_aA40JjboLIY" },
+  // Search Consoleの所有権確認。複数アカウントぶんを配列で並べられる。
+  // 1つ目: 既存の管理アカウント / 2つ目: Saburo MediXAI（2026-09-08 okina依頼）
+  verification: {
+    google: [
+      "3TYln4d1lpm1cITjE989pRaDpDBiADp_aA40JjboLIY",
+      "N-QQNo9E6Mv5Rg-HnS0pm04OuiTZbkwXuk694lTsHlI",
+    ],
+  },
   openGraph: {
     title: "Australia eVisitor Guide — the free visa for European passports",
     description:
