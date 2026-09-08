@@ -19,6 +19,27 @@ export const FACTS = {
   stayMonths: 3,
   studyMonths: 3,
   decisionTypical: "minutes to a few days",
+
+  /* ── 入国・滞在の実務（2026-09-08 公式で裏取り。出典は各ページに明記する） ──
+     ⚠️ 罰則と免税枠は間違えると読者に実害が出る。必ず一次情報を確認してから変えること。 */
+
+  /** 生物検疫（DAFF）: 申告漏れの反則金は「ペナルティユニット」で定義される。
+   *  ⚠️ 1ユニットの金額は法改正で改定されるため、**豪ドル額を断定しない**。
+   *     DAFFのページは12ユニット=$2,664（2021年基準）と記載、
+   *     2023年の改定を伝える大臣リリースは12ユニット=$3,300としている。
+   *     → 両方を出典付きで併記し、最新額は公式で確認するよう促す。 */
+  biosecurityPenaltyUnits: 12,
+  biosecurityFineDaff: "A$2,664",
+  biosecurityFineIndexed: "A$3,300",
+  /** ビザ取消の可能性と、その後の再申請禁止期間 */
+  visaCancelExclusionYears: 3,
+
+  /** 税関（ABF）の免税枠。18歳以上 */
+  customsGoodsAllowance: "A$900",
+  customsGoodsAllowanceMinor: "A$450",
+  customsAlcoholLitres: 2.25,
+  customsTobaccoGrams: 25,
+  customsAgeMin: 18,
   updated: "2026-08-17",
   updatedLabel: "17 August 2026",
   /** 申請先。公式以外に窓口は無いので、CTAは全部ここを指す */

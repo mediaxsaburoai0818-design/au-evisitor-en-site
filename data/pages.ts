@@ -13,7 +13,9 @@ export type Block =
   | { h2: string }
   | { p: string }
   | { ul: string[] }
-  | { note: string };
+  | { note: string }
+  /** 出典リンク。数値・罰則を書いたページには必ず添える（読者が一次情報を辿れるように） */
+  | { source: { label: string; url: string } };
 
 export type Page = {
   slug: string;
@@ -281,6 +283,252 @@ export const PAGES: Page[] = [
       { p: "No. The Australian Border Force officer decides on arrival." },
       { h2: "What if I get a new passport?" },
       { p: "Apply again with the new passport. It is free, so there is no cost to doing so." },
+    ],
+  },
+  {
+    slug: "three-months-per-visit",
+    nav: "Three months per visit",
+    title: "How the three-month limit on an eVisitor actually works",
+    description:
+      "The eVisitor lasts twelve months, but each visit is capped at three months. The two numbers are separate, and mixing them up is the most common planning error.",
+    blocks: [
+      {
+        p: `An eVisitor is valid for ${F.validMonths} months from the date it is granted, and it allows as many entries as you like during that period. What it does not give you is ${F.validMonths} months of continuous time in Australia. Each individual visit is limited to ${F.stayMonths} months.`,
+      },
+      { h2: "Two clocks, not one" },
+      {
+        ul: [
+          `Visa validity — ${F.validMonths} months, counted from the grant date, not from your first entry`,
+          `Stay per visit — ${F.stayMonths} months, counted from each arrival`,
+          "Entries — multiple, for as long as the visa is valid",
+        ],
+      },
+      {
+        p: `So a visa granted in January expires the following January regardless of whether you used it. Arrive in December and you may still stay ${F.stayMonths} months, but you cannot re-enter after the visa expires.`,
+      },
+      { h2: "What the three months does not cover" },
+      {
+        ul: [
+          "Work for an Australian employer",
+          `Study beyond ${F.studyMonths} months`,
+          "Any expectation of entry — the officer at the border decides",
+        ],
+      },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      {
+        note: "Applying again from inside Australia is not how the eVisitor works. If you need longer than three months in one go, look at a Visitor visa (subclass 600) before you travel.",
+      },
+    ],
+  },
+  {
+    slug: "leaving-and-returning",
+    nav: "Leaving and returning",
+    title: "Does leaving Australia and coming back give you a fresh three months?",
+    description:
+      "Technically each entry restarts the three-month clock. In practice, a pattern of back-to-back visits attracts questions, and the border officer can refuse entry.",
+    blocks: [
+      {
+        p: `Each arrival starts a new period of up to ${F.stayMonths} months, so a trip to New Zealand or Bali and back does reset the per-visit clock while your visa is still valid.`,
+      },
+      { h2: "But the visa is a visitor visa" },
+      {
+        p: "The eVisitor is granted on the basis that you are visiting. Someone who spends nine of twelve months in Australia, leaving only briefly each time, is not visiting — they are living there on a visitor visa. Border officers look at the pattern across your passport, not just the current entry.",
+      },
+      { h2: "What you may be asked to show on re-entry" },
+      {
+        ul: [
+          "An onward or return ticket",
+          "Funds to support yourself for the stay",
+          "Evidence that you are going home: work, study, a lease, family",
+          "A reason for returning so soon",
+        ],
+      },
+      { h2: "If entry is refused" },
+      {
+        p: "A valid visa is permission to travel, not a guarantee of entry. If an officer is not satisfied that you are a genuine visitor, the visa can be cancelled at the border and you can be sent back on the next available flight. That record then follows you into future applications.",
+      },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      {
+        note: `Your eVisitor stops working the moment it expires — ${F.validMonths} months after it was granted. Check the grant date before booking a return trip near the end of that window.`,
+      },
+    ],
+  },
+  {
+    slug: "border-questions",
+    nav: "At the border",
+    title: "What you are asked when you arrive in Australia",
+    description:
+      "Immigration, customs and biosecurity are three separate checks with different questions. Knowing which is which makes the queue much shorter.",
+    blocks: [
+      {
+        p: "Arriving passengers pass three checks, not one. They are run by different agencies and they care about different things. Answering the wrong one's question with the wrong answer is what slows people down.",
+      },
+      { h2: "1. Immigration — are you a genuine visitor" },
+      {
+        ul: [
+          "How long you are staying and where",
+          "Whether you have an onward or return ticket",
+          "How you are funding the trip",
+          "Whether you intend to work — you may not, on this visa",
+        ],
+      },
+      { h2: "2. Customs — do you owe duty" },
+      {
+        p: `You must declare goods above the duty free concession, and currency at or above the reporting threshold. The concession is ${F.customsGoodsAllowance} of general goods if you are ${F.customsAgeMin} or over (${F.customsGoodsAllowanceMinor} if you are younger).`,
+      },
+      { h2: "3. Biosecurity — what is in your bag" },
+      {
+        p: "This is the check that catches unprepared travellers. Australia asks about food, plant and animal material, and anything that has been in contact with soil or fresh water. Declaring costs you nothing; not declaring can cost you the visa.",
+      },
+      { h2: "The Incoming Passenger Card" },
+      {
+        p: "Your customs and biosecurity answers are given on the Incoming Passenger Card, which you complete before you land. Take it seriously: the card is a legal declaration, and an officer finding an undeclared item in your bag treats the card as evidence that you said you had nothing.",
+      },
+      { source: { label: "Australian Border Force / Home Affairs — Duty free concessions", url: "https://www.abf.gov.au/entering-and-leaving-australia/duty-free" } },
+      {
+        note: "If you are unsure whether something needs declaring, tick yes and let the officer decide. There is no penalty for declaring an item that turns out to be allowed.",
+      },
+    ],
+  },
+  {
+    slug: "biosecurity",
+    nav: "Biosecurity",
+    title: "Australian biosecurity: what to declare, and why a visa can be cancelled",
+    description:
+      "Failing to declare biosecurity goods can bring an infringement notice of up to twelve penalty units, and for visa holders it can mean cancellation and a three-year exclusion.",
+    blocks: [
+      {
+        p: "Australia is an island with agriculture it wants to protect, so its biosecurity rules are strict and they are enforced at the airport, not in an office afterwards. Travellers who treat the declaration as a formality are the ones who get caught.",
+      },
+      { h2: "The penalty" },
+      {
+        p: `An infringement notice for undeclared goods can be up to ${F.biosecurityPenaltyUnits} penalty units. ⚠️ The dollar value of a penalty unit is set in law and is periodically increased: the department's page states ${F.biosecurityFineDaff} for ${F.biosecurityPenaltyUnits} units, while the ministerial announcement of the 2023 indexation put the same ${F.biosecurityPenaltyUnits} units at ${F.biosecurityFineIndexed}. Check the current figure on the official page before relying on it.`,
+      },
+      { h2: "For visa holders, the fine is not the worst part" },
+      {
+        p: `Travellers issued an infringement notice may be referred for visa cancellation. A cancelled visa means removal from Australia on the earliest available flight, and an exclusion period of ${F.visaCancelExclusionYears} years before you can apply again.`,
+      },
+      { h2: "What is actually caught" },
+      {
+        ul: [
+          "Food of any kind — including snacks handed out on the plane",
+          "Meat, dairy, eggs, honey and anything containing them",
+          "Fresh fruit and vegetables, seeds, nuts",
+          "Plant material — wooden items, woven goods, flowers",
+          "Hiking boots, tents and sports gear with soil or plant matter on them",
+          "Anything used around animals or in fresh water",
+        ],
+      },
+      { h2: "Before you pack" },
+      {
+        ul: [
+          "Clean soil off boots and equipment at home, not in the queue",
+          "Eat or bin food before you land",
+          "Declare wooden and woven souvenirs — they are risk goods, not curios",
+        ],
+      },
+      { source: { label: "Department of Agriculture, Fisheries and Forestry — Infringement notices at the airport", url: "https://www.agriculture.gov.au/biosecurity-trade/policy/legislation/compliance/infringement-notice-scheme/infringement-notices-at-the-airport" } },
+      {
+        note: "Bins are provided before the biosecurity point. Using one is free. Being found with the item after you have declared 'no' is not.",
+      },
+    ],
+  },
+  {
+    slug: "customs-allowances",
+    nav: "Customs allowances",
+    title: "Australian duty free concessions: goods, alcohol, tobacco",
+    description:
+      `Adults may bring ${F.customsGoodsAllowance} of general goods, ${F.customsAlcoholLitres} litres of alcohol and ${F.customsTobaccoGrams} grams of tobacco duty free. Above that, you must declare.`,
+    blocks: [
+      {
+        p: "Customs is a separate check from biosecurity. Biosecurity asks whether an item is a risk to Australia; customs asks whether duty and tax are owed on it. You can clear one and be stopped by the other.",
+      },
+      { h2: "The concessions" },
+      {
+        ul: [
+          `General goods: ${F.customsGoodsAllowance} if you are ${F.customsAgeMin} or over, ${F.customsGoodsAllowanceMinor} if you are under ${F.customsAgeMin}`,
+          `Alcohol: ${F.customsAlcoholLitres} litres, ${F.customsAgeMin} and over`,
+          `Tobacco: ${F.customsTobaccoGrams} grams in any form, plus one open packet, ${F.customsAgeMin} and over`,
+        ],
+      },
+      { h2: "Things people get wrong" },
+      {
+        ul: [
+          "Duty free bought on the way in still counts towards the concession",
+          "Gifts count — it is the value of what you are carrying, not what you paid for yourself",
+          "Families cannot always pool concessions the way they assume; check before you rely on it",
+        ],
+      },
+      { h2: "If you are over the limit" },
+      {
+        p: "Declare it and provide proof of purchase so duty and tax can be worked out. Failing to declare goods above the concession can result in penalties, prosecution, or cancellation of your visa. Declaring simply means paying what is owed.",
+      },
+      { source: { label: "Australian Border Force / Home Affairs — Duty free concessions", url: "https://www.abf.gov.au/entering-and-leaving-australia/duty-free" } },
+      {
+        note: "Currency also has a reporting requirement at the border. If you are carrying a large amount of cash or bearer instruments, check the current threshold on the ABF site before you fly.",
+      },
+    ],
+  },
+  {
+    slug: "working-and-studying",
+    nav: "Work and study",
+    title: "What you may not do on an eVisitor: work, and study beyond three months",
+    description:
+      `The eVisitor is a visitor visa. It does not permit work for an Australian employer, and study is limited to ${F.studyMonths} months.`,
+    blocks: [
+      {
+        p: `Because the eVisitor is ${F.feeLabel.toLowerCase()} and granted quickly, people sometimes treat it as a light-touch permission to do whatever they like for ${F.stayMonths} months. It is not. It is a visitor visa with conditions, and the conditions are enforced.`,
+      },
+      { h2: "Work" },
+      {
+        p: "You may not work for an Australian employer. Business visitor activities are a different thing from working: attending meetings, negotiating, or going to a conference is generally fine; being paid by an Australian business to do a job is not.",
+      },
+      { h2: "Remote work for an employer outside Australia" },
+      {
+        p: "Working remotely for your existing employer overseas is a grey area that depends on the specifics, and it is not something a comparison site should rule on for you. If your trip depends on the answer, check with the Department of Home Affairs before you book.",
+      },
+      { h2: "Study" },
+      {
+        p: `Study is capped at ${F.studyMonths} months. A short course is fine; a semester is not. Longer study needs a student visa, applied for before you travel.`,
+      },
+      { h2: "Why this matters more than it looks" },
+      {
+        p: `Breaching a visa condition can lead to cancellation, removal, and an exclusion period of up to ${F.visaCancelExclusionYears} years. The cost of getting this wrong is not the fine — it is being unable to return.`,
+      },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+    ],
+  },
+  {
+    slug: "passport-and-details",
+    nav: "Passport and details",
+    title: "Your eVisitor is attached to one passport — get the details right",
+    description:
+      "The eVisitor is linked electronically to the passport you applied with. A renewed passport, a mismatched name, or the wrong nationality on the form all stop you at check-in.",
+    blocks: [
+      {
+        p: "There is no sticker and no printout that matters. The eVisitor exists as a record linked to a passport number, and the airline checks that record when you check in. If the passport in your hand is not the one in the record, the visa might as well not exist.",
+      },
+      { h2: "A new passport means a new application" },
+      {
+        p: `If you renew your passport, your existing eVisitor does not move across, even though it may still be within its ${F.validMonths} months. Apply again with the new document before you travel. It is ${F.feeLabel.toLowerCase()}, so there is no cost reason to delay.`,
+      },
+      { h2: "Enter your details exactly as printed" },
+      {
+        ul: [
+          "Names as they appear in the machine-readable zone, not as you normally write them",
+          "Accented or non-Latin characters transliterated the way the passport does it",
+          "Passport number checked character by character — 0 and O, 1 and I",
+          "Nationality as shown on the passport, not where you live",
+        ],
+      },
+      { h2: "Dual nationals" },
+      {
+        p: "Travel on the passport your eVisitor is attached to. Holding a second nationality that is not eligible for the eVisitor does not disqualify you, but presenting the wrong passport at check-in does.",
+      },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      {
+        note: `Applying costs ${F.fee}. Any site charging a fee to submit an eVisitor for you is a third party adding its own margin, not an official channel.`,
+      },
     ],
   },
   {
