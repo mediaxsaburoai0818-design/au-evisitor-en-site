@@ -532,6 +532,141 @@ export const PAGES: Page[] = [
     ],
   },
   {
+    slug: "evisitor-or-eta",
+    nav: "eVisitor or ETA?",
+    title: `eVisitor or ETA? The free visa and the ${F.etaFee} one, and who gets which`,
+    description:
+      `eVisitor (subclass 651) is free. The ETA (subclass 601) costs ${F.etaFee}. Which one applies is decided by your passport, not by preference.`,
+    blocks: [
+      {
+        p: `Travellers often assume these are two routes to the same thing and pick whichever looks easier. They are not interchangeable. Your passport decides which one you are eligible for, and applying for the wrong one wastes both time and, in the case of the ETA, money.`,
+      },
+      { h2: "eVisitor (subclass 651)" },
+      {
+        ul: [
+          `Free of charge. There is no application fee and no service fee.`,
+          `Open to passport holders from ${F.eligibleCountries} eligible countries, largely European.`,
+          `Applied for online, through the Department of Home Affairs.`,
+        ],
+      },
+      { h2: `ETA (subclass 601)` },
+      {
+        ul: [
+          `Costs ${F.etaFee}, charged as a service fee.`,
+          `Applied for through the official mobile app, not the website.`,
+          `Covers a different list of passports — including several that eVisitor does not.`,
+        ],
+      },
+      { h2: "What is the same" },
+      {
+        p: `Both allow visits of up to ${F.stayMonths} months at a time and stay valid for ${F.validMonths} months. Both are electronically linked to your passport, so there is nothing to print or carry. Neither lets you work.`,
+      },
+      { note: `If you hold two passports, check both. It is common for one to qualify for the free eVisitor while the other only qualifies for the paid ETA.` },
+      {
+        source: {
+          label: "Department of Home Affairs — eVisitor (subclass 651)",
+          url: F.officialUrl,
+        },
+      },
+    ],
+  },
+  {
+    slug: "if-your-application-is-refused",
+    nav: "If refused",
+    title: "What happens if your eVisitor application is refused?",
+    description:
+      "A refusal is not the end of the trip, but it changes what you must do next. What to check, what not to do, and why reapplying immediately is usually the wrong move.",
+    blocks: [
+      {
+        p: `Most eVisitor applications are decided in ${F.decisionTypical}. If yours comes back refused, the important thing is to understand why before you do anything else.`,
+      },
+      { h2: "Do not simply reapply" },
+      {
+        p: `Submitting the same application again will usually produce the same result, and a pattern of repeated applications does not help you. Read the decision, which states the reason.`,
+      },
+      { h2: "Common reasons" },
+      {
+        ul: [
+          `The passport is not on the eVisitor list — in that case the ETA or a Visitor visa may be the right route instead.`,
+          `Details did not match the passport exactly. Names, numbers and dates must be entered as printed.`,
+          `A declaration about health or character required assessment rather than an automatic decision.`,
+        ],
+      },
+      { h2: "If you already have flights" },
+      {
+        p: `Do not travel on the assumption that it will be resolved at the airport. Without a valid visa you will not be boarded. Contact the airline about changing dates while you sort out the correct application.`,
+      },
+      { note: `A refusal is not the same as a cancellation. If a visa you already hold is cancelled, an exclusion period of up to ${F.visaCancelExclusionYears} years can apply to future applications.` },
+      {
+        source: {
+          label: "Department of Home Affairs — eVisitor (subclass 651)",
+          url: F.officialUrl,
+        },
+      },
+    ],
+  },
+  {
+    slug: "travelling-with-children",
+    nav: "Children",
+    title: "Do children need their own eVisitor?",
+    description:
+      "Every traveller needs their own visa, including infants. Children are not covered by a parent's eVisitor, and the application is made the same way.",
+    blocks: [
+      {
+        p: `Yes. An eVisitor is linked to one passport, so every member of the family needs their own — including a baby travelling on a parent's lap.`,
+      },
+      { h2: "How to apply for a child" },
+      {
+        p: `The application is made in the child's own name, using the child's own passport. A parent or guardian can complete it on their behalf. The visa is free for children as well; there is no separate fee.`,
+      },
+      { h2: "Check the passport first" },
+      {
+        p: `Children's passports are often issued for shorter periods than adults'. A passport that expires during the ${F.validMonths}-month validity is a common cause of trouble later, because the visa is tied to the passport it was granted against.`,
+      },
+      { h2: "If a child travels with one parent or with someone else" },
+      {
+        p: `Australia may ask about consent arrangements at the border. Carrying a letter of consent from the non-travelling parent, and a copy of any custody documentation, is not a visa requirement but it removes a predictable delay.`,
+      },
+      {
+        source: {
+          label: "Department of Home Affairs — eVisitor (subclass 651)",
+          url: F.officialUrl,
+        },
+      },
+    ],
+  },
+  {
+    slug: "new-passport-after-approval",
+    nav: "New passport",
+    title: "You got a new passport after your eVisitor was approved. Now what?",
+    description:
+      "The visa is linked to the passport it was granted against. Renewing or replacing that passport does not cancel the visa, but you must tell the Department.",
+    blocks: [
+      {
+        p: `This comes up constantly — the passport is renewed, replaced after loss, or reissued after a name change, and the traveller assumes the visa is gone. It is not, but it does not follow the new passport by itself either.`,
+      },
+      { h2: "What actually happens" },
+      {
+        p: `The eVisitor stays attached to the passport number it was granted against. Airlines and border systems check the passport you present. If that passport is new, the link has to be updated first.`,
+      },
+      { h2: "What to do" },
+      {
+        ul: [
+          `Tell the Department of Home Affairs about the new passport before you travel.`,
+          `Do not apply for a second eVisitor to "replace" the first — that is not how the change is handled.`,
+          `Carry the old passport if you still have it and it is not cancelled in a way that prevents this.`,
+        ],
+      },
+      { note: `Do this as soon as the new passport arrives, not at the airport. Updating details is routine when there is time and a problem when there is not.` },
+      {
+        source: {
+          label: "Department of Home Affairs — eVisitor (subclass 651)",
+          url: F.officialUrl,
+        },
+      },
+    ],
+  },
+  {
     slug: "about",
     nav: "About this guide",
     title: "About this guide",
