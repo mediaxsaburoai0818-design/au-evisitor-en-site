@@ -667,6 +667,69 @@ export const PAGES: Page[] = [
     ],
   },
   {
+    slug: "travel-authorisations-compared",
+    nav: "Which one do I need?",
+    title: "Which travel authorisation do you need? NZeTA, eVisitor, K-ETA, ESTA and the others compared",
+    description:
+      "They have similar names and very different rules. Which scheme applies to which destination, what each one costs, and the mistakes that come from mixing them up.",
+    blocks: [
+      {
+        p: `Electronic travel authorisations look interchangeable from the outside. They are not. Each country runs its own scheme, with its own eligibility list, its own price, and its own idea of what the document even is — some are visas, some explicitly are not.`,
+      },
+      {
+        p: `This page is a map of which is which. For Australia, the scheme is the eVisitor, and it is free of charge.`,
+      },
+      { note: `One rule holds everywhere: you apply on the government's own site, and no agency can make a decision arrive faster. Sites charging several times the official fee are filling in the same form for you.` },
+          {
+            h2: "Australia — eVisitor or ETA",
+          },
+          {
+            p: `eVisitor (subclass 651) is a visa and it is ${F.feeLabel.toLowerCase()}. Travellers whose passports are not on the eVisitor list use the ETA (subclass 601) instead, which costs ${F.etaFee} and is applied for in the official app. Both allow visits of up to ${F.stayMonths} months and last ${F.validMonths} months.`,
+          },
+          { h2: "New Zealand — NZeTA" },
+          {
+            p: `A pre-travel authorisation for visa-waiver passports, not a visa. The cost is in two parts: an application fee and a separate conservation and tourism levy, which is why quoted totals differ between sources.`,
+          },
+          { h2: "South Korea — K-ETA" },
+          {
+            p: `⚠️ Many nationalities are temporarily exempt from the K-ETA at present, so the first question is whether you need one at all rather than how to apply.`,
+          },
+          { h2: "United Kingdom — ETA" },
+          {
+            p: `Covers visits of up to 6 months to the UK, Jersey, Guernsey and the Isle of Man. GOV.UK states the cost as £20. Applied for through the official service.`,
+          },
+          {
+            source: {
+              label: "GOV.UK — Apply for an electronic travel authorisation (ETA)",
+              url: "https://www.gov.uk/guidance/apply-for-an-electronic-travel-authorisation-eta",
+            },
+          },
+          { h2: "United States — ESTA, and Canada — eTA" },
+          {
+            p: `Both run comparable schemes for visa-waiver travellers. We are not quoting their fees here, because we could not confirm the current figures against the official sources while writing this page, and an out-of-date price is worse than none. Check the official sites directly — and only the official sites.`,
+          },
+          {
+            ul: [
+              "United States: esta.cbp.dhs.gov",
+              "Canada: canada.ca (Immigration, Refugees and Citizenship Canada)",
+            ],
+          },
+          { h2: "The mistakes that actually cost people money" },
+          {
+            ul: [
+              "Assuming one authorisation covers a multi-country trip. Each destination is separate, including a stopover where you leave the airport.",
+              "Assuming it is a visa. Some are, some are not, and the difference decides what you may do once you are there.",
+              "Assuming the price is the price. Several schemes add a separate levy or charge a different amount depending on how you apply.",
+              "Applying through a paid intermediary in the belief it is faster. It is the same form and the same decision.",
+            ],
+          },
+          { h2: "Check your own passport, not a summary" },
+          {
+            p: `Eligibility lists change, and holding two passports often means two different answers. Every scheme above publishes an official checker. Use it for the passport you will actually travel on.`,
+          },
+    ],
+  },
+  {
     slug: "about",
     nav: "About this guide",
     title: "About this guide",
