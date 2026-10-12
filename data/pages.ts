@@ -1,4 +1,5 @@
 import { FACTS as F } from "@/data/facts";
+import { PRACTICAL } from "@/data/pages-practical";
 
 /**
  * 英語（ルート）の下層ページ。uketa（eta-se.com）の言語ディレクトリと同じ13本構成に合わせる。
@@ -15,7 +16,11 @@ export type Block =
   | { ul: string[] }
   | { note: string }
   /** 出典リンク。数値・罰則を書いたページには必ず添える（読者が一次情報を辿れるように） */
-  | { source: { label: string; url: string } };
+  | { source: { label: string; url: string } }
+  /** 同じ言語のページへのカード一覧（ハブページ用）。スラッグで指定し、タイトル・説明は相手ページから引く */
+  | { links: string[] };
+
+export type Faq = { q: string; a: string };
 
 export type Page = {
   slug: string;
@@ -23,11 +28,32 @@ export type Page = {
   nav: string;
   description: string;
   blocks: Block[];
+  /** 本文下の関連カードに優先して出すスラッグ。足りない分は一覧の前後で埋める（全ページに被リンクが回るように） */
+  related?: string[];
+  /** よくある質問。本文の後に表示し、FAQPage 構造化データも出す */
+  faq?: Faq[];
+  /** このページを公式で確認した日（表示用）。無ければ FACTS.updatedLabel */
+  checked?: string;
+  /** 入国後の実用ページ（ハブ以外）。トップの一覧には出さず、ハブと関連カードから辿らせる */
+  practical?: boolean;
 };
 
-export const PAGES: Page[] = [
+/**
+ * 関連カードの選び方（英語・各言語で共通）。
+ * ⚠️ 以前は全ページが「一覧の先頭6本」を出していたため、後ろのページはトップからしか張られていなかった。
+ *    明示した related → 一覧で自分の次から順に、で6本にする。
+ */
+export function pickRelated<T extends { slug: string }>(all: T[], self: string, related: string[] = [], n = 6): T[] {
+  const i = all.findIndex((p) => p.slug === self);
+  const ring = i < 0 ? all : [...all.slice(i + 1), ...all.slice(0, i)];
+  const first = related.map((s) => all.find((p) => p.slug === s)).filter((p): p is T => !!p && p.slug !== self);
+  return [...first, ...ring.filter((p) => p.slug !== self && !first.includes(p))].slice(0, n);
+}
+
+const CORE: Page[] = [
   {
     slug: "what-is-evisitor",
+    related: ["arriving-in-australia"],
     nav: "What is the eVisitor",
     title: "What is the eVisitor (subclass 651)? Australia's free visitor visa explained",
     description:
@@ -265,6 +291,7 @@ export const PAGES: Page[] = [
   },
   {
     slug: "faq",
+    related: ["arriving-in-australia"],
     nav: "FAQ",
     title: "eVisitor (subclass 651): frequently asked questions",
     description: "Short answers to the questions travellers ask most about Australia's free visitor visa.",
@@ -287,6 +314,7 @@ export const PAGES: Page[] = [
   },
   {
     slug: "three-months-per-visit",
+    related: ["arriving-in-australia", "public-holidays", "driving-in-australia"],
     nav: "Three months per visit",
     title: "How the three-month limit on an eVisitor actually works",
     description:
@@ -322,10 +350,11 @@ export const PAGES: Page[] = [
   },
   {
     slug: "leaving-and-returning",
+    related: ["arriving-in-australia", "tourist-refund-scheme", "airport-security-liquids"],
     nav: "Leaving and returning",
     title: "Does leaving Australia and coming back give you a fresh three months?",
     description:
-      "Technically each entry restarts the three-month clock. In practice, a pattern of back-to-back visits attracts questions, and the border officer can refuse entry.",
+      "Each entry restarts the three-month clock, but back-to-back visits attract questions, and the border officer can refuse entry.",
     blocks: [
       {
         p: `Each arrival starts a new period of up to ${F.stayMonths} months, so a trip to New Zealand or Bali and back does reset the per-visit clock while your visa is still valid.`,
@@ -355,6 +384,7 @@ export const PAGES: Page[] = [
   },
   {
     slug: "border-questions",
+    related: ["arriving-in-australia", "smartgate-australia", "bringing-medicines"],
     nav: "At the border",
     title: "What you are asked when you arrive in Australia",
     description:
@@ -392,10 +422,11 @@ export const PAGES: Page[] = [
   },
   {
     slug: "biosecurity",
+    related: ["arriving-in-australia", "bringing-medicines", "smartgate-australia"],
     nav: "Biosecurity",
     title: "Australian biosecurity: what to declare, and why a visa can be cancelled",
     description:
-      "Failing to declare biosecurity goods can bring an infringement notice of up to twelve penalty units, and for visa holders it can mean cancellation and a three-year exclusion.",
+      "Undeclared biosecurity goods can bring a fine of up to twelve penalty units — and for visa holders, cancellation and a three-year exclusion.",
     blocks: [
       {
         p: "Australia is an island with agriculture it wants to protect, so its biosecurity rules are strict and they are enforced at the airport, not in an office afterwards. Travellers who treat the declaration as a formality are the ones who get caught.",
@@ -435,6 +466,7 @@ export const PAGES: Page[] = [
   },
   {
     slug: "customs-allowances",
+    related: ["arriving-in-australia", "money-and-tipping", "tourist-refund-scheme", "smoking-vaping-and-alcohol"],
     nav: "Customs allowances",
     title: "Australian duty free concessions: goods, alcohol, tobacco",
     description:
@@ -465,12 +497,13 @@ export const PAGES: Page[] = [
       },
       { source: { label: "Australian Border Force / Home Affairs — Duty free concessions", url: "https://www.abf.gov.au/entering-and-leaving-australia/duty-free" } },
       {
-        note: "Currency also has a reporting requirement at the border. If you are carrying a large amount of cash or bearer instruments, check the current threshold on the ABF site before you fly.",
+        note: `Currency also has a reporting requirement at the border: cash and instruments such as traveller's cheques worth ${F.cashReportThreshold} or more in total must be declared — see the money page for how.`,
       },
     ],
   },
   {
     slug: "working-and-studying",
+    related: ["arriving-in-australia", "healthcare-for-visitors"],
     nav: "Work and study",
     title: "What you may not do on an eVisitor: work, and study beyond three months",
     description:
@@ -503,7 +536,7 @@ export const PAGES: Page[] = [
     nav: "Passport and details",
     title: "Your eVisitor is attached to one passport — get the details right",
     description:
-      "The eVisitor is linked electronically to the passport you applied with. A renewed passport, a mismatched name, or the wrong nationality on the form all stop you at check-in.",
+      "The eVisitor is linked to the passport you applied with. A renewed passport, a mismatched name or the wrong nationality all stop you at check-in.",
     blocks: [
       {
         p: "There is no sticker and no printout that matters. The eVisitor exists as a record linked to a passport number, and the airline checks that record when you check in. If the passport in your hand is not the one in the record, the visa might as well not exist.",
@@ -575,7 +608,7 @@ export const PAGES: Page[] = [
     nav: "If refused",
     title: "What happens if your eVisitor application is refused?",
     description:
-      "A refusal is not the end of the trip, but it changes what you must do next. What to check, what not to do, and why reapplying immediately is usually the wrong move.",
+      "A refusal changes what you must do next. What to check, what not to do, and why reapplying immediately is usually the wrong move.",
     blocks: [
       {
         p: `Most eVisitor applications are decided in ${F.decisionTypical}. If yours comes back refused, the important thing is to understand why before you do anything else.`,
@@ -607,6 +640,7 @@ export const PAGES: Page[] = [
   },
   {
     slug: "travelling-with-children",
+    related: ["arriving-in-australia", "smartgate-australia", "healthcare-for-visitors"],
     nav: "Children",
     title: "Do children need their own eVisitor?",
     description:
@@ -671,7 +705,7 @@ export const PAGES: Page[] = [
     nav: "Which one do I need?",
     title: "Which travel authorisation do you need? NZeTA, eVisitor, K-ETA, ESTA and the others compared",
     description:
-      "They have similar names and very different rules. Which scheme applies to which destination, what each one costs, and the mistakes that come from mixing them up.",
+      "Similar names, very different rules. Which scheme applies to which destination, what each costs, and the mistakes that come from mixing them up.",
     blocks: [
       {
         p: `Electronic travel authorisations look interchangeable from the outside. They are not. Each country runs its own scheme, with its own eligibility list, its own price, and its own idea of what the document even is — some are visas, some explicitly are not.`,
@@ -806,6 +840,14 @@ export const PAGES: Page[] = [
       },
     ],
   },
+];
+
+/** 実用ページは about/privacy/terms の手前に差し込む（一覧の並び＝関連カードの巡回順） */
+const LEGAL = ["about", "privacy", "terms"];
+export const PAGES: Page[] = [
+  ...CORE.filter((p) => !LEGAL.includes(p.slug)),
+  ...PRACTICAL,
+  ...CORE.filter((p) => LEGAL.includes(p.slug)),
 ];
 
 export const PAGE_SLUGS = PAGES.map((p) => p.slug);

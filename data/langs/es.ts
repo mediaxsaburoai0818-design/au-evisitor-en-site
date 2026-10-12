@@ -19,7 +19,7 @@ export const es: LangContent = {
   audience: "España",
   meta: {
     title: `eVisitor (subclass 651) para españoles: gratuito para Australia`,
-    description: `Los ciudadanos españoles necesitan el visado eVisitor (subclass 651) para Australia. Es gratuito, válido ${F.validMonths} meses y permite estancias de hasta ${F.stayMonths} meses por entrada. Así se solicita en la web oficial.`,
+    description: `Los españoles necesitan el visado eVisitor (subclass 651) para Australia: gratuito, válido ${F.validMonths} meses, hasta ${F.stayMonths} meses por entrada. Solo en la web oficial.`,
   },
   header: {
     site: "Guía eVisitor",

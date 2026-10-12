@@ -16,7 +16,7 @@ export const de: LangContent = {
   audience: "Deutschland",
   meta: {
     title: `eVisitor (Subclass 651) für Deutsche: kostenlos nach Australien`,
-    description: `Deutsche Staatsangehörige benötigen für Australien das eVisitor-Visum (Subclass 651). Es ist kostenlos, ${F.validMonths} Monate gültig und erlaubt Aufenthalte von bis zu ${F.stayMonths} Monaten pro Einreise. So beantragen Sie es auf der offiziellen Seite.`,
+    description: `Deutsche benötigen für Australien das eVisitor-Visum (Subclass 651): kostenlos, ${F.validMonths} Monate gültig, bis zu ${F.stayMonths} Monate pro Einreise. Nur offiziell beantragen.`,
   },
   header: {
     site: "eVisitor Ratgeber",

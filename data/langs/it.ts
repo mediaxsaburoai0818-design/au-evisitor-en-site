@@ -16,7 +16,7 @@ export const it: LangContent = {
   audience: "Italia",
   meta: {
     title: `eVisitor (subclass 651) per gli italiani: gratuito per l'Australia`,
-    description: `I cittadini italiani hanno bisogno del visto eVisitor (subclass 651) per l'Australia. È gratuito, valido ${F.validMonths} mesi e consente soggiorni fino a ${F.stayMonths} mesi per ingresso. Ecco come richiederlo sul sito ufficiale.`,
+    description: `Agli italiani serve il visto eVisitor (subclass 651) per l'Australia: gratuito, valido ${F.validMonths} mesi, fino a ${F.stayMonths} mesi per ingresso. Solo sul sito ufficiale.`,
   },
   header: {
     site: "Guida eVisitor",

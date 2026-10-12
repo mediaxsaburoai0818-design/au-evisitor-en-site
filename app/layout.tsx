@@ -3,6 +3,7 @@ import { Noto_Sans, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { OG_IMAGES } from "@/data/facts";
 
 const notoSans = Noto_Sans({
   subsets: ["latin", "latin-ext"],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | eVisitor Guide",
   },
   description:
-    "An independent, plain-English guide to Australia's eVisitor visa (subclass 651): free of charge, who is eligible, how long you can stay, and how it differs from the AUD $20 ETA.",
+    "An independent guide to Australia's free eVisitor visa (subclass 651): who is eligible, how long you can stay, and how it differs from the AUD $20 ETA.",
   keywords:
     "eVisitor, subclass 651, Australia visa, ETA subclass 601, Australian visitor visa, free Australian visa, European passport",
   robots: { index: true, follow: true },
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
       "The eVisitor costs nothing — but it only covers European passports. Everyone else needs the AUD $20 ETA.",
     locale: "en",
     type: "website",
+    images: OG_IMAGES,
   },
 };
 

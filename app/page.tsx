@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import StickyCta from "@/components/StickyCta";
-import { FACTS as F, SITE } from "@/data/facts";
+import { FACTS as F, OG_IMAGES, SITE } from "@/data/facts";
 import Link from "next/link";
-import { LANG_CODES } from "@/data/langs";
+import { LANGS, LANG_CODES } from "@/data/langs";
 import { PAGES } from "@/data/pages";
 
 /*
@@ -27,17 +27,19 @@ export const metadata: Metadata = {
     absolute: `eVisitor (subclass 651): the free Australian visa for European passports | eVisitor Guide 2026`,
   },
   description:
-    `A plain-English guide to Australia's eVisitor visa (subclass 651): free of charge, valid ${F.validMonths} months, stays of up to ${F.stayMonths} months per entry, for passport holders of ${F.eligibleCountries} European countries. If your passport is not on the list, you need the ${F.etaFee} ETA instead.`,
+    `Australia's eVisitor (subclass 651) is free for ${F.eligibleCountries} European passports: valid ${F.validMonths} months, up to ${F.stayMonths} months per visit. Not eligible? You need the ${F.etaFee} ETA.`,
   alternates: {
     canonical: `${SITE}/`,
     // ⚠️ 言語版を足したら自動で増える（手書きしない）
-    languages: { en: `${SITE}/`, ...Object.fromEntries(LANG_CODES.map((c) => [c, `${SITE}/${c}/`])) },
+    // hreflang 値は言語トップと揃えて htmlLang（zh-Hant 等）を使う
+    languages: { en: `${SITE}/`, ...Object.fromEntries(LANG_CODES.map((c) => [LANGS[c].htmlLang, `${SITE}/${c}/`])), "x-default": `${SITE}/` },
   },
   openGraph: {
     title: "eVisitor (subclass 651): the free Australian visa for European passports",
     description: `Free of charge, valid ${F.validMonths} months, up to ${F.stayMonths} months per entry — and how it differs from the ${F.etaFee} ETA.`,
     locale: "en",
     type: "website",
+    images: OG_IMAGES,
   },
 };
 
@@ -376,7 +378,7 @@ export default function Home() {
       <section className="max-w-5xl mx-auto px-6 py-16 md:py-20">
         <h2 className="heading-band text-2xl md:text-3xl reveal">Read more about the eVisitor</h2>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
-          {PAGES.filter((p) => !["privacy", "terms", "about"].includes(p.slug)).map((p, i) => (
+          {PAGES.filter((p) => !p.practical && !["privacy", "terms", "about"].includes(p.slug)).map((p, i) => (
             <Link key={p.slug} href={`/${p.slug}/`} className={`feature-card no-underline reveal reveal-delay-${(i % 4) + 1}`}>
               <h3 className="font-bold" style={{ color: "var(--color-navy)" }}>{p.nav}</h3>
               <p className="mt-2 text-sm leading-relaxed">{p.description}</p>

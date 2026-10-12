@@ -16,7 +16,7 @@ export const fr: LangContent = {
   audience: "France",
   meta: {
     title: `eVisitor (subclass 651) pour les Français : gratuit pour l'Australie`,
-    description: `Les ressortissants français ont besoin du visa eVisitor (subclass 651) pour l'Australie. Il est gratuit, valable ${F.validMonths} mois et autorise des séjours allant jusqu'à ${F.stayMonths} mois par entrée. Voici comment le demander sur le site officiel.`,
+    description: `Les Français ont besoin du visa eVisitor (subclass 651) pour l'Australie : gratuit, valable ${F.validMonths} mois, jusqu'à ${F.stayMonths} mois par entrée. Sur le site officiel.`,
   },
   header: {
     site: "Guide eVisitor",

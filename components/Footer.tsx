@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation"
 import { FACTS as F } from "@/data/facts"
 import { LANG_CODES } from "@/data/langs";
+import Link from "next/link"
 
 /** フッター。⚠️ 公式ではないことの明示は必須（誤認を避ける）。 */
 export default function Footer() {
@@ -21,6 +22,14 @@ export default function Footer() {
           Department of Home Affairs, and we do not submit applications. The eVisitor is free —
           always apply through the official website. Figures checked {F.updatedLabel}.
         </p>
+        {/* 運営者情報・規約・入国後ガイドは全ページから辿れるようにする（トップからしか張られていなかった） */}
+        <div className="mt-5 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs">
+          <Link href="/arriving-in-australia/" style={{ color: "rgba(255,255,255,.85)" }}>After you land</Link>
+          <Link href="/faq/" style={{ color: "rgba(255,255,255,.85)" }}>FAQ</Link>
+          <Link href="/about/" style={{ color: "rgba(255,255,255,.85)" }}>About</Link>
+          <Link href="/privacy/" style={{ color: "rgba(255,255,255,.85)" }}>Privacy</Link>
+          <Link href="/terms/" style={{ color: "rgba(255,255,255,.85)" }}>Terms</Link>
+        </div>
       </div>
     </footer>
   );

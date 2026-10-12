@@ -40,6 +40,50 @@ export const FACTS = {
   customsAlcoholLitres: 2.25,
   customsTobaccoGrams: 25,
   customsAgeMin: 18,
+  /* ── 入国後の実用ページ（2026-10-12 公式で裏取り。ファクト＝~/projects/au-entry-facts-2026-10-12.md） ── */
+  /** 到着SmartGate: 7歳以上・身長1.1m以上・16歳未満は保護者同伴（ABF） */
+  smartgateMinAge: 7,
+  smartgateMinHeight: "1.1 m",
+  smartgateAccompanyUnder: 16,
+  /** 到着SmartGate画面の言語数（英語以外） */
+  smartgateArrivalLanguages: 22,
+  /** 国際線の機内持込液体物（Home Affairs TravelSECURE） */
+  lagsContainer: "100 mL",
+  lagsBagPerimeterCm: 80,
+  powderLimit: "350 mL / 350 g",
+  /** 現金等の申告基準（AUSTRAC）。上限ではなく申告義務の基準額 */
+  cashReportThreshold: "AUD 10,000",
+  /** GST（ATO）。表示価格に含まれる */
+  gstPercent: 10,
+  /** カード手数料（サーチャージ）上乗せ禁止の開始日（RBA/ACCC） */
+  surchargeBanFrom: "1 October 2026",
+  /** Tourist Refund Scheme（ABF） */
+  trsMinSpend: "AUD 300",
+  trsDays: 60,
+  trsCutoffMinutes: 30,
+  trsArriveMinutes: 90,
+  /** 電源（Tourism Australia） */
+  voltage: "230 V",
+  frequency: "50 Hz",
+  /** 運転: 州ごとに違う。期間を明記している州だけ（NSW・VIC=6か月、NT=3か月） */
+  driveNswMonths: 6,
+  driveNtMonths: 3,
+  /** 相互医療協定（Services Australia）の締結国数。独仏西・韓中台は対象外 */
+  rhcaCountries: 11,
+  /** 薬の持込（TGA traveller's exemption）: 自分または同行の家族用・3か月分まで */
+  medicineSupplyMonths: 3,
+  /** ベイプの持込（TGA traveller's exemption） */
+  vapeDevices: 2,
+  vapeAccessories: 20,
+  vapeLiquid: "200 mL",
+  /** 飲酒・たばこ販売の年齢（health.gov.au）、酒気帯びの基準（BAC） */
+  legalAge: 18,
+  bacLimit: "0.05",
+  /** 緊急・非緊急の番号（infrastructure.gov.au / Triple Zero） */
+  emergency: "000",
+  emergencyMobile: "112",
+  policeAssistance: "131 444",
+  ses: "132 500",
   updated: "2026-08-17",
   updatedLabel: "17 August 2026",
   /** 申請先。公式以外に窓口は無いので、CTAは全部ここを指す */
@@ -49,3 +93,6 @@ export const FACTS = {
 
 /** canonical・OG・sitemap で使う本番URL（2026-08-17 okina取得）。 */
 export const SITE = "https://evisitor-online.com";
+
+/** og:image（全ページ共通・ヒーロー画像 1920×901）。公開前チェックで全ページに必須 */
+export const OG_IMAGES = [{ url: `${SITE}/images/hero-au.jpg`, width: 1920, height: 901 }];

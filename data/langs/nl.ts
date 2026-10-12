@@ -16,7 +16,7 @@ export const nl: LangContent = {
   audience: "Nederland",
   meta: {
     title: `eVisitor (subclass 651) voor Nederlanders: gratis naar Australië`,
-    description: `Nederlanders hebben voor Australië het eVisitor-visum (subclass 651) nodig. Het is gratis, ${F.validMonths} maanden geldig en staat verblijven toe van maximaal ${F.stayMonths} maanden per bezoek. Zo vraagt u het aan op de officiële website.`,
+    description: `Nederlanders hebben voor Australië het eVisitor-visum (subclass 651) nodig: gratis, ${F.validMonths} maanden geldig, max. ${F.stayMonths} maanden per bezoek. Alleen via de officiële site.`,
   },
   header: {
     site: "eVisitor Gids",
