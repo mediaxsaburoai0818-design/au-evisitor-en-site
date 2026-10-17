@@ -918,13 +918,14 @@
 .etahome .xsec .eyebrow{display:inline-flex;align-items:center}
 .etahome .xsec-alt{background:var(--color-bg-light)}
 .etahome .xsec h2{font-family:var(--font-serif)}
-.etahome .xcard h3{font-family:var(--font-serif);font-weight:700;letter-spacing:-.01em}
+.etahome .xcard h3{font-family:var(--font-serif);font-weight:700;letter-spacing:-.01em;line-height:1.3}
 .etahome .xtable-wrap{margin-top:16px;overflow-x:auto;background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-sm);box-shadow:var(--shadow-card)}
 .etahome .xtable{width:100%;min-width:620px;border-collapse:collapse;font-size:13.5px;line-height:1.5}
 .etahome .xtable th{background:var(--color-primary);color:#fff;text-align:left;font-weight:700;padding:11px 14px}
 .etahome .xtable td{padding:11px 14px;border-top:1px solid var(--color-border);vertical-align:top}
 .etahome .xtable td:first-child{font-weight:600}
 .etahome .xtable .xfree{font-weight:800;color:var(--color-primary)}
+.etahome .xtable .xyes{font-weight:800;color:var(--color-cta)}
 .etahome .xnote{margin-top:12px;font-size:13px;line-height:1.55;color:var(--color-muted);max-width:760px}
 .etahome .xlist{margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.6;list-style:disc}
 .etahome .xlist li+li{margin-top:4px}
