@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Reveal from "@/components/Reveal";
-import StickyCta from "@/components/StickyCta";
+import HomeChrome from "@/components/HomeChrome";
+import { HOME_TOP, HOME_BOTTOM } from "@/lib/eta-home";
+import "./eta-home.css";
 import { FACTS as F, OG_IMAGES, SITE } from "@/data/facts";
 import Link from "next/link";
 import { LANGS, LANG_CODES } from "@/data/langs";
 import { PAGES } from "@/data/pages";
 
 /*
+  ⚠️ 2026-10-17 デザインリニューアル（okina 選択：写真A シドニー港／右上B 切手「G'day! · $0」／配色A Harbour & Wattle）。
+     正は ~/projects/evisitor-redesign/build。HOME_TOP / HOME_BOTTOM / eta-home.css / public/home は
+     ~/projects/evisitor-redesign/gen-home.py が生成する（手で直さない）。ESTA（esta-hr.com）・カナダと同じ方式。
+     上＝新デザイン（スライダー4枚）、中＝旧TOPの本文のうちデザインに無いもの（.xsec）、下＝CTA＋フッター。
+     TOP では layout の Header/Footer は出さない（components/NotOnHome.tsx）。
+
+  （以下は旧デザインのときのメモ）
   構成・UIは nz-eta-site（NZeTA）と揃えている。okinaの指摘済み事項は最初から反映:
     ・「」の角飾りは .feature-card だけ（料金表・FAQ・数値カードには付けない）
     ・見出しの罫線は見出しの「下」
@@ -42,13 +49,6 @@ export const metadata: Metadata = {
     images: OG_IMAGES,
   },
 };
-
-const STATS = [
-  { v: F.fee, l: "What you pay", s: "No application charge at all" },
-  { v: `${F.validMonths} months`, l: "Valid for", s: "Unlimited entries" },
-  { v: `${F.stayMonths} months`, l: "Stay per entry", s: "Tourism or business visits" },
-  { v: F.eligibleCountries.toString(), l: "Eligible countries", s: "European passports only" },
-];
 
 const FEATURES = [
   {
@@ -125,209 +125,115 @@ export default function Home() {
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
+  // 言語メニュー（data/langs に言語を足せば自動で増える）と確認日は facts / langs から差し込む
+  const langItems =
+    `<li><a href="/" hreflang="en">English</a></li>` +
+    LANG_CODES.map((c) => `<li><a href="/${c}/" hreflang="${LANGS[c].htmlLang}">${LANGS[c].label}</a></li>`).join("");
+  const top = HOME_TOP.replace("<!--LANGS-->", langItems);
+  const bottom = HOME_BOTTOM.replace("<!--UPDATED-->", F.updatedLabel);
+  const readMore = PAGES.filter((p) => !p.practical && !["privacy", "terms", "about"].includes(p.slug));
 
   return (
-    <>
+    <div className="etahome" data-c="A" data-pat="1">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <Reveal />
-      <StickyCta />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+      <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=Shrikhand&family=Oswald:wght@600&display=swap" rel="stylesheet" precedence="default" />
+      <div className="main-wrap" dangerouslySetInnerHTML={{ __html: top }} />
 
-      {/* ── ヒーロー ── */}
-      <section className="hero">
-        <div className="hero-media">
-          <Image
-            src="/images/hero-au.webp"
-            alt="Sunlit Australian coastline with turquoise water, a golden beach and a rocky headland"
-            fill
-            priority
-            className="hero-img hero-zoom"
-          />
-        </div>
-        <div className="hero-scrim" />
-        <div className="hero-inner max-w-6xl mx-auto px-6 py-20 lg:py-28">
-          <span className="eyebrow">Australia · eVisitor · subclass 651</span>
-          <h1
-            className="mt-5 text-3xl md:text-5xl font-bold leading-tight"
-            style={{ color: "#ffffff", maxWidth: "24ch" }}
-          >
-            The eVisitor is{" "}
-            <span style={{ color: "var(--color-red-light)" }}>free</span> — if you hold a European
-            passport
-          </h1>
-          <p
-            className="mt-5 text-base md:text-lg leading-relaxed"
-            style={{ color: "rgba(255,255,255,.92)", maxWidth: "54ch" }}
-          >
-            Australia charges nothing for an eVisitor: {F.fee}, valid {F.validMonths} months, stays
-            of up to {F.stayMonths} months. The catch is eligibility — it covers{" "}
-            {F.eligibleCountries} European countries, and everyone else needs the {F.etaFee} ETA.
+      {/* ── 3つの要点＋対象と料金（eVisitor固有の要点）── */}
+      <section id="which-visa" className="section xsec xsec-alt">
+        <div className="container">
+          <span className="eyebrow">Which visa applies?</span>
+          <h2>Which visa applies to your passport?</h2>
+          <p className="xlead">
+            &ldquo;Free&rdquo; only applies to the eVisitor, and the eVisitor only applies to European passports.
+            This is the single thing most travellers get wrong.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href={F.officialUrl} target="_blank" rel="noopener noreferrer" className="btn-red">
-              Apply on the official site
-            </a>
-            <a href="#eligibility" className="btn-outline-light">
-              Check if you are eligible
-            </a>
+          <div className="xcards x3">
+            {FEATURES.map((f) => (
+              <div key={f.h} className="xcard">
+                <h3>{f.h}</h3>
+                <p>{f.p}</p>
+              </div>
+            ))}
           </div>
-          <p className="mt-6 text-xs" style={{ color: "rgba(255,255,255,.78)" }}>
-            Independent guide · not affiliated with the Australian Government · updated{" "}
-            {F.updatedLabel}
-          </p>
-        </div>
-      </section>
-
-      {/* ── 統計カード（ヒーロー直下にせり出す）── */}
-      <section
-        className="max-w-6xl mx-auto px-6"
-        style={{ marginTop: "-3rem", position: "relative", zIndex: 2 }}
-      >
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {STATS.map((s, i) => (
-            <div key={s.l} className={`card stat-card text-center reveal reveal-delay-${i + 1}`}>
-              <p className="stat-num">{s.v}</p>
-              <p className="stat-label">{s.l}</p>
-              <p className="text-xs mt-1" style={{ color: "var(--color-text-light)" }}>
-                {s.s}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── What is ── */}
-      <section className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="heading-band text-2xl md:text-3xl reveal">What is the eVisitor?</h2>
-        <p className="mt-5 leading-relaxed reveal reveal-delay-1" style={{ maxWidth: "70ch" }}>
-          The eVisitor (subclass 651) is Australia&apos;s free visitor visa for European passport
-          holders. It is granted electronically and linked to your passport, so there is no label or
-          stamp to collect. It allows tourism and business visitor activities.
-        </p>
-        <p className="mt-4 leading-relaxed reveal reveal-delay-2" style={{ maxWidth: "70ch" }}>
-          It is valid for {F.validMonths} months from the date it is granted, allows unlimited
-          entries, and each stay may be up to {F.stayMonths} months. You must be outside Australia
-          when you apply and when it is granted.
-        </p>
-        <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {FEATURES.map((f, i) => (
-            <div key={f.h} className={`feature-card reveal reveal-delay-${i + 1}`}>
-              <h3 className="font-bold" style={{ color: "var(--color-navy)" }}>
-                {f.h}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed">{f.p}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 対象と料金（eVisitor固有の要点）── */}
-      <section id="eligibility" style={{ background: "var(--color-bg-soft)" }}>
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <h2 className="heading-band text-2xl md:text-3xl reveal">
-            Which visa applies to your passport?
-          </h2>
-          <p className="mt-5 leading-relaxed reveal reveal-delay-1" style={{ maxWidth: "70ch" }}>
-            &ldquo;Free&rdquo; only applies to the eVisitor, and the eVisitor only applies to
-            European passports. This is the single thing most travellers get wrong.
-          </p>
-          <div className="mt-7 card reveal reveal-delay-2" style={{ padding: "1.6rem" }}>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm" style={{ borderCollapse: "collapse", minWidth: "40rem" }}>
-                <thead>
-                  <tr style={{ background: "var(--color-navy)", color: "#fff" }}>
-                    <th className="text-left px-4 py-3">Your passport</th>
-                    <th className="text-left px-4 py-3">Visa</th>
-                    <th className="text-left px-4 py-3">Cost</th>
-                    <th className="text-left px-4 py-3">How you apply</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style={{ borderBottom: "1px solid var(--color-border)" }}>
-                    <td className="px-4 py-3 font-medium">
-                      EU, UK, Iceland, Norway, Switzerland and other European countries (
-                      {F.eligibleCountries} in total)
-                    </td>
-                    <td className="px-4 py-3">eVisitor (subclass 651)</td>
-                    <td className="px-4 py-3 font-bold" style={{ color: "var(--color-gold-dark)" }}>
-                      {F.fee}
-                    </td>
-                    <td className="px-4 py-3">Home Affairs website (ImmiAccount)</td>
-                  </tr>
-                  <tr style={{ borderBottom: "1px solid var(--color-border)" }}>
-                    <td className="px-4 py-3 font-medium">
-                      Japan, United States, Canada, Singapore, Malaysia, South Korea and others
-                    </td>
-                    <td className="px-4 py-3">ETA (subclass 601)</td>
-                    <td className="px-4 py-3 font-bold">{F.etaFee}</td>
-                    <td className="px-4 py-3">Official mobile app only</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium">Not eligible for either</td>
-                    <td className="px-4 py-3">Visitor visa (subclass 600)</td>
-                    <td className="px-4 py-3 font-bold">Paid — see official site</td>
-                    <td className="px-4 py-3">Home Affairs website</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div className="xtable-wrap">
+            <table className="xtable">
+              <thead>
+                <tr>
+                  <th>Your passport</th>
+                  <th>Visa</th>
+                  <th>Cost</th>
+                  <th>How you apply</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Your passport">EU, UK, Iceland, Norway, Switzerland and other European countries ({F.eligibleCountries} in total)</td>
+                  <td data-label="Visa">eVisitor (subclass 651)</td>
+                  <td data-label="Cost" className="xfree">{F.fee}</td>
+                  <td data-label="How you apply">Home Affairs website (ImmiAccount)</td>
+                </tr>
+                <tr>
+                  <td data-label="Your passport">Japan, United States, Canada, Singapore, Malaysia, South Korea and others</td>
+                  <td data-label="Visa">ETA (subclass 601)</td>
+                  <td data-label="Cost"><strong>{F.etaFee}</strong></td>
+                  <td data-label="How you apply">Official mobile app only</td>
+                </tr>
+                <tr>
+                  <td data-label="Your passport">Not eligible for either</td>
+                  <td data-label="Visa">Visitor visa (subclass 600)</td>
+                  <td data-label="Cost"><strong>Paid — see official site</strong></td>
+                  <td data-label="How you apply">Home Affairs website</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <p className="mt-6 leading-relaxed text-sm reveal reveal-delay-3" style={{ maxWidth: "70ch" }}>
-            The ETA cannot be applied for on the Home Affairs website — it is granted through the
-            official app, which reads the chip in your passport. The eVisitor is the opposite: there
-            is no app, only the website. Checked {F.updatedLabel}.
+          <p className="xnote">
+            The ETA cannot be applied for on the Home Affairs website — it is granted through the official app, which
+            reads the chip in your passport. The eVisitor is the opposite: there is no app, only the website. Checked{" "}
+            {F.updatedLabel}.
           </p>
         </div>
       </section>
 
-      {/* ── 申請手順 ── */}
-      <section className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="heading-band text-2xl md:text-3xl reveal">How to apply</h2>
-        <div className="mt-8 grid md:grid-cols-2 gap-5">
-          {STEPS.map((s, i) => (
-            <div key={s.h} className={`feature-card reveal reveal-delay-${(i % 4) + 1}`}>
-              <p
-                className="text-xs font-bold tracking-widest"
-                style={{ color: "var(--color-gold-dark)" }}
-              >
-                STEP {i + 1}
-              </p>
-              <h3 className="mt-2 font-bold" style={{ color: "var(--color-navy)" }}>
-                {s.h}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed">{s.p}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-10 reveal">
-          <a href={F.officialUrl} target="_blank" rel="noopener noreferrer" className="cta-button-red">
-            Start on the official eVisitor page
-          </a>
+      {/* ── 申請手順（詳細）── */}
+      <section className="section xsec">
+        <div className="container">
+          <span className="eyebrow">Step by step</span>
+          <h2>How to apply</h2>
+          <div className="xcards x2">
+            {STEPS.map((s, i) => (
+              <div key={s.h} className="xcard">
+                <span className="eyebrow">Step {i + 1}</span>
+                <h3>{s.h}</h3>
+                <p>{s.p}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── できること・できないこと ── */}
-      <section style={{ background: "var(--color-bg-soft)" }}>
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <h2 className="heading-band text-2xl md:text-3xl reveal">
-            What you may and may not do
-          </h2>
-          <div className="mt-8 grid md:grid-cols-2 gap-5">
-            <div className="feature-card reveal reveal-delay-1">
-              <h3 className="font-bold" style={{ color: "var(--color-gold-dark)" }}>
-                Allowed
-              </h3>
-              <ul className="mt-3 text-sm leading-relaxed space-y-2">
+      <section className="section xsec xsec-alt">
+        <div className="container">
+          <span className="eyebrow">Conditions</span>
+          <h2>What you may and may not do</h2>
+          <div className="xcards x2">
+            <div className="xcard">
+              <h3>Allowed</h3>
+              <ul className="xlist">
                 <li>Tourism, visiting family and friends</li>
                 <li>Business visitor activities: meetings, negotiations, conferences</li>
                 <li>Study or training for up to {F.studyMonths} months</li>
                 <li>Leaving and re-entering as often as you like while the visa is valid</li>
               </ul>
             </div>
-            <div className="feature-card reveal reveal-delay-2">
-              <h3 className="font-bold" style={{ color: "var(--color-red-dark)" }}>
-                Not allowed
-              </h3>
-              <ul className="mt-3 text-sm leading-relaxed space-y-2">
+            <div className="xcard">
+              <h3>Not allowed</h3>
+              <ul className="xlist">
                 <li>Working for an Australian employer</li>
                 <li>Staying more than {F.stayMonths} months on a single entry</li>
                 <li>Applying while you are already in Australia</li>
@@ -338,85 +244,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 入国時 ── */}
-      <section className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="heading-band text-2xl md:text-3xl reveal">At the border</h2>
-        <p className="mt-5 leading-relaxed reveal reveal-delay-1" style={{ maxWidth: "70ch" }}>
-          Carry the same passport you applied with — your visa is recorded against it
-          electronically, so there is nothing to print. Many travellers with an eligible passport can
-          use the automated SmartGates at major airports. Entry is decided by the Australian Border
-          Force officer on arrival, and Australia&apos;s biosecurity rules on food, plant and animal
-          products are enforced strictly, so declare anything you are unsure about.
-        </p>
+      {/* ── FAQ ── */}
+      <section id="faq" className="section xsec">
+        <div className="container xnarrow">
+          <span className="eyebrow">FAQ</span>
+          <h2>Frequently asked questions</h2>
+          <div className="xfaq">
+            {FAQ.map((f) => (
+              <details key={f.q}>
+                <summary>
+                  <span>{f.q}</span>
+                  <span className="xplus" aria-hidden="true">+</span>
+                </summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+          <Link href="/faq/" className="textlink xmore">
+            All questions <span className="arrow" aria-hidden="true">→</span>
+          </Link>
+        </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section style={{ background: "var(--color-bg-soft)" }}>
-        <div className="max-w-4xl mx-auto px-6 py-16 md:py-20">
-          <h2 className="heading-band text-2xl md:text-3xl reveal">Frequently asked questions</h2>
-          <div className="mt-8 space-y-4">
-            {FAQ.map((f, i) => (
-              <details key={f.q} className={`card group reveal reveal-delay-${(i % 4) + 1}`}>
-                <summary className="flex items-start justify-between gap-4 font-bold cursor-pointer list-none">
-                  <span>{f.q}</span>
-                  <span
-                    className="shrink-0 transition-transform group-open:rotate-45"
-                    style={{ color: "var(--color-red-vivid)", fontSize: "1.25rem", lineHeight: 1 }}
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed">{f.a}</p>
-              </details>
+      {/* ── 下層ページへの導線 ── */}
+      <section id="read-more" className="section xsec xsec-alt">
+        <div className="container">
+          <span className="eyebrow">Guide</span>
+          <h2>Read more about the eVisitor</h2>
+          <div className="xcards x3">
+            {readMore.map((p) => (
+              <Link key={p.slug} href={`/${p.slug}/`} className="xcard xlink">
+                <div className="xrow">
+                  <div>
+                    <h3>{p.nav}</h3>
+                    <p>{p.description}</p>
+                  </div>
+                  <span className="xgo" aria-hidden="true">→</span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 下層ページへの導線 ── */}
-      <section className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-        <h2 className="heading-band text-2xl md:text-3xl reveal">Read more about the eVisitor</h2>
-        <div className="mt-8 grid md:grid-cols-3 gap-5">
-          {PAGES.filter((p) => !p.practical && !["privacy", "terms", "about"].includes(p.slug)).map((p, i) => (
-            <Link key={p.slug} href={`/${p.slug}/`} className={`feature-card no-underline reveal reveal-delay-${(i % 4) + 1}`}>
-              <h3 className="font-bold" style={{ color: "var(--color-navy)" }}>{p.nav}</h3>
-              <p className="mt-2 text-sm leading-relaxed">{p.description}</p>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap gap-4 text-xs reveal">
-          {PAGES.filter((p) => ["about", "privacy", "terms"].includes(p.slug)).map((p) => (
-            <Link key={p.slug} href={`/${p.slug}/`}>{p.nav}</Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section style={{ background: "var(--color-navy)" }}>
-        <div className="max-w-3xl mx-auto px-6 py-16 md:py-20 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold reveal" style={{ color: "#fff" }}>
-            Apply for your eVisitor
-          </h2>
-          <p
-            className="mt-4 text-sm leading-relaxed reveal reveal-delay-1"
-            style={{ color: "rgba(255,255,255,.85)" }}
-          >
-            Applications are free and are made on the Department of Home Affairs website. We are an
-            independent guide and cannot submit an application on your behalf.
-          </p>
-          <div className="mt-8 reveal reveal-delay-2">
-            <a
-              href={F.officialUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-button-red"
-            >
-              Go to the official eVisitor page
-            </a>
-          </div>
-        </div>
-      </section>
-    </>
+      <div className="main-wrap" dangerouslySetInnerHTML={{ __html: bottom }} />
+      <HomeChrome />
+    </div>
   );
 }
