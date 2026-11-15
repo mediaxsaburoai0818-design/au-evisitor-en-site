@@ -71,8 +71,9 @@ export const nlPractical: PracticalPack = {
           p: `De meeste passagiers moeten een papieren inreiskaart invullen, de Incoming Passenger Card (IPC). U krijgt die in het vliegtuig of in de terminal, en u moet hem in het Engels invullen. De ABF publiceert vertaalde voorbeeldkaarten — onder meer in het Nederlands — zodat u de vragen begrijpt, maar de kaart die u inlevert vult u in het Engels in.`,
         },
         {
-          p: `Bij de uitgang geeft u uw SmartGate-ticket en uw Incoming Passenger Card af aan een medewerker van Border Force of biosecurity. Een digitaal alternatief (de Australia Travel Declaration) bestaat alleen als proef, voor uitgenodigde passagiers op bepaalde Qantas-vluchten naar Brisbane, Sydney en Melbourne via de Qantas-app. Alle anderen gebruiken de papieren kaart.`,
+          p: `Bij de uitgang geeft u uw SmartGate-ticket en uw Incoming Passenger Card af aan een medewerker van Border Force of biosecurity. De Australia Travel Declaration is een digitaal alternatief: volgens de ABF (stand 15 november 2026) is het webformulier alleen beschikbaar voor vluchten die aankomen op Western Sydney International Airport, en vult u het niet in als u op een andere Australische luchthaven aankomt. Controleer de ABF-pagina voor uw luchthaven van aankomst.`,
         },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
         { h2: "Talen op het scherm" },
         {
           p: `De schermen van de SmartGates bij aankomst zijn in het Engels, met ${F.smartgateArrivalLanguages} andere talen om uit te kiezen, waaronder Nederlands, Duits en Frans. De schermen van de SmartGates bij vertrek zijn in het Engels, Japans, Koreaans en Mandarijn.`,

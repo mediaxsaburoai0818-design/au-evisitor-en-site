@@ -78,8 +78,9 @@ const RAW: Page[] = [
         p: `Most passengers must complete a paper Incoming Passenger Card (IPC). It is handed out on the plane or in the terminal and must be completed in English. The ABF publishes translated sample cards — including German, French, Dutch, Italian, Spanish, Korean and Chinese — so you can understand the questions, but the card you hand in is answered in English.`,
       },
       {
-        p: `At the exit, you give your SmartGate ticket and your Incoming Passenger Card to a Border Force or biosecurity officer. A digital alternative (the Australia Travel Declaration) exists only as a pilot, for invited passengers on selected Qantas flights into Brisbane, Sydney and Melbourne via the Qantas app. Everyone else uses the paper card.`,
+        p: `At the exit, you give your SmartGate ticket and your Incoming Passenger Card to a Border Force or biosecurity officer. The Australia Travel Declaration is a digital alternative: as of 15 November 2026, the ABF says its web form is only available for flights arriving at Western Sydney International Airport, and that you should not complete it if you are arriving at another Australian airport. Check the ABF page for the airport you are arriving at.`,
       },
+      { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
       { h2: "Languages on the screens" },
       {
         p: `Arrival SmartGate screens are in English, with ${F.smartgateArrivalLanguages} other languages to choose from, including German, Dutch, French, Italian, Spanish, Korean and both simplified and traditional Chinese. Departure SmartGate screens are in English, Japanese, Korean and Mandarin.`,

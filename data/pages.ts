@@ -69,7 +69,7 @@ const CORE: Page[] = [
       { h2: "Who it is for" },
       {
         ul: [
-          `Passport holders of ${F.eligibleCountries} European countries: all EU member states plus the UK, Iceland, Norway, Switzerland and several microstates`,
+          `Passport holders of ${F.eligibleCountries} European countries: all EU member states plus the UK (British Citizen passports only — British National (Overseas) and other British passport types are not eligible), Iceland, Norway, Switzerland and several microstates`,
           "Tourism, visiting family and friends, and business visitor activities",
           "Travellers who are outside Australia when they apply and when the visa is granted",
         ],

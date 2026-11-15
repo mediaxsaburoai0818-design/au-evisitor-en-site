@@ -79,8 +79,9 @@ export const koPractical: PracticalPack = {
           p: "대부분의 승객은 종이 입국카드(Incoming Passenger Card, IPC)를 작성해야 합니다. 기내나 터미널에서 나누어 주며, 반드시 영어로 작성해야 합니다. ABF는 한국어·독일어·프랑스어·네덜란드어·이탈리아어·스페인어·중국어 등으로 번역된 견본 카드를 공개하고 있어 질문 내용을 이해하는 데 도움이 되지만, 제출하는 카드는 영어로 답해야 합니다.",
         },
         {
-          p: "출구에서 SmartGate 티켓과 입국카드를 국경군 또는 검역 담당관에게 제출합니다. 디지털 방식(Australia Travel Declaration)은 시범 운영 단계로, 브리즈번·시드니·멜버른행 일부 콴타스 항공편의 초대받은 승객이 콴타스 앱으로만 이용할 수 있습니다. 그 외 승객은 모두 종이 카드를 사용합니다.",
+          p: "출구에서 SmartGate 티켓과 입국카드를 국경군 또는 검역 담당관에게 제출합니다. 디지털 방식인 Australia Travel Declaration은 ABF에 따르면(2026년 11월 15일 기준) 웹 양식이 웨스턴 시드니 국제공항에 도착하는 항공편에만 제공되며, 다른 호주 공항에 도착하는 경우에는 작성하지 말아야 합니다. 도착 공항에 대해서는 ABF 페이지를 확인하세요.",
         },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
         { h2: "화면 언어" },
         {
           p: `도착 SmartGate 화면은 영어이며, 그 외에 한국어·독일어·네덜란드어·프랑스어·이탈리아어·스페인어·중국어 간체와 번체 등 ${F.smartgateArrivalLanguages}개 언어를 선택할 수 있습니다. 출국 SmartGate 화면은 영어·일본어·한국어·중국어(보통화)입니다.`,

@@ -71,8 +71,9 @@ export const itPractical: PracticalPack = {
           p: "La maggior parte dei passeggeri deve compilare l'Incoming Passenger Card (IPC), la scheda cartacea di arrivo. Viene distribuita in aereo o in aeroporto e va compilata in inglese. L'ABF pubblica schede di esempio tradotte — anche in italiano, oltre che in tedesco, francese, olandese, spagnolo, coreano e cinese — per capire le domande, ma la scheda che si consegna va compilata in inglese.",
         },
         {
-          p: "All'uscita si consegnano il biglietto dello SmartGate e l'Incoming Passenger Card a un agente della Border Force o della biosicurezza. Un'alternativa digitale (l'Australia Travel Declaration) esiste solo come progetto pilota, per passeggeri invitati su alcuni voli Qantas diretti a Brisbane, Sydney e Melbourne, tramite l'app Qantas. Tutti gli altri usano la scheda cartacea.",
+          p: "All'uscita si consegnano il biglietto dello SmartGate e l'Incoming Passenger Card a un agente della Border Force o della biosicurezza. L'Australia Travel Declaration è un'alternativa digitale: secondo l'ABF (al 15 novembre 2026), il suo modulo web è disponibile solo per i voli in arrivo all'aeroporto internazionale di Western Sydney, e non va compilato se si arriva in un altro aeroporto australiano. Verificate la pagina dell'ABF per il vostro aeroporto di arrivo.",
         },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
         { h2: "Lingue sugli schermi" },
         {
           p: `Gli schermi degli SmartGate all'arrivo sono in inglese, con altre ${F.smartgateArrivalLanguages} lingue a scelta, tra cui italiano, tedesco, olandese, francese, spagnolo, coreano e cinese semplificato e tradizionale. Gli schermi degli SmartGate in partenza sono in inglese, giapponese, coreano e mandarino.`,

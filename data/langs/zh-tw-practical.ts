@@ -77,8 +77,9 @@ export const zhTwPractical: PracticalPack = {
           p: "大多數旅客都必須填寫紙本的入境旅客卡（Incoming Passenger Card，IPC）。卡片會在機上或航廈內發放，而且必須用英文填寫。ABF 有公布翻譯版的範本（包含中文、韓文、德文、法文、荷蘭文、義大利文、西班牙文），可以用來看懂題目，但實際繳交的卡片要用英文作答。",
         },
         {
-          p: "在出口處，把 SmartGate 印出的票卡和入境旅客卡一起交給邊境部隊或生物安全人員。數位版（Australia Travel Declaration）目前只是試辦，僅限受邀旅客搭乘飛往布里斯本、雪梨、墨爾本的特定 Qantas 航班，透過 Qantas App 使用。其他人一律使用紙本卡。",
+          p: "在出口處，把 SmartGate 印出的票卡和入境旅客卡一起交給邊境部隊或生物安全人員。數位版 Australia Travel Declaration：依 ABF 說明（截至 2026 年 11 月 15 日），其網頁表單僅適用於抵達西雪梨國際機場的航班；在其他澳洲機場入境者不應填寫。請依您的抵達機場查看 ABF 頁面。",
         },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
         { h2: "螢幕的語言" },
         {
           p: `入境 SmartGate 的螢幕以英文為主，另外可選 ${F.smartgateArrivalLanguages} 種語言，其中包含簡體中文與繁體中文，以及韓文、德文、荷蘭文、法文、義大利文、西班牙文。出境 SmartGate 的螢幕則有英文、日文、韓文與中文（普通話）。`,

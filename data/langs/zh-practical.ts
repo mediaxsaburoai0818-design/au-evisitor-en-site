@@ -71,8 +71,9 @@ export const zhPractical: PracticalPack = {
           p: "大多数旅客必须填写纸质的入境旅客卡（Incoming Passenger Card，IPC）。卡片在飞机上或航站楼内发放，必须用英文填写。ABF 提供了译成多种语言的样卡——包括德语、法语、荷兰语、意大利语、西班牙语、韩语和中文——方便你理解问题，但你交上去的卡片要用英文作答。",
         },
         {
-          p: "在出口处，把 SmartGate 票据和入境旅客卡一起交给边防或生物安全官员。电子版替代方式（Australia Travel Declaration）目前只是试点，仅限受邀乘坐部分飞往布里斯班、悉尼和墨尔本的澳洲航空（Qantas）航班的旅客，通过 Qantas 应用使用。其他旅客一律使用纸质卡片。",
+          p: "在出口处，把 SmartGate 票据和入境旅客卡一起交给边防或生物安全官员。电子版替代方式 Australia Travel Declaration：据 ABF（截至 2026 年 11 月 15 日），其网页表格仅适用于抵达西悉尼国际机场的航班；在其他澳大利亚机场入境的旅客不应填写。请按您的抵达机场查看 ABF 页面。",
         },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
         { h2: "屏幕上的语言" },
         {
           p: `入境 SmartGate 的屏幕以英文为主，另有 ${F.smartgateArrivalLanguages} 种语言可选，包括德语、荷兰语、法语、意大利语、西班牙语、韩语以及简体和繁体中文。出境 SmartGate 的屏幕为英语、日语、韩语和普通话。`,
