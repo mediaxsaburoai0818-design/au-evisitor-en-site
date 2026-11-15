@@ -260,7 +260,7 @@ export const es: LangContent = {
           ],
         },
         {
-          note: "Si renueva el pasaporte después de la concesión, el visado no cubre el nuevo pasaporte. En ese caso, vuelva a solicitarlo.",
+          note: "Si renueva el pasaporte después de la concesión, el visado no pasa por sí solo al nuevo pasaporte. Actualice los datos del pasaporte en ImmiAccount antes de viajar; no hace falta una nueva solicitud.",
         },
       ],
     },
@@ -334,7 +334,7 @@ export const es: LangContent = {
         { h2: "¿Puedo solicitarlo desde Australia?" },
         { p: "No. Debe estar fuera de Australia al solicitarlo y en el momento de la concesión." },
         { h2: "Tengo un pasaporte nuevo, ¿sigue valiendo mi visado?" },
-        { p: "No. Está vinculado al anterior. Solicítelo de nuevo con el nuevo pasaporte." },
+        { p: "Sí, siempre que vincule el nuevo pasaporte. Actualice los datos del pasaporte en ImmiAccount (Update details → Change of passport details). Según el Department of Home Affairs, el nuevo pasaporte queda vinculado a su eVisitor en un plazo de 3 días hábiles. Solo los titulares de una ETA (subclass 601) deben solicitarla de nuevo con el nuevo pasaporte." },
         { h2: "¿También los bebés necesitan visado?" },
         { p: "Sí, cada viajero por separado y con su propio pasaporte." },
         { h2: "¿Y si mi pasaporte no está en la lista?" },

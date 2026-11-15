@@ -252,7 +252,7 @@ export const fr: LangContent = {
           ],
         },
         {
-          note: "Si vous renouvelez votre passeport après la délivrance, le visa ne couvre pas le nouveau passeport. Refaites une demande.",
+          note: "Si vous renouvelez votre passeport après la délivrance, le visa ne passe pas de lui-même sur le nouveau passeport. Mettez à jour les données du passeport dans ImmiAccount avant de partir ; une nouvelle demande n'est pas nécessaire.",
         },
       ],
     },
@@ -326,7 +326,7 @@ export const fr: LangContent = {
         { h2: "Puis-je demander depuis l'Australie ?" },
         { p: "Non. Vous devez être hors d'Australie lors de la demande et de la délivrance." },
         { h2: "J'ai un nouveau passeport — mon visa est-il encore valable ?" },
-        { p: "Non. Il est rattaché à l'ancien. Refaites une demande avec le nouveau." },
+        { p: "Oui, à condition de faire rattacher le nouveau passeport. Mettez à jour les données du passeport dans ImmiAccount (Update details → Change of passport details). Selon le Department of Home Affairs, le nouveau passeport est rattaché à votre eVisitor sous 3 jours ouvrés. Seuls les titulaires d'une ETA (subclass 601) doivent refaire une demande avec le nouveau passeport." },
         { h2: "Les nourrissons ont-ils besoin d'un visa ?" },
         { p: "Oui, chaque voyageur séparément, sur son propre passeport." },
         { h2: "Et si mon passeport n'est pas sur la liste ?" },

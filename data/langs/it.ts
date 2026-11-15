@@ -252,7 +252,7 @@ export const it: LangContent = {
           ],
         },
         {
-          note: "Se rinnova il passaporto dopo il rilascio, il visto non copre il nuovo passaporto. In quel caso ripresenti la domanda.",
+          note: "Se rinnova il passaporto dopo il rilascio, il visto non passa da solo al nuovo passaporto. Aggiorni i dati del passaporto in ImmiAccount prima di partire; non serve una nuova domanda.",
         },
       ],
     },
@@ -326,7 +326,7 @@ export const it: LangContent = {
         { h2: "Posso fare domanda dall'Australia?" },
         { p: "No. Deve trovarsi fuori dall'Australia alla domanda e al rilascio." },
         { h2: "Ho un passaporto nuovo: il visto vale ancora?" },
-        { p: "No. È legato al vecchio. Ripresenti la domanda con quello nuovo." },
+        { p: "Sì, a condizione di collegare il nuovo passaporto. Aggiorni i dati del passaporto in ImmiAccount (Update details → Change of passport details). Secondo il Department of Home Affairs, il nuovo passaporto viene collegato al Suo eVisitor entro 3 giorni lavorativi. Solo i titolari di un'ETA (subclass 601) devono ripresentare la domanda con il nuovo passaporto." },
         { h2: "Anche i neonati hanno bisogno del visto?" },
         { p: "Sì, ogni viaggiatore separatamente, sul proprio passaporto." },
         { h2: "E se il mio passaporto non è nell'elenco?" },

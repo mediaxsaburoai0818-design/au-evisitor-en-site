@@ -224,10 +224,11 @@ const CORE: Page[] = [
       {
         p: `Within the validity period you may enter Australia as often as you like, provided each stay is within the ${F.stayMonths}-month limit.`,
       },
-      { h2: "A new passport means a new application" },
+      { h2: "If you get a new passport" },
       {
-        p: "The grant is recorded against one passport. Renewing your passport, changing your name, or travelling on a second nationality all require a fresh application — which, being free, is not a problem.",
+        p: "The grant is recorded against one passport. If you get a new passport while the eVisitor is still valid, update your passport details in ImmiAccount. Home Affairs says it links the new passport to your existing visa within 3 business days, so a fresh eVisitor application is not needed. The ETA (subclass 601) is different: it cannot be transferred, and a new passport means a new ETA.",
       },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
       { h2: "Timing a long trip" },
       {
         p: `If you plan to travel late in the year, apply close to departure so that more of the ${F.validMonths} months remains available for return visits.`,
@@ -310,7 +311,7 @@ const CORE: Page[] = [
       { h2: "Does the eVisitor guarantee entry?" },
       { p: "No. The Australian Border Force officer decides on arrival." },
       { h2: "What if I get a new passport?" },
-      { p: "Apply again with the new passport. It is free, so there is no cost to doing so." },
+      { p: "Update your passport details in ImmiAccount (Update details → Change of passport details). Home Affairs links the new passport to your existing eVisitor within 3 business days. Only ETA (subclass 601) holders need to apply again with the new passport." },
     ],
   },
   {
@@ -537,15 +538,16 @@ const CORE: Page[] = [
     nav: "Passport and details",
     title: "Your eVisitor is attached to one passport — get the details right",
     description:
-      "The eVisitor is linked to the passport you applied with. A renewed passport, a mismatched name or the wrong nationality all stop you at check-in.",
+      "The eVisitor is linked to the passport you applied with. A renewed passport that has not been updated with Home Affairs, a mismatched name or the wrong nationality can all stop you at check-in.",
     blocks: [
       {
         p: "There is no sticker and no printout that matters. The eVisitor exists as a record linked to a passport number, and the airline checks that record when you check in. If the passport in your hand is not the one in the record, the visa might as well not exist.",
       },
-      { h2: "A new passport means a new application" },
+      { h2: "A new passport must be linked before you travel" },
       {
-        p: `If you renew your passport, your existing eVisitor does not move across, even though it may still be within its ${F.validMonths} months. Apply again with the new document before you travel. It is ${F.feeLabel.toLowerCase()}, so there is no cost reason to delay.`,
+        p: `If you renew your passport, your existing eVisitor does not move across by itself, even though it may still be within its ${F.validMonths} months. Update your passport details in ImmiAccount before you travel; Home Affairs says it links the new passport to your existing visa within 3 business days (14 days if you have to use the New Passport Details web form instead).`,
       },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
       { h2: "Enter your details exactly as printed" },
       {
         ul: [
@@ -688,16 +690,18 @@ const CORE: Page[] = [
       { h2: "What to do" },
       {
         ul: [
-          `Tell the Department of Home Affairs about the new passport before you travel.`,
-          `Do not apply for a second eVisitor to "replace" the first — that is not how the change is handled.`,
-          `Carry the old passport if you still have it and it is not cancelled in a way that prevents this.`,
+          `Log in to ImmiAccount and open your eVisitor application.`,
+          `Select Update details, then Change of passport details.`,
+          `Enter the new passport details and the reason for the change, then submit.`,
+          `Home Affairs says it links the new passport to your existing visa within 3 business days.`,
         ],
       },
-      { note: `Do this as soon as the new passport arrives, not at the airport. Updating details is routine when there is time and a problem when there is not.` },
+      { p: `If the change cannot be made in ImmiAccount — for example, you cannot import your application, or the date of birth on the passport has changed — Home Affairs directs you to the New Passport Details web form, which takes up to 14 days.` },
+      { note: `Do this as soon as the new passport arrives, not at the airport. This applies to the eVisitor. An ETA (subclass 601) cannot be transferred to a new passport — ETA holders apply for a new ETA.` },
       {
         source: {
-          label: "Department of Home Affairs — eVisitor (subclass 651)",
-          url: F.officialUrl,
+          label: "Department of Home Affairs — You have a new passport (last updated 9/10/2026)",
+          url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details",
         },
       },
     ],

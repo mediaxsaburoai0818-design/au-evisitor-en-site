@@ -211,15 +211,16 @@ export const itGuides: Article[] = [
     related: ["evisitor-nuovo-passaporto", "evisitor-errori-comuni", "evisitor-documenti"],
     title: "L'eVisitor è legato a un solo passaporto: inserisca i dati correttamente",
     description:
-      "L'eVisitor è collegato al passaporto usato per la domanda. Un passaporto rinnovato, un nome scritto male o la cittadinanza sbagliata La fermano al check-in.",
+      "L'eVisitor è collegato al passaporto usato per la domanda. Un passaporto rinnovato non aggiornato presso Home Affairs, un nome scritto male o la cittadinanza sbagliata possono fermarLa al check-in.",
     blocks: [
       {
         p: "Non c'è nessun adesivo e nessuna stampa che conti. L'eVisitor esiste come registrazione collegata a un numero di passaporto, e la compagnia aerea verifica quella registrazione al check-in. Se il passaporto che ha in mano non è quello registrato, è come se il visto non esistesse.",
       },
       { h2: "Un passaporto nuovo non eredita il visto da solo" },
       {
-        p: `Se rinnova il passaporto, l'eVisitor esistente non passa automaticamente al nuovo documento, anche se è ancora entro i suoi ${F.validMonths} mesi. Sistemi la cosa prima di partire: il Department of Home Affairs chiede di comunicargli il nuovo passaporto. I passaggi sono spiegati nella pagina sul nuovo passaporto.`,
+        p: `Se rinnova il passaporto, l'eVisitor esistente non passa automaticamente al nuovo documento, anche se è ancora entro i suoi ${F.validMonths} mesi. Aggiorni i dati del passaporto in ImmiAccount prima di partire: secondo Home Affairs, il nuovo passaporto viene collegato al visto esistente entro 3 giorni lavorativi (14 giorni se deve usare il modulo online New Passport Details).`,
       },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
       { h2: "Inserisca i dati esattamente come sono stampati" },
       {
         ul: [
@@ -319,15 +320,19 @@ export const itGuides: Article[] = [
       { h2: "Che cosa fare" },
       {
         ul: [
-          "Comunichi il nuovo passaporto al Department of Home Affairs prima di partire.",
-          "Non presenti una seconda domanda di eVisitor per «sostituire» la prima: non è così che si gestisce il cambio.",
-          "Porti con sé il vecchio passaporto, se lo ha ancora e se non è stato annullato in un modo che lo impedisce.",
+          "Acceda a ImmiAccount e apra la Sua domanda di eVisitor.",
+          "Selezioni «Update details» e poi «Change of passport details».",
+          "Inserisca i dati del nuovo passaporto e il motivo della modifica, quindi invii.",
+          "Secondo il Department of Home Affairs, il nuovo passaporto viene collegato al visto esistente entro 3 giorni lavorativi.",
         ],
       },
       {
-        note: "Lo faccia appena riceve il nuovo passaporto, non in aeroporto. Aggiornare i dati è una pratica di routine quando c'è tempo, e un problema quando non ce n'è.",
+        p: "Se la modifica non si può fare in ImmiAccount — per esempio perché non riesce a importare la domanda o perché sul passaporto è cambiata la data di nascita — Home Affairs rimanda al modulo online New Passport Details, che richiede fino a 14 giorni.",
       },
-      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: F.officialUrl } },
+      {
+        note: "Lo faccia appena riceve il nuovo passaporto, non in aeroporto. Questo vale per l'eVisitor. Un'ETA (subclass 601) non può essere trasferita su un nuovo passaporto: chi ha un'ETA deve richiederne una nuova.",
+      },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
     ],
   },
   {

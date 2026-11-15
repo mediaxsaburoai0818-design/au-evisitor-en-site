@@ -242,7 +242,7 @@ export const esGuides: Article[] = [
     enSlug: "passport-and-details",
     added: ADDED,
     title: "Su eVisitor está vinculado a un pasaporte: introduzca bien los datos",
-    description: "El eVisitor queda ligado al pasaporte con que lo solicitó. Un pasaporte renovado, un nombre que no coincide o la nacionalidad errónea le frenan al facturar.",
+    description: "El eVisitor queda ligado al pasaporte con que lo solicitó. Un pasaporte renovado que no se ha actualizado ante Home Affairs, un nombre que no coincide o la nacionalidad errónea pueden frenarle al facturar.",
     related: ["nuevo-pasaporte-tras-la-concesion", "evisitor-errores-frecuentes", "evisitor-documentacion"],
     blocks: [
       {
@@ -250,8 +250,9 @@ export const esGuides: Article[] = [
       },
       { h2: "El visado no pasa solo al pasaporte nuevo" },
       {
-        p: `Si renueva el pasaporte, su eVisitor no se traslada por sí solo al nuevo documento, aunque siga dentro de sus ${F.validMonths} meses de validez. Resuélvalo antes de viajar, no en el aeropuerto: lo explicamos en la página sobre el pasaporte nuevo tras la concesión.`,
+        p: `Si renueva el pasaporte, su eVisitor no se traslada por sí solo al nuevo documento, aunque siga dentro de sus ${F.validMonths} meses de validez. Actualice los datos del pasaporte en ImmiAccount antes de viajar: según Home Affairs, el nuevo pasaporte queda vinculado a su visado en un plazo de 3 días hábiles (14 días si debe usar el formulario web New Passport Details).`,
       },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
       { h2: "Introduzca los datos tal como figuran impresos" },
       {
         ul: [
@@ -348,15 +349,19 @@ export const esGuides: Article[] = [
       { h2: "Qué hacer" },
       {
         ul: [
-          "Comunique el nuevo pasaporte al Department of Home Affairs antes de viajar.",
-          "No solicite un segundo eVisitor para «sustituir» el primero: el cambio no se gestiona así.",
-          "Lleve también el pasaporte anterior si todavía lo tiene y no ha sido anulado de un modo que lo impida.",
+          "Inicie sesión en ImmiAccount y abra su solicitud de eVisitor.",
+          "Seleccione «Update details» y, a continuación, «Change of passport details».",
+          "Introduzca los datos del nuevo pasaporte y el motivo del cambio, y envíelos.",
+          "Según el Department of Home Affairs, el nuevo pasaporte queda vinculado a su visado en un plazo de 3 días hábiles.",
         ],
       },
       {
-        note: "Hágalo en cuanto reciba el nuevo pasaporte, no en el aeropuerto. Actualizar los datos es un trámite rutinario cuando hay tiempo y un problema cuando no lo hay.",
+        p: "Si el cambio no puede hacerse en ImmiAccount —por ejemplo, porque no puede importar su solicitud o porque ha cambiado la fecha de nacimiento que figura en el pasaporte—, Home Affairs remite al formulario web New Passport Details, cuya tramitación tarda hasta 14 días.",
       },
-      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: F.officialUrl } },
+      {
+        note: "Hágalo en cuanto reciba el nuevo pasaporte, no en el aeropuerto. Esto se aplica al eVisitor. Una ETA (subclass 601) no puede transferirse a un nuevo pasaporte: los titulares de una ETA deben solicitar una nueva.",
+      },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
     ],
   },
   {

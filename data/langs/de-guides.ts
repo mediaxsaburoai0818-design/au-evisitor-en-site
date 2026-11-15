@@ -12,8 +12,8 @@ const DECISION_DAT = "wenigen Minuten bis einigen Tagen"; // = F.decisionTypical
  *   validity・length-of-stay・three-months-per-visit=evisitor-gueltigkeit-und-aufenthalt /
  *   status-check=evisitor-status-pruefen / faq=evisitor-haeufige-fragen / evisitor-or-eta=evisitor-oder-eta /
  *   passport-and-details=evisitor-unterlagen＋evisitor-haeufige-fragen / about・privacy・terms=impressum・datenschutz・nutzungsbedingungen
- * ⚠️ new-passport-after-approval（neuer-reisepass-nach-genehmigung）は英語どおり「当局に届け出る」。
- *    既存 de ページの「新しい旅券＝再申請」とは食い違うが、調整役の指示で既存側は変更していない（英語側の矛盾として報告済み）。
+ * ⚠️ new-passport-after-approval（neuer-reisepass-nach-genehmigung）は公式（passport-details・2026/9/10更新）どおり
+ *    「ImmiAccount で旅券情報を更新→3営業日で既存ビザに紐付け」。再申請が必要なのは ETA 601 だけ（2026-11-16 de.ts も同じ内容に修正）。
  */
 const ADDED = "2026-11-15";
 const CHECKED = "15. November 2026";
@@ -289,15 +289,19 @@ export const deGuides: Article[] = [
       { h2: "Was Sie tun sollten" },
       {
         ul: [
-          "Informieren Sie das Department of Home Affairs vor der Reise über den neuen Pass.",
-          "Beantragen Sie kein zweites eVisitor, um das erste zu „ersetzen“ – so wird die Änderung nicht erledigt.",
-          "Nehmen Sie den alten Pass mit, wenn Sie ihn noch haben und er nicht so entwertet wurde, dass das nicht möglich ist.",
+          "Melden Sie sich im ImmiAccount an und öffnen Sie Ihren eVisitor-Antrag.",
+          "Wählen Sie „Update details“ und danach „Change of passport details“.",
+          "Geben Sie die neuen Passdaten und den Grund der Änderung ein und senden Sie die Angaben ab.",
+          "Laut Department of Home Affairs wird der neue Pass innerhalb von 3 Arbeitstagen mit Ihrem bestehenden Visum verknüpft.",
         ],
       },
       {
-        note: "Erledigen Sie das, sobald der neue Pass da ist, nicht erst am Flughafen. Mit genügend Zeit ist die Aktualisierung der Angaben Routine, ohne Zeit wird sie zum Problem.",
+        p: "Lässt sich die Änderung nicht im ImmiAccount vornehmen – etwa weil Sie Ihren Antrag nicht in das ImmiAccount importieren können oder weil sich das Geburtsdatum im Pass geändert hat –, verweist Home Affairs auf das Webformular „New Passport Details“. Die Bearbeitung dauert dort bis zu 14 Tage.",
       },
-      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: F.officialUrl } },
+      {
+        note: "Erledigen Sie das, sobald der neue Pass da ist, nicht erst am Flughafen. Das gilt für das eVisitor. Eine ETA (Subclass 601) kann nicht auf einen neuen Pass übertragen werden – ETA-Inhaber beantragen mit dem neuen Pass eine neue ETA.",
+      },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
     ],
   },
   {

@@ -252,7 +252,7 @@ export const nl: LangContent = {
           ],
         },
         {
-          note: "Vernieuwt u uw paspoort na de verlening, dan geldt het visum niet voor het nieuwe paspoort. Vraag dan opnieuw aan.",
+          note: "Vernieuwt u uw paspoort na de verlening, dan gaat het visum niet vanzelf over naar het nieuwe paspoort. Werk vóór uw reis de paspoortgegevens bij in ImmiAccount; een nieuwe aanvraag is niet nodig.",
         },
       ],
     },
@@ -326,7 +326,7 @@ export const nl: LangContent = {
         { h2: "Kan ik aanvragen vanuit Australië?" },
         { p: "Nee. U moet zich bij aanvraag en verlening buiten Australië bevinden." },
         { h2: "Ik heb een nieuw paspoort — geldt mijn visum nog?" },
-        { p: "Nee. Het hangt aan het oude paspoort. Vraag opnieuw aan met het nieuwe." },
+        { p: "Ja, mits u het nieuwe paspoort laat koppelen. Werk uw paspoortgegevens bij in ImmiAccount (Update details → Change of passport details). Volgens het Department of Home Affairs wordt het nieuwe paspoort binnen 3 werkdagen aan uw bestaande eVisitor gekoppeld. Alleen houders van een ETA (subclass 601) moeten met het nieuwe paspoort opnieuw aanvragen." },
         { h2: "Hebben baby's ook een visum nodig?" },
         { p: "Ja, iedere reiziger afzonderlijk, op het eigen paspoort." },
         { h2: "Wat als mijn paspoort niet op de lijst staat?" },

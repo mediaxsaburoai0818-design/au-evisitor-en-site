@@ -350,7 +350,7 @@ export const de: LangContent = {
         },
         { h2: "Ich habe einen neuen Reisepass. Gilt das Visum weiter?" },
         {
-          p: "Nein. Das Visum hängt an der Passnummer. Nach Verlust, Diebstahl oder Erneuerung müssen Sie erneut beantragen – auch das ist wieder kostenlos.",
+          p: "Ja, sofern Sie den neuen Pass verknüpfen lassen. Dazu aktualisieren Sie Ihre Passdaten im ImmiAccount (Update details → Change of passport details). Laut Department of Home Affairs wird der neue Pass innerhalb von 3 Arbeitstagen mit Ihrem bestehenden eVisitor verknüpft. Ein neuer eVisitor-Antrag ist nicht nötig. Nur Inhaber einer ETA (Subclass 601) müssen mit dem neuen Pass neu beantragen.",
         },
         { h2: "Ich habe zwei Staatsangehörigkeiten. Welcher Pass gilt?" },
         {
@@ -484,7 +484,7 @@ export const de: LangContent = {
           ul: [
             "Der Pass muss bei Antragstellung gültig sein.",
             "Das Visum wird an diesen einen Pass gebunden.",
-            "Bei einem neuen Pass ist ein neuer Antrag nötig.",
+            "Bei einem neuen Pass aktualisieren Sie die Passdaten im ImmiAccount; ein neuer Antrag ist nicht nötig.",
           ],
         },
         { h2: "3. Gesundheit und Vorstrafen" },

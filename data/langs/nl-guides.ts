@@ -526,16 +526,17 @@ export const nlGuides: Article[] = [
     enSlug: "passport-and-details",
     added: ADDED,
     title: "Uw eVisitor hangt aan één paspoort — vul de gegevens precies goed in",
-    description: "Het eVisitor hangt aan het paspoort waarmee u aanvroeg. Een nieuw paspoort, een afwijkende naam of de verkeerde nationaliteit houdt u tegen bij het inchecken.",
+    description: "Het eVisitor hangt aan het paspoort waarmee u aanvroeg. Een nieuw paspoort dat niet bij Home Affairs is bijgewerkt, een afwijkende naam of de verkeerde nationaliteit kan u tegenhouden bij het inchecken.",
     related: ["veelgemaakte-fouten", "nieuw-paspoort-na-toekenning", "evisitor-documenten"],
     blocks: [
       {
         p: "Er is geen sticker en geen afdruk die ertoe doet. Het eVisitor bestaat als registratie die aan een paspoortnummer is gekoppeld, en de luchtvaartmaatschappij controleert die registratie bij het inchecken. Is het paspoort in uw hand niet het paspoort uit de registratie, dan kunt u net zo goed geen visum hebben.",
       },
-      { h2: "Een nieuw paspoort betekent een nieuwe aanvraag" },
+      { h2: "Een nieuw paspoort moet vóór de reis gekoppeld zijn" },
       {
-        p: `Vernieuwt u uw paspoort, dan gaat uw bestaande eVisitor niet mee, ook al valt het misschien nog binnen de ${F.validMonths} maanden. Vraag vóór uw reis opnieuw aan met het nieuwe document. Het is gratis, dus er is geen financiële reden om te wachten.`,
+        p: `Vernieuwt u uw paspoort, dan gaat uw bestaande eVisitor niet vanzelf mee, ook al valt het misschien nog binnen de ${F.validMonths} maanden. Werk vóór uw reis uw paspoortgegevens bij in ImmiAccount: volgens Home Affairs wordt het nieuwe paspoort binnen 3 werkdagen aan uw bestaande visum gekoppeld (14 dagen als u het webformulier New Passport Details moet gebruiken).`,
       },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
       { h2: "Vul uw gegevens in precies zoals ze erin staan" },
       {
         ul: [
@@ -632,15 +633,19 @@ export const nlGuides: Article[] = [
       { h2: "Wat u doet" },
       {
         ul: [
-          "Geef het nieuwe paspoort vóór uw reis door aan het Department of Home Affairs",
-          "Vraag geen tweede eVisitor aan om het eerste te „vervangen” — zo wordt de wijziging niet afgehandeld",
-          "Neem het oude paspoort mee als u het nog hebt en het niet zo ongeldig is gemaakt dat dat niet kan",
+          "Log in op ImmiAccount en open uw eVisitor-aanvraag",
+          "Kies „Update details” en daarna „Change of passport details”",
+          "Vul de gegevens van het nieuwe paspoort en de reden van de wijziging in en verstuur ze",
+          "Volgens het Department of Home Affairs wordt het nieuwe paspoort binnen 3 werkdagen aan uw bestaande visum gekoppeld",
         ],
       },
       {
-        note: "Doe dit zodra het nieuwe paspoort binnen is, niet op de luchthaven. Gegevens bijwerken is routine als er tijd is, en een probleem als die er niet is.",
+        p: "Kan de wijziging niet in ImmiAccount worden doorgevoerd — bijvoorbeeld omdat u uw aanvraag niet in ImmiAccount kunt importeren, of omdat de geboortedatum in het paspoort is gewijzigd — dan verwijst Home Affairs naar het webformulier New Passport Details. De verwerking daarvan duurt tot 14 dagen.",
       },
-      { source: SRC_EVISITOR_F },
+      {
+        note: "Doe dit zodra het nieuwe paspoort binnen is, niet op de luchthaven. Dit geldt voor het eVisitor. Een ETA (subclass 601) kan niet naar een nieuw paspoort worden overgezet: ETA-houders vragen een nieuwe ETA aan.",
+      },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
     ],
   },
   {

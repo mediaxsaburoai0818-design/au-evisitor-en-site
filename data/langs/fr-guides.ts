@@ -265,15 +265,16 @@ export const frGuides: Article[] = [
     added: ADDED,
     related: ["evisitor-erreurs-a-eviter", "nouveau-passeport-apres-evisitor", "evisitor-demande-refusee"],
     title: "Votre eVisitor est rattaché à un seul passeport : saisissez les bonnes données",
-    description: "L'eVisitor est lié au passeport utilisé pour la demande. Un passeport renouvelé, un nom mal saisi ou la mauvaise nationalité vous bloquent à l'enregistrement.",
+    description: "L'eVisitor est lié au passeport utilisé pour la demande. Un passeport renouvelé dont les données n'ont pas été mises à jour auprès de Home Affairs, un nom mal saisi ou la mauvaise nationalité peuvent vous bloquer à l'enregistrement.",
     blocks: [
       {
         p: "Il n'y a ni vignette ni document imprimé qui compte. L'eVisitor existe sous la forme d'un enregistrement lié à un numéro de passeport, et la compagnie aérienne consulte cet enregistrement lors de l'enregistrement. Si le passeport que vous présentez n'est pas celui de l'enregistrement, c'est comme si le visa n'existait pas.",
       },
-      { h2: "Un nouveau passeport, une nouvelle demande" },
+      { h2: "Un nouveau passeport doit être rattaché avant le départ" },
       {
-        p: `Si vous renouvelez votre passeport, votre eVisitor ne passe pas sur le nouveau document, même s'il est encore dans ses ${F.validMonths} mois de validité. Refaites une demande avec le nouveau passeport avant de partir. Elle est gratuite : aucune raison financière d'attendre.`,
+        p: `Si vous renouvelez votre passeport, votre eVisitor ne passe pas de lui-même sur le nouveau document, même s'il est encore dans ses ${F.validMonths} mois de validité. Mettez à jour les données du passeport dans ImmiAccount avant de partir : selon Home Affairs, le nouveau passeport est rattaché à votre visa sous 3 jours ouvrés (14 jours si vous devez passer par le formulaire en ligne New Passport Details).`,
       },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
       { h2: "Saisissez vos données exactement comme sur le passeport" },
       {
         ul: [
@@ -376,15 +377,19 @@ export const frGuides: Article[] = [
       { h2: "Ce qu'il faut faire" },
       {
         ul: [
-          "Informez le Department of Home Affairs de votre nouveau passeport avant de partir.",
-          "Ne déposez pas un second eVisitor pour « remplacer » le premier — ce n'est pas ainsi que le changement se traite.",
-          "Emportez l'ancien passeport si vous l'avez encore et s'il n'a pas été annulé d'une manière qui l'empêche.",
+          "Connectez-vous à ImmiAccount et ouvrez votre demande d'eVisitor.",
+          "Sélectionnez « Update details », puis « Change of passport details ».",
+          "Saisissez les données du nouveau passeport et le motif du changement, puis validez l'envoi.",
+          "Selon le Department of Home Affairs, le nouveau passeport est rattaché à votre visa sous 3 jours ouvrés.",
         ],
       },
       {
-        note: "Faites-le dès que le nouveau passeport arrive, pas à l'aéroport. Mettre ses données à jour est une formalité quand on a le temps, et un problème quand on ne l'a plus.",
+        p: "Si la modification ne peut pas se faire dans ImmiAccount — par exemple si vous ne pouvez pas importer votre demande, ou si la date de naissance a changé sur le passeport — Home Affairs renvoie vers le formulaire en ligne New Passport Details, dont le traitement prend jusqu'à 14 jours.",
       },
-      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: F.officialUrl } },
+      {
+        note: "Faites-le dès que le nouveau passeport arrive, pas à l'aéroport. Cela concerne l'eVisitor. Une ETA (subclass 601) ne peut pas être transférée sur un nouveau passeport : les titulaires d'une ETA doivent en demander une nouvelle.",
+      },
+      { source: { label: "Department of Home Affairs — You have a new passport", url: "https://immi.homeaffairs.gov.au/change-in-situation/passport-details" } },
     ],
   },
 
