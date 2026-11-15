@@ -1,5 +1,8 @@
 import { FACTS as F, type LangContent } from "./_schema";
 
+/** 表記だけスペイン語にする（F.decisionTypical は英語の文字列なのでそのまま埋め込まない） */
+const DECISION = "entre unos minutos y unos días"; // = F.decisionTypical
+
 /**
  * スペイン語（/es/）。読者＝スペインのパスポート保持者。
  *
@@ -55,7 +58,7 @@ export const es: LangContent = {
     },
     {
       h: "España está admitida",
-      p: `Todos los Estados miembros de la UE, además del Reino Unido, Islandia, Noruega y Suiza, figuran entre los ${F.eligibleCountries} países admitidos. Quien no tenga uno de esos pasaportes utiliza la ETA.`,
+      p: `Todos los Estados miembros de la UE, además del Reino Unido (solo pasaportes de British Citizen; los de British National (Overseas) y otros tipos de pasaporte británico no sirven), Islandia, Noruega y Suiza, figuran entre los ${F.eligibleCountries} países admitidos. Quien no tenga uno de esos pasaportes utiliza la ETA.`,
     },
     {
       h: "Gratuito, pero solo en la web oficial",
@@ -68,7 +71,7 @@ export const es: LangContent = {
     th: ["Su pasaporte", "Visado", "Coste", "Dónde se solicita"],
     rows: [
       [
-        `UE, Reino Unido, Islandia, Noruega, Suiza y otros países europeos (${F.eligibleCountries} en total) — España incluida`,
+        `UE, Reino Unido (solo British Citizen), Islandia, Noruega, Suiza y otros países europeos (${F.eligibleCountries} en total) — España incluida`,
         "eVisitor (subclass 651)",
         F.fee,
         "Web del Department of Home Affairs (ImmiAccount)",
@@ -105,7 +108,7 @@ export const es: LangContent = {
       },
       {
         h: "Espere el correo de confirmación",
-        p: `Muchas solicitudes se resuelven en ${F.decisionTypical}, aunque no está garantizado. Solicítelo antes de hacer reservas no reembolsables y guarde la confirmación con su documentación de viaje.`,
+        p: `Muchas solicitudes se resuelven ${DECISION}, aunque no está garantizado. Solicítelo antes de hacer reservas no reembolsables y guarde la confirmación con su documentación de viaje.`,
       },
     ],
     cta: "Empezar en la página oficial del eVisitor",
@@ -264,10 +267,10 @@ export const es: LangContent = {
     {
       slug: "evisitor-plazos",
       title: "¿Cuánto tarda una solicitud de eVisitor?",
-      description: `Muchas solicitudes se resuelven en ${F.decisionTypical}. Qué ralentiza la tramitación y por qué no existe un procedimiento urgente.`,
+      description: `Muchas solicitudes se resuelven ${DECISION}. Qué ralentiza la tramitación y por qué no existe un procedimiento urgente.`,
       blocks: [
         {
-          p: `Buena parte de las solicitudes se resuelve automáticamente, a menudo en ${F.decisionTypical}. Es un dato de experiencia, no un compromiso.`,
+          p: `Buena parte de las solicitudes se resuelve automáticamente, a menudo ${DECISION}. Es un dato de experiencia, no un compromiso.`,
         },
         { h2: "Qué ralentiza la tramitación" },
         {
@@ -437,7 +440,7 @@ export const es: LangContent = {
           p: "Debe estar fuera de Australia al solicitarlo y en el momento de la concesión. No es un trámite formal: es una condición del visado.",
         },
         {
-          note: `Muchas resoluciones llegan en ${F.decisionTypical}, pero no organice el viaje contando con ello. Solicítelo en cuanto el viaje esté decidido.`,
+          note: `Muchas resoluciones llegan ${DECISION}, pero no organice el viaje contando con ello. Solicítelo en cuanto el viaje esté decidido.`,
         },
       ],
     },
@@ -487,9 +490,9 @@ export const es: LangContent = {
         {
           p: `Cada estancia puede durar hasta ${F.stayMonths} meses. Durante la validez puede viajar tantas veces como quiera, siempre que cada estancia se mantenga por debajo de ese límite.`,
         },
-        { h2: "Salir y volver no reinicia el contador" },
+        { h2: "Salir y volver" },
         {
-          p: "Salir brevemente del país para que el contador vuelva a empezar es una maniobra conocida y se detecta como tal. La Australian Border Force mira el conjunto de sus desplazamientos, no solo el último sello.",
+          p: `Salir de Australia y volver abre un nuevo periodo de hasta ${F.stayMonths} meses. Pero hacerlo una y otra vez para, en la práctica, vivir en Australia no pasa desapercibido: la Australian Border Force mira el conjunto de sus desplazamientos, no solo el último sello, y puede hacerle preguntas o denegarle la entrada.`,
         },
         { h2: "Quedarse más tiempo" },
         {

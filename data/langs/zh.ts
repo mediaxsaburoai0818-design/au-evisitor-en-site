@@ -1,4 +1,5 @@
 import { FACTS as F, type LangContent } from "./_schema";
+const DECISION = "几分钟到几天"; // = F.decisionTypical（表示用）
 
 /**
  * 簡体字（/zh/）。読者＝シンガポールなど中国語（簡体字）圏のパスポート保持者。
@@ -42,7 +43,7 @@ export const zh: LangContent = {
   ],
   whatIs: {
     h2: "为什么新加坡护照不能申请 eVisitor？",
-    p1: `eVisitor（subclass 651）是澳大利亚只提供给欧洲 ${F.eligibleCountries} 个国家（全体欧盟成员国以及英国、冰岛、挪威、瑞士等）护照持有人的免费访客签证。这是按国籍划分的条件，因此即使长期居住在欧洲，只要持新加坡护照就不符合条件。`,
+    p1: `eVisitor（subclass 651）是澳大利亚只提供给欧洲 ${F.eligibleCountries} 个国家（全体欧盟成员国以及英国〔仅限英国公民护照，BN(O) 等其他英国护照不适用〕、冰岛、挪威、瑞士等）护照持有人的免费访客签证。这是按国籍划分的条件，因此即使长期居住在欧洲，只要持新加坡护照就不符合条件。`,
     p2: `对应的制度是 ETA（subclass 601）。费用为 ${F.etaFee}，有效期 ${F.validMonths} 个月，每次停留最长 ${F.stayMonths} 个月——条件本身与 eVisitor 基本一致。不同之处在于需要付费，以及申请入口是官方手机应用而不是网站。`,
   },
   features: [
@@ -71,7 +72,7 @@ export const zh: LangContent = {
         "仅限官方手机应用",
       ],
       [
-        `欧盟、英国、冰岛、挪威、瑞士等欧洲 ${F.eligibleCountries} 国`,
+        `欧盟、英国（仅限英国公民护照）、冰岛、挪威、瑞士等欧洲 ${F.eligibleCountries} 国`,
         "eVisitor（subclass 651）",
         F.fee,
         "内政事务部网站（ImmiAccount）",
@@ -239,7 +240,7 @@ export const zh: LangContent = {
       blocks: [
         { h2: "多数是几分钟" },
         {
-          p: `大部分申请由系统自动审核，几分钟内出结果。官方给出的一般范围是 ${F.decisionTypical}。但这是经验值，不是承诺。`,
+          p: `大部分申请由系统自动审核，几分钟内出结果。官方给出的一般范围是${DECISION}。但这是经验值，不是承诺。`,
         },
         { h2: "会变慢的情况" },
         {
@@ -421,7 +422,7 @@ export const zh: LangContent = {
         { h2: "eVisitor（subclass 651）" },
         {
           ul: [
-            `仅限欧洲 ${F.eligibleCountries} 个国家的护照（全体欧盟成员国、英国、冰岛、挪威、瑞士等）`,
+            `仅限欧洲 ${F.eligibleCountries} 个国家的护照（全体欧盟成员国、英国〔仅限英国公民护照，BN(O) 等其他英国护照不适用〕、冰岛、挪威、瑞士等）`,
             `费用 ${F.fee}`,
             "通过内政事务部网站（ImmiAccount）申请，没有专用应用",
           ],

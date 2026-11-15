@@ -9,6 +9,12 @@ import type { PracticalPack } from "./_schema";
  */
 
 const CHECKED = "12 oktober 2026";
+/** 2026-11-15 に追加した2ページ（major-airports / public-transport）の確認日 */
+const CHECKED_1115 = "15 november 2026";
+/** F の金額をオランダ語の表記にしただけ（小数点はコンマ・桁区切りはピリオド）。値は変えない */
+const STATION_FEE = F.sydneyStationFeeDomIntl.replace(".", ","); // = F.sydneyStationFeeDomIntl
+const SEQ_DEFAULT = F.seqDefaultFare.replace(".", ","); // = F.seqDefaultFare
+const CASH = F.cashReportThreshold.replace(",", "."); // = F.cashReportThreshold
 
 export const nlPractical: PracticalPack = {
   ui: { faq: "Veelgestelde vragen", source: "Bron", related: "Gerelateerd" },
@@ -25,17 +31,17 @@ export const nlPractical: PracticalPack = {
           p: `Het eVisitor beantwoordt één vraag: of u naar Australië mag reizen en er telkens maximaal ${F.stayMonths} maanden mag blijven. Het zegt niets over wat er op het vliegveld gebeurt, wat u mag meenemen, hoe u betaalt of wat u doet als er iets misgaat. Daarvoor zijn deze pagina's. Elke pagina is gecontroleerd bij de verantwoordelijke Australische overheidsinstantie en linkt daarnaar.`,
         },
         { h2: "Aan de grens" },
-        { links: ["smartgate-australie", "medicijnen-meenemen"] },
+        { links: ["luchthavens-sydney-melbourne-brisbane", "smartgate-australie", "vragen-bij-aankomst", "biosecurity-australie", "douane-vrijstellingen", "medicijnen-meenemen", "transit-via-australie"] },
         { h2: "Geld" },
         { links: ["geld-en-fooi", "belastingteruggave-trs"] },
         { h2: "Onderweg en bereikbaar blijven" },
-        { links: ["autorijden-in-australie", "telefoon-en-simkaart", "stekkers-en-stroom", "feestdagen-australie"] },
+        { links: ["openbaar-vervoer-australie", "autorijden-in-australie", "telefoon-en-simkaart", "stekkers-en-stroom", "feestdagen-australie"] },
         { h2: "Gezondheid en veiligheid" },
         { links: ["zorg-voor-bezoekers", "alarmnummers-australie", "roken-vapen-alcohol"] },
         { h2: "De terugreis" },
-        { links: ["vloeistoffen-handbagage"] },
+        { links: ["vloeistoffen-handbagage", "drie-maanden-per-bezoek", "uitreizen-en-terugkomen"] },
         {
-          note: "Waar we geen pagina over hebben gemaakt: het openbaar vervoer. Er is geen landelijk systeem — elke stad heeft een eigen kaart en eigen tarieven (Opal in Sydney, myki in Melbourne, go card in South East Queensland). Kijk bij de vervoersautoriteit van de stad die u bezoekt.",
+          note: "Er is geen landelijk systeem voor openbaar vervoer — elke stad heeft een eigen kaart en eigen tariefregels. Onze pagina over openbaar vervoer behandelt Sydney, South East Queensland en Perth. Voor Melbourne, Adelaide en andere steden kijkt u bij de vervoersautoriteit van de stad die u bezoekt.",
         },
       ],
       checked: CHECKED,
@@ -173,7 +179,7 @@ export const nlPractical: PracticalPack = {
       slug: "geld-en-fooi",
       enSlug: "money-and-tipping",
       title: "Geld in Australië: contant, toeslagen op kaartbetalingen, GST en fooi",
-      description: `Prijzen zijn inclusief ${F.gstPercent}% GST, kaarttoeslagen zijn verboden vanaf 1 oktober 2026 en fooi is vrijwillig. Contant ${F.cashReportThreshold}+ moet u aangeven.`,
+      description: `Prijzen zijn inclusief ${F.gstPercent}% GST, kaarttoeslagen zijn verboden vanaf 1 oktober 2026 en fooi is vrijwillig. Contant ${CASH}+ moet u aangeven.`,
       related: ["belastingteruggave-trs", "telefoon-en-simkaart", "feestdagen-australie"],
       blocks: [
         {
@@ -194,9 +200,9 @@ export const nlPractical: PracticalPack = {
         {
           p: `Tourism Australia noemt fooi vrijwillig en in de meeste gevallen niet verwacht. In betere restaurants is ongeveer 10% voor goede bediening gebruikelijk. In een café of taxi beledigt u niemand als u geen fooi geeft.`,
         },
-        { h2: `Contant geld vanaf ${F.cashReportThreshold} moet u aangeven` },
+        { h2: `Contant geld vanaf ${CASH} moet u aangeven` },
         {
-          p: `Er is geen maximum aan hoeveel geld u Australië in of uit mag nemen. Maar als u contant geld en betaalmiddelen zoals reischeques, cheques of postwissels bij u hebt — in welke valuta ook — met een gezamenlijke waarde van ${F.cashReportThreshold} of meer, moet u dat bij aankomst en bij vertrek aangeven.`,
+          p: `Er is geen maximum aan hoeveel geld u Australië in of uit mag nemen. Maar als u contant geld en betaalmiddelen zoals reischeques, cheques of postwissels bij u hebt — in welke valuta ook — met een gezamenlijke waarde van ${CASH} of meer, moet u dat bij aankomst en bij vertrek aangeven.`,
         },
         {
           ul: [
@@ -212,8 +218,8 @@ export const nlPractical: PracticalPack = {
       ],
       faq: [
         {
-          q: `Is het verboden meer dan ${F.cashReportThreshold} mee te nemen naar Australië?`,
-          a: `Nee. Er is geen maximum. Bedragen van ${F.cashReportThreshold} of meer aan contant geld en vergelijkbare betaalmiddelen moet u alleen aangeven.`,
+          q: `Is het verboden meer dan ${CASH} mee te nemen naar Australië?`,
+          a: `Nee. Er is geen maximum. Bedragen van ${CASH} of meer aan contant geld en vergelijkbare betaalmiddelen moet u alleen aangeven.`,
         },
         {
           q: "Mogen winkels nog extra rekenen als ik met de kaart betaal?",
@@ -718,6 +724,130 @@ export const nlPractical: PracticalPack = {
         },
       ],
       checked: CHECKED,
+      practical: true,
+    },
+    /* ── 2026-11-15 toegevoegd（英語 major-airports / public-transport）。確認日は 2026-11-15 ── */
+    {
+      slug: "luchthavens-sydney-melbourne-brisbane",
+      enSlug: "major-airports",
+      added: "2026-11-15",
+      title: "Aankomen op de luchthavens van Sydney, Melbourne en Brisbane: wat de exploitanten zeggen",
+      description: "Van de internationale terminal naar Sydney, Melbourne en Brisbane, plus Western Sydney International, volgens luchthavens en vervoersautoriteiten.",
+      related: ["openbaar-vervoer-australie", "smartgate-australie", "vragen-bij-aankomst", "aankomst-in-australie"],
+      blocks: [
+        {
+          p: `Op welke luchthaven u ook landt, de stappen aan de grens zijn hetzelfde: paspoortcontrole (een SmartGate of een ambtenaar), dan de bagage, dan biosecurity en douane. De ABF omschrijft SmartGates als poortjes die „met gezichtsherkenning en uw paspoort uw identiteit controleren en u door de paspoortcontrole helpen” (use facial recognition technology and your passport to check your identity and process you through Passport Control). Wat per luchthaven verschilt, is de weg naar de stad. Deze pagina geeft alleen wat de luchthavenexploitanten en de vervoersautoriteiten van de staten zelf publiceren.`,
+        },
+        { h2: "Sydney (SYD)" },
+        {
+          ul: [
+            "Sydney Airport meldt dat de luchthaven op 8 km van het centrum (CBD) van Sydney ligt en bereikbaar is per trein, bus, taxi en rideshare. Internationale vluchten gebruiken T1 International.",
+            "De treinstations liggen onder de terminals. De treinen van de T8 Airport & South Line rijden elke dag tussen 5.00 uur en middernacht.",
+            "Op de luchthavenstations wordt bovenop de treinprijs een stationstoeslag (station access fee) gerekend door het bedrijf dat de stations in eigendom heeft. Die toeslag telt niet mee voor de Opal-dag-, week- en vrijdag/weekendplafonds.",
+            `Tussen het binnenlandse en het internationale luchthavenstation bedraagt de toeslag ${STATION_FEE} plus de treinprijs. Om tussen de binnenlandse en de internationale terminal te reizen, verwijst Transport for NSW naar de T8-trein of buslijn 420.`,
+            `Koopt of herlaadt u een Opal-kaart op een luchthavenstation, dan is het minimale opwaardeerbedrag ${F.opalAirportMinTopUp}. De Opal-overstap binnen 60 minuten geldt niet op de stations van Sydney Airport.`,
+            "Volwassenentarieven kunt u zonder voorbereiding betalen met een contactloze creditcard of debetkaart.",
+          ],
+        },
+        { source: { label: "Sydney Airport", url: "https://www.sydneyairport.com.au/" } },
+        { source: { label: "Transport for NSW — Getting to and from Sydney Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-sydney-airport" } },
+        { h2: "Western Sydney International (WSI)" },
+        {
+          p: `Transport for NSW noemt zondag 25 oktober 2026 als openingsdatum van de luchthaven. Volgens Transport for NSW zijn er op dit moment geen rechtstreekse treinen naar WSI. De gratis WSI Link-bus rijdt elke ${F.wsiLinkEveryMinutes} minuten tussen station St Marys en de luchthaven, van zondag tot en met donderdag van 4.30 uur tot middernacht en op vrijdag en zaterdag van 4.30 uur tot 1.00 uur. De Sydney Metro-lijn naar de luchthaven is nog in aanbouw, en op WSI gelden geen vaste taxitarieven.`,
+        },
+        {
+          p: "De Australian Border Force biedt een webformulier voor de Australia Travel Declaration dat volgens de ABF „alleen beschikbaar is voor vluchten die aankomen op Western Sydney International Airport” (only available for flights arriving at Western Sydney International Airport), en vraagt reizigers die op een andere Australische luchthaven aankomen het niet in te vullen.",
+        },
+        {
+          note: "De actuele gang van zaken op WSI konden we niet bevestigen op de eigen website van de luchthaven. Informeer vóór uw reis bij uw luchtvaartmaatschappij en de luchthaven.",
+        },
+        { source: { label: "Transport for NSW — Getting to and from Western Sydney International Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-western-sydney-international-airport-wsi" } },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
+        { h2: "Melbourne (MEL)" },
+        {
+          ul: [
+            "Melbourne Airport meldt dat de luchthaven met het centrum en verder verbonden is via reguliere openbare buslijnen, SkyBus en regionale en charterbussen.",
+            "Het centrum ligt volgens de luchthaven op ongeveer 30 minuten met de taxi. De luchthaven raadt af in te gaan op taxiaanbiedingen buiten de aangewezen taxistandplaatsen bij Terminal 1, 2 en 4.",
+          ],
+        },
+        { source: { label: "Melbourne Airport — Getting to and from the airport", url: "https://www.melbourneairport.com.au/getting-to-from-the-airport" } },
+        { h2: "Brisbane (BNE)" },
+        {
+          ul: [
+            "Na de landing gaat u naar immigratie en paspoortcontrole, bij een SmartGate of bij een ambtenaar.",
+            "Elke passagier krijgt een Passport Control-ticket, dat u laat zien aan de medewerkers van Biosecurity en de douane voordat u de terminal verlaat.",
+            "Brisbane Airport herinnert aankomende reizigers eraan dat bepaalde zaken op de Incoming Passenger Card moeten worden aangegeven, en dat er straffen kunnen volgen als u dat niet doet.",
+            "Voor de Airtrain neemt u de lift naar niveau 3, verlaat u de terminal en loopt u over de brug naar het station. In de spits rijden de treinen elke 15 minuten, daarbuiten elke 30 minuten.",
+            "Taxi's rijden 24 uur per dag vanaf de standplaats aan de aankomstweg op niveau 2.",
+          ],
+        },
+        { source: { label: "Brisbane Airport — International arrivals", url: "https://www.bne.com.au/passenger/passenger-information/international-arrivals" } },
+        { source: { label: "Australian Border Force — SmartGates on arrival", url: "https://www.abf.gov.au/entering-and-leaving-australia/smartgates/arrivals" } },
+        {
+          note: "Perth, Adelaide, Cairns, Gold Coast, Darwin, Hobart en Canberra behandelen we hier niet, omdat we hun officiële pagina's niet konden controleren. Kijk op de eigen website van de luchthaven.",
+        },
+      ],
+      checked: CHECKED_1115,
+      practical: true,
+    },
+    {
+      slug: "openbaar-vervoer-australie",
+      enSlug: "public-transport",
+      added: "2026-11-15",
+      title: "Openbaar vervoer in Sydney, South East Queensland en Perth: Opal, go card, SmartRider",
+      description: "Elke stad heeft een eigen betaalsysteem. Zo betaalt u in Sydney (Opal), South East Queensland (go card) en Perth (SmartRider), volgens officiële bronnen.",
+      related: ["luchthavens-sydney-melbourne-brisbane", "autorijden-in-australie", "geld-en-fooi", "aankomst-in-australie"],
+      blocks: [
+        {
+          p: "Australië heeft geen landelijke ov-kaart. Elke staat heeft een eigen systeem met eigen regels, en een kaart uit de ene stad werkt niet in de andere. Deze pagina behandelt de drie systemen waarvan we de officiële pagina's konden controleren: Sydney en NSW, South East Queensland en Perth.",
+        },
+        { h2: "Sydney en NSW — Opal" },
+        {
+          ul: [
+            "Opal is het betaalsysteem voor het openbaar vervoer in Sydney, de Blue Mountains, de Central Coast, de Hunter en de Illawarra.",
+            "U checkt in en uit (tap on en tap off) met een Opal-kaart of, voor de meeste soorten tarieven, met een contactloze creditcard of debetkaart (American Express, Mastercard, Visa). Gebruik voor de hele reis dezelfde kaart of hetzelfde apparaat.",
+            "Contactloos betalen kost hetzelfde Opal-tarief en geeft dezelfde Opal-voordelen.",
+            "Zonder Opal-kaart of contactloze betaling hebt u een Opal single trip ticket nodig, dat alleen bestaat voor metro, trein, veerboot en light rail.",
+            "Volwassenentarieven krijgen $2 korting voor elke overstap tussen vervoerswijzen binnen één reis, en buiten de spits zijn de tarieven 30% lager.",
+            "Houd kaarten in uw portemonnee uit elkaar: Transport for NSW waarschuwt voor card clash (de poort leest de verkeerde kaart).",
+          ],
+        },
+        {
+          note: "Op de stations van Sydney Airport geldt bovenop de ritprijs een aparte stationstoeslag — zie de pagina over de luchthavens.",
+        },
+        { source: { label: "Transport for NSW — Opal", url: "https://transportnsw.info/tickets-fares/opal" } },
+        { source: { label: "Transport for NSW — Fares", url: "https://transportnsw.info/tickets-fares/fares" } },
+        { source: { label: "Transport for NSW — Contactless payments", url: "https://transportnsw.info/tickets-fares/contactless-payments" } },
+        { h2: "South East Queensland — go card (Translink)" },
+        {
+          ul: [
+            `Translink meldt dat ritten op al zijn diensten een vast tarief van ${F.seqFlatFare} kosten, ongeacht de afstand of de manier van betalen.`,
+            "De go card werkt op alle bussen, treinen (ook de Airtrain), veerboten en trams van Translink in Greater Brisbane, Ipswich, Moreton Bay, Redlands, de Sunshine Coast en de Gold Coast. Op de Airtrain gelden de Airtrain-tarieven.",
+            "Contactloos betalen kan in alle treinen, trams, veerboten en bussen in South East Queensland.",
+            `Vergeet u in of uit te checken, dan kan een standaardtarief van ${SEQ_DEFAULT} in rekening worden gebracht.`,
+            "Apple Pay, Samsung Pay en Google Pay gelden als een ander betaalmiddel dan de fysieke kaart erachter, dus check in en uit met hetzelfde middel.",
+            "Translink meldt dat het nooit boetes of naheffingen per sms verstuurt.",
+          ],
+        },
+        { source: { label: "Translink — go card", url: "https://translink.com.au/tickets-and-fares/go-card" } },
+        { source: { label: "Translink — Contactless payments", url: "https://translink.com.au/tickets-and-fares/contactless-payments" } },
+        { h2: "Perth — SmartRider (Transperth)" },
+        {
+          ul: [
+            "SmartRider is de herbruikbare chipkaart van Transperth. Contactloze bankpassen worden ook geaccepteerd, tegen het gewone contante tarief; kortingstarieven gelden niet bij contactloos betalen.",
+            "Het Go Anywhere-tarief dekt reizen over het hele netwerk binnen drie uur, en tarieven met SmartRider en contactloos betalen worden automatisch tot dat bedrag begrensd.",
+            "Elke zondag reizen SmartRider-houders en passagiers die contactloos betalen gratis.",
+            "Buschauffeurs van Transperth nemen geen contant geld aan.",
+            "Transperth heeft een Airport line.",
+          ],
+        },
+        { source: { label: "Transperth — What is SmartRider", url: "https://www.transperth.wa.gov.au/SmartRider/What-is-SmartRider" } },
+        { source: { label: "Transperth — Fares", url: "https://www.transperth.wa.gov.au/Tickets-Fares/Fares" } },
+        {
+          note: "Niet behandeld: Melbourne (myki) en Adelaide (metroCARD), omdat we de officiële pagina's niet konden lezen, en tariefbedragen die we niet konden bevestigen. Kijk daarvoor op de website van de vervoersautoriteit zelf.",
+        },
+      ],
+      checked: CHECKED_1115,
       practical: true,
     },
   ],

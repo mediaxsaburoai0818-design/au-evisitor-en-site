@@ -1,5 +1,8 @@
 import { FACTS as F, type LangContent } from "./_schema";
 
+/** = F.decisionTypical（英語の文言 "minutes to a few days" を仏語の表記にしただけ。値は同じ） */
+const DECISION = "quelques minutes à quelques jours";
+
 /**
  * フランス語（/fr/）。読者＝フランスのパスポート保持者。
  *
@@ -52,7 +55,7 @@ export const fr: LangContent = {
     },
     {
       h: "La France est éligible",
-      p: `Tous les États membres de l'UE, ainsi que le Royaume-Uni, l'Islande, la Norvège et la Suisse, figurent parmi les ${F.eligibleCountries} pays éligibles. Sans l'un de ces passeports, c'est l'ETA qui s'applique.`,
+      p: `Tous les États membres de l'UE, ainsi que le Royaume-Uni (passeports British Citizen uniquement), l'Islande, la Norvège et la Suisse, figurent parmi les ${F.eligibleCountries} pays éligibles. Sans l'un de ces passeports, c'est l'ETA qui s'applique.`,
     },
     {
       h: "Gratuit — uniquement sur le site officiel",
@@ -65,7 +68,7 @@ export const fr: LangContent = {
     th: ["Votre passeport", "Visa", "Coût", "Où demander"],
     rows: [
       [
-        `UE, Royaume-Uni, Islande, Norvège, Suisse et autres pays européens (${F.eligibleCountries} au total) — France incluse`,
+        `UE, Royaume-Uni (passeports British Citizen uniquement), Islande, Norvège, Suisse et autres pays européens (${F.eligibleCountries} au total) — France incluse`,
         "eVisitor (subclass 651)",
         F.fee,
         "Site du Department of Home Affairs (ImmiAccount)",
@@ -93,11 +96,11 @@ export const fr: LangContent = {
       },
       {
         h: "Déclarer santé et antécédents judiciaires",
-        p: "Vous déclarez votre état de santé et vos éventuels antécédents judiciaires. Les dossiers simples sont traités automatiquement ; les réponses qui appellent un examen sont la première cause de délai.",
+        p: "Vous déclarez votre état de santé et vos éventuels antécédents judiciaires. Les dossiers simples sont traités automatiquement ; les réponses qui appellent un examen sont une cause fréquente de délai.",
       },
       {
         h: "Attendre le courriel de confirmation",
-        p: `Beaucoup de demandes sont tranchées en ${F.decisionTypical}, sans garantie. Demandez le visa avant toute réservation non remboursable et conservez la confirmation avec vos documents de voyage.`,
+        p: `Beaucoup de demandes sont tranchées en ${DECISION}, sans garantie. Demandez le visa avant toute réservation non remboursable et conservez la confirmation avec vos documents de voyage.`,
       },
     ],
     cta: "Commencer sur la page officielle eVisitor",
@@ -196,7 +199,7 @@ export const fr: LangContent = {
           ],
         },
         {
-          note: `Vous devez vous trouver hors d'Australie au moment de la demande et au moment de la délivrance. C'est le point le plus souvent oublié.`,
+          note: `Vous devez vous trouver hors d'Australie au moment de la demande et au moment de la délivrance. C'est un point facile à oublier.`,
         },
       ],
     },
@@ -256,10 +259,10 @@ export const fr: LangContent = {
     {
       slug: "evisitor-delai",
       title: "Combien de temps prend une demande d'eVisitor ?",
-      description: `Beaucoup de demandes sont tranchées en ${F.decisionTypical}. Ce qui ralentit l'instruction et pourquoi il n'existe pas de procédure d'urgence.`,
+      description: `Beaucoup de demandes sont tranchées en ${DECISION}. Ce qui ralentit l'instruction et pourquoi il n'existe pas de procédure d'urgence.`,
       blocks: [
         {
-          p: `Une grande partie des demandes est traitée automatiquement, souvent en ${F.decisionTypical}. C'est un constat d'usage, pas un engagement.`,
+          p: `Une grande partie des demandes est traitée automatiquement, souvent en ${DECISION}. C'est un constat d'usage, pas un engagement.`,
         },
         { h2: "Ce qui ralentit l'instruction" },
         {
@@ -418,7 +421,7 @@ export const fr: LangContent = {
         },
         { h2: "2. Saisir les données du passeport" },
         {
-          p: "Reprenez nom, numéro et date de naissance exactement comme sur le passeport. Une orthographe différente est la première cause de problèmes à l'enregistrement.",
+          p: "Reprenez nom, numéro et date de naissance exactement comme sur le passeport. Une orthographe différente peut poser problème à l'enregistrement.",
         },
         { h2: "3. Faire les déclarations" },
         {
@@ -429,7 +432,7 @@ export const fr: LangContent = {
           p: "Vous devez être hors d'Australie lors de la demande et de la délivrance. Ce n'est pas une formalité, c'est une condition du visa.",
         },
         {
-          note: `Beaucoup de décisions arrivent en ${F.decisionTypical}, mais ne bâtissez pas votre planning dessus. Demandez dès que le voyage est décidé.`,
+          note: `Beaucoup de décisions arrivent en ${DECISION}, mais ne bâtissez pas votre planning dessus. Demandez dès que le voyage est décidé.`,
         },
       ],
     },
@@ -479,9 +482,9 @@ export const fr: LangContent = {
         {
           p: `Chaque séjour peut durer jusqu'à ${F.stayMonths} mois. Pendant la validité, vous pouvez voyager autant de fois que vous le souhaitez, tant que chaque séjour reste sous cette limite.`,
         },
-        { h2: "Sortir et revenir ne remet pas le compteur à zéro" },
+        { h2: "Sortir et revenir : un nouveau séjour, mais sous surveillance" },
         {
-          p: "Quitter brièvement le pays pour relancer le décompte est un montage connu et repéré comme tel. L'Australian Border Force regarde l'ensemble de vos déplacements, pas seulement le dernier tampon.",
+          p: `Chaque nouvelle entrée ouvre une nouvelle période de séjour de ${F.stayMonths} mois maximum, tant que le visa est valable. En revanche, enchaîner les allers-retours pour vivre de fait en Australie se voit : l'Australian Border Force regarde l'ensemble de vos déplacements, pas seulement la dernière entrée, et peut poser des questions ou refuser l'entrée.`,
         },
         { h2: "Rester plus longtemps" },
         {

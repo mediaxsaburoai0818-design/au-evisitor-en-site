@@ -34,6 +34,10 @@ const SURCHARGE_FROM = esDate(F.surchargeBanFrom);
 
 const HUB = "llegar-a-australia";
 
+/** 2026-11-15 追加の実用ページ（主要空港・公共交通）の確認日と、表記だけスペイン語にした値 */
+const CHECKED_NOV = "15 de noviembre de 2026";
+const SEQ_FLAT = "50 céntimos"; // = F.seqFlatFare（"50 cent"）
+
 export const esPractical: PracticalPack = {
   ui: { faq: "Preguntas frecuentes", source: "Fuente", related: "Relacionado" },
   articles: [
@@ -49,17 +53,17 @@ export const esPractical: PracticalPack = {
           p: `Su visado —el eVisitor u otro— resuelve una sola cuestión: si puede viajar a Australia y cuánto tiempo puede quedarse (con el eVisitor, hasta ${F.stayMonths} meses por entrada). No le dice qué ocurre en el aeropuerto, qué puede llevar, cómo pagar ni qué hacer si algo sale mal. De eso tratan estas páginas. Cada una está contrastada con el organismo público australiano competente y enlaza a él.`,
         },
         { h2: "En la frontera" },
-        { links: ["smartgate-australia", "llevar-medicamentos"] },
+        { links: ["aeropuertos-principales", "smartgate-australia", "preguntas-en-la-frontera", "bioseguridad-australia", "franquicias-aduaneras", "llevar-medicamentos", "transito-por-australia"] },
         { h2: "Dinero" },
         { links: ["dinero-y-propinas", "devolucion-impuestos-trs"] },
         { h2: "Desplazarse y estar conectado" },
-        { links: ["conducir-en-australia", "telefono-y-tarjeta-sim", "enchufes-y-voltaje", "festivos-australia"] },
+        { links: ["transporte-publico", "conducir-en-australia", "telefono-y-tarjeta-sim", "enchufes-y-voltaje", "festivos-australia"] },
         { h2: "Salud y seguridad" },
         { links: ["sanidad-para-visitantes", "numeros-de-emergencia", "tabaco-vapeo-alcohol"] },
         { h2: "El vuelo de vuelta" },
-        { links: ["liquidos-equipaje-de-mano"] },
+        { links: ["liquidos-equipaje-de-mano", "evisitor-tres-meses-por-visita", "salir-y-volver-a-australia"] },
         {
-          note: "Sobre qué no hemos escrito una página: el transporte público. No existe un sistema nacional: cada ciudad tiene su propia tarjeta y sus propias tarifas (Opal en Sídney, myki en Melbourne, go card en el sudeste de Queensland). Consulte la autoridad de transporte de la ciudad que visite.",
+          note: "No existe un sistema nacional de transporte público: cada ciudad tiene su propia tarjeta y sus propias tarifas. Nuestra página de transporte público trata Sídney, el sudeste de Queensland y Perth. Para Melbourne, Adelaida y otras ciudades, consulte la autoridad de transporte de la ciudad que visite.",
         },
       ],
       checked: CHECKED,
@@ -752,6 +756,130 @@ export const esPractical: PracticalPack = {
         },
       ],
       checked: CHECKED,
+      practical: true,
+    },
+    /* ── 2026-11-15 追加（英語 major-airports / public-transport）。英語にない運賃・空港は書かない ── */
+    {
+      slug: "aeropuertos-principales",
+      enSlug: "major-airports",
+      added: "2026-11-15",
+      title: "Llegar a los aeropuertos de Sídney, Melbourne y Brisbane: lo que dicen sus operadores",
+      description: "De la terminal internacional al centro en Sídney, Melbourne y Brisbane, y el nuevo Western Sydney International, según operadores y autoridades de transporte.",
+      related: ["transporte-publico", "smartgate-australia", "preguntas-en-la-frontera", HUB],
+      blocks: [
+        {
+          p: "Llegue al aeropuerto que llegue, los pasos fronterizos son los mismos: control de pasaportes (una SmartGate o un agente), recogida del equipaje y, después, bioseguridad y aduana. La ABF describe las SmartGates como puertas que «utilizan tecnología de reconocimiento facial y su pasaporte para comprobar su identidad y tramitar su paso por el control de pasaportes». Lo que cambia de un aeropuerto a otro es la forma de llegar a la ciudad. Esta página recoge solo lo que publican los operadores aeroportuarios y las autoridades de transporte de cada estado.",
+        },
+        { h2: "Sídney (SYD)" },
+        {
+          ul: [
+            "Sydney Airport indica que está a 8 km del centro de Sídney (CBD) y que se llega en tren, autobús, taxi y VTC. Los vuelos internacionales operan en la T1 International.",
+            "Las estaciones de tren están bajo las terminales. Los trenes de la línea T8 Airport & South circulan todos los días entre las 5:00 y la medianoche.",
+            "En las estaciones del aeropuerto se cobra, además del billete de tren, una tasa de acceso a la estación (station access fee) de la empresa privada propietaria de las estaciones. No se incluye en los topes diarios, semanales ni de viernes y fin de semana de Opal.",
+            `Entre la estación del aeropuerto nacional y la del internacional, la tasa de acceso es de ${F.sydneyStationFeeDomIntl} más el billete de tren. Para pasar de la terminal nacional a la internacional, Transport for NSW remite al tren T8 o al autobús de la línea 420.`,
+            `Si compra o recarga una tarjeta Opal en una estación del aeropuerto, la recarga mínima es de ${F.opalAirportMinTopUp}. El transbordo de 60 minutos de Opal no se aplica en las estaciones del aeropuerto de Sídney.`,
+            "Las tarifas de adulto pueden pagarse con una tarjeta de crédito o débito contactless, sin ningún registro previo.",
+          ],
+        },
+        { source: { label: "Sydney Airport", url: "https://www.sydneyairport.com.au/" } },
+        { source: { label: "Transport for NSW — Getting to and from Sydney Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-sydney-airport" } },
+        { h2: "Western Sydney International (WSI)" },
+        {
+          p: `Transport for NSW da como fecha de apertura del aeropuerto el domingo 25 de octubre de 2026. Indica que por ahora no hay trenes directos a WSI. El autobús gratuito WSI Link circula entre la estación de St Marys y el aeropuerto cada ${F.wsiLinkEveryMinutes} minutos, de 4:30 a medianoche de domingo a jueves y de 4:30 a 1:00 los viernes y sábados. La línea de Sydney Metro hasta el aeropuerto sigue en construcción, y en WSI no hay tarifas de taxi fijas.`,
+        },
+        {
+          p: "La Australian Border Force ofrece un formulario web, la Australia Travel Declaration, que según indica «solo está disponible para vuelos que llegan al Aeropuerto Internacional de Western Sydney», y pide a quienes lleguen a cualquier otro aeropuerto australiano que no lo rellenen.",
+        },
+        {
+          note: "No hemos podido confirmar en la web del propio aeropuerto la operación actual de WSI. Consulte con su aerolínea y con el aeropuerto antes de viajar.",
+        },
+        { source: { label: "Transport for NSW — Getting to and from Western Sydney International Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-western-sydney-international-airport-wsi" } },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
+        { h2: "Melbourne (MEL)" },
+        {
+          ul: [
+            "Melbourne Airport indica que está conectado con el centro y otros destinos mediante autobuses públicos regulares, SkyBus y autobuses regionales y chárter.",
+            "Sitúa el centro a unos 30 minutos en taxi y desaconseja aceptar cualquier oferta de taxi fuera de las paradas designadas de las terminales 1, 2 y 4.",
+          ],
+        },
+        { source: { label: "Melbourne Airport — Getting to and from the airport", url: "https://www.melbourneairport.com.au/getting-to-from-the-airport" } },
+        { h2: "Brisbane (BNE)" },
+        {
+          ul: [
+            "Tras aterrizar, se pasa por inmigración y control de pasaportes, en una SmartGate o con un agente.",
+            "Todos los pasajeros reciben un ticket de control de pasaportes (Passport Control ticket), que deben mostrar a los agentes de bioseguridad y aduana antes de salir de la terminal.",
+            "Brisbane Airport recuerda a los pasajeros que ciertos artículos deben declararse en la Incoming Passenger Card y que no hacerlo puede acarrear sanciones.",
+            "Para el Airtrain, suba en ascensor a la planta 3, salga de la terminal y cruce el puente hasta la estación. Los trenes pasan cada 15 minutos en hora punta y cada 30 minutos el resto del tiempo.",
+            "Hay taxis las 24 horas en la parada de la vía de llegadas de la planta 2.",
+          ],
+        },
+        { source: { label: "Brisbane Airport — International arrivals", url: "https://www.bne.com.au/passenger/passenger-information/international-arrivals" } },
+        { source: { label: "Australian Border Force — SmartGates on arrival", url: "https://www.abf.gov.au/entering-and-leaving-australia/smartgates/arrivals" } },
+        {
+          note: "Perth, Adelaida, Cairns, Gold Coast, Darwin, Hobart y Canberra no se tratan aquí porque no hemos podido comprobar sus páginas oficiales. Consulte la web del operador de cada aeropuerto.",
+        },
+      ],
+      checked: CHECKED_NOV,
+      practical: true,
+    },
+    {
+      slug: "transporte-publico",
+      enSlug: "public-transport",
+      added: "2026-11-15",
+      title: "Transporte público en Sídney, el sudeste de Queensland y Perth: Opal, go card y SmartRider",
+      description: "Cada ciudad australiana tiene su propio sistema de billetes. Cómo se paga en Sídney (Opal), el sudeste de Queensland (go card) y Perth (SmartRider).",
+      related: ["aeropuertos-principales", "conducir-en-australia", "dinero-y-propinas", HUB],
+      blocks: [
+        {
+          p: "En Australia no existe una tarjeta de transporte nacional. Cada estado gestiona su propio sistema con sus propias normas, y la tarjeta de una ciudad no sirve en otra. Esta página trata los tres sistemas cuyas páginas oficiales hemos podido comprobar: Sídney y Nueva Gales del Sur, el sudeste de Queensland y Perth.",
+        },
+        { h2: "Sídney y Nueva Gales del Sur: Opal" },
+        {
+          ul: [
+            "Opal es el sistema de billetes del transporte público en Sídney, las Blue Mountains, la Central Coast, el Hunter y el Illawarra.",
+            "Se valida al subir y al bajar (tap on y tap off) con una tarjeta Opal o, para la mayoría de las tarifas, con una tarjeta de crédito o débito contactless (American Express, Mastercard, Visa). Use la misma tarjeta o el mismo dispositivo durante todo el trayecto.",
+            "Pagar con tarjeta contactless cuesta lo mismo que la tarifa Opal y da las mismas ventajas.",
+            "Sin tarjeta Opal ni pago contactless necesita un billete sencillo Opal (Opal single trip ticket), disponible solo para metro, tren, ferry y tranvía.",
+            "Las tarifas de adulto tienen un descuento de 2 $ por cada transbordo entre medios de transporte dentro de un mismo trayecto, y fuera de las horas punta son un 30 % más baratas.",
+            "Lleve las tarjetas separadas en la cartera: Transport for NSW advierte del «card clash» (que el lector detecte otra tarjeta que no quería usar).",
+          ],
+        },
+        {
+          note: "En las estaciones del aeropuerto de Sídney se cobra una tasa de acceso aparte, además del billete: consulte la página de aeropuertos.",
+        },
+        { source: { label: "Transport for NSW — Opal", url: "https://transportnsw.info/tickets-fares/opal" } },
+        { source: { label: "Transport for NSW — Fares", url: "https://transportnsw.info/tickets-fares/fares" } },
+        { source: { label: "Transport for NSW — Contactless payments", url: "https://transportnsw.info/tickets-fares/contactless-payments" } },
+        { h2: "Sudeste de Queensland: go card (Translink)" },
+        {
+          ul: [
+            `Translink indica que la tarifa es única, de ${SEQ_FLAT}, en todos sus servicios, sea cual sea la distancia o la forma de pago.`,
+            "La go card sirve en todos los autobuses, trenes (incluido el Airtrain), ferris y tranvías de Translink en el área metropolitana de Brisbane, Ipswich, Moreton Bay, Redlands, la Sunshine Coast y la Gold Coast. En el Airtrain se cobran las tarifas propias del Airtrain.",
+            "El pago contactless se acepta en todos los trenes, tranvías, ferris y autobuses del sudeste de Queensland.",
+            `Si olvida validar al subir o al bajar, pueden cobrarle una tarifa por defecto de ${F.seqDefaultFare}.`,
+            "Apple Pay, Samsung Pay y Google Pay cuentan como medios de pago distintos de la tarjeta física asociada, así que valide al subir y al bajar con el mismo.",
+            "Translink asegura que nunca envía notificaciones de sanción ni multas por SMS.",
+          ],
+        },
+        { source: { label: "Translink — go card", url: "https://translink.com.au/tickets-and-fares/go-card" } },
+        { source: { label: "Translink — Contactless payments", url: "https://translink.com.au/tickets-and-fares/contactless-payments" } },
+        { h2: "Perth: SmartRider (Transperth)" },
+        {
+          ul: [
+            "SmartRider es la tarjeta inteligente recargable de Transperth. También se aceptan tarjetas bancarias contactless, a la tarifa estándar en efectivo; las tarifas reducidas no se aplican al pago contactless.",
+            "La tarifa Go Anywhere permite viajar por toda la red durante tres horas, y las tarifas con SmartRider y contactless se limitan automáticamente a ese importe.",
+            "Todos los domingos viajan gratis los titulares de SmartRider y quienes pagan con contactless.",
+            "Los conductores de los autobuses de Transperth no manejan efectivo.",
+            "Transperth tiene una línea al aeropuerto (Airport line).",
+          ],
+        },
+        { source: { label: "Transperth — What is SmartRider", url: "https://www.transperth.wa.gov.au/SmartRider/What-is-SmartRider" } },
+        { source: { label: "Transperth — Fares", url: "https://www.transperth.wa.gov.au/Tickets-Fares/Fares" } },
+        {
+          note: "No se tratan aquí Melbourne (myki) ni Adelaida (metroCARD), porque no pudimos consultar sus páginas oficiales, ni los importes de tarifas que no pudimos confirmar. Consulte para ellos la web de la autoridad de transporte correspondiente.",
+        },
+      ],
+      checked: CHECKED_NOV,
       practical: true,
     },
   ],

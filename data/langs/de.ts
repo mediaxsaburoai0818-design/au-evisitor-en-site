@@ -1,4 +1,6 @@
 import { FACTS as F, type LangContent } from "./_schema";
+const DECISION_DAT = "wenigen Minuten bis einigen Tagen"; // = F.decisionTypical（表示用・ドイツ語の与格）
+const DECISION_NOM = "wenige Minuten bis einige Tage"; // = F.decisionTypical（表示用・ドイツ語の主格）
 
 /**
  * ドイツ語（/de/）。読者＝ドイツのパスポート保持者。
@@ -52,7 +54,7 @@ export const de: LangContent = {
     },
     {
       h: "Deutschland ist berechtigt",
-      p: `Alle EU-Staaten sowie das Vereinigte Königreich, Island, Norwegen und die Schweiz sind unter den ${F.eligibleCountries} berechtigten Ländern. Wer keinen dieser Pässe hat, benötigt stattdessen die ETA.`,
+      p: `Alle EU-Staaten sowie das Vereinigte Königreich (nur Pässe als British Citizen), Island, Norwegen und die Schweiz sind unter den ${F.eligibleCountries} berechtigten Ländern. Wer keinen dieser Pässe hat, benötigt stattdessen die ETA.`,
     },
     {
       h: "Kostenlos – nur auf der offiziellen Seite",
@@ -65,7 +67,7 @@ export const de: LangContent = {
     th: ["Ihr Pass", "Visum", "Kosten", "Antragsweg"],
     rows: [
       [
-        `EU, Vereinigtes Königreich, Island, Norwegen, Schweiz und weitere europäische Länder (${F.eligibleCountries} insgesamt) – einschließlich Deutschland`,
+        `EU, Vereinigtes Königreich (nur British Citizen), Island, Norwegen, Schweiz und weitere europäische Länder (${F.eligibleCountries} insgesamt) – einschließlich Deutschland`,
         "eVisitor (Subclass 651)",
         F.fee,
         "Website des Department of Home Affairs (ImmiAccount)",
@@ -97,7 +99,7 @@ export const de: LangContent = {
       },
       {
         h: "Auf die Bestätigungs-E-Mail warten",
-        p: `Viele Anträge werden in ${F.decisionTypical} entschieden, garantiert ist das aber nicht. Beantragen Sie das Visum, bevor Sie nicht erstattungsfähige Buchungen vornehmen, und bewahren Sie die Bestätigung bei Ihren Reisedokumenten auf.`,
+        p: `Viele Anträge werden in ${DECISION_DAT} entschieden, garantiert ist das aber nicht. Beantragen Sie das Visum, bevor Sie nicht erstattungsfähige Buchungen vornehmen, und bewahren Sie die Bestätigung bei Ihren Reisedokumenten auf.`,
       },
     ],
     cta: "Auf der offiziellen eVisitor-Seite starten",
@@ -285,7 +287,7 @@ export const de: LangContent = {
       blocks: [
         { h2: "In der Regel sehr schnell" },
         {
-          p: `Die meisten Anträge werden automatisch geprüft und innerhalb weniger Minuten entschieden. Die Behörde nennt als typische Spanne ${F.decisionTypical}. Eine Garantie ist das nicht – es ist eine Erfahrungsgröße.`,
+          p: `Die meisten Anträge werden automatisch geprüft und innerhalb weniger Minuten entschieden. Die Behörde nennt als typische Spanne ${DECISION_NOM}. Eine Garantie ist das nicht – es ist eine Erfahrungsgröße.`,
         },
         { h2: "Was die Bearbeitung verlängert" },
         {
@@ -494,7 +496,7 @@ export const de: LangContent = {
         },
         { h2: "4. Absenden und auf die Entscheidung warten" },
         {
-          p: `Nach dem Absenden erhalten Sie eine Bestätigung im ImmiAccount. Viele Entscheidungen fallen in ${F.decisionTypical}. Speichern Sie die Erteilungsmitteilung, auch wenn sie beim Einchecken nicht verlangt wird – sie ist der einfachste Nachweis, falls es Fragen gibt.`,
+          p: `Nach dem Absenden erhalten Sie eine Bestätigung im ImmiAccount. Viele Entscheidungen fallen in ${DECISION_DAT}. Speichern Sie die Erteilungsmitteilung, auch wenn sie beim Einchecken nicht verlangt wird – sie ist der einfachste Nachweis, falls es Fragen gibt.`,
         },
         { h2: "Woran Anträge hängen bleiben" },
         {

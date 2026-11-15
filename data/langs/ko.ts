@@ -1,4 +1,5 @@
 import { FACTS as F, type LangContent } from "./_schema";
+const DECISION = "몇 분에서 며칠"; // = F.decisionTypical（表示用）
 
 /**
  * 韓国語（/ko/）。読者＝韓国のパスポート保持者。
@@ -43,7 +44,7 @@ export const ko: LangContent = {
   ],
   whatIs: {
     h2: "왜 한국 여권은 eVisitor를 신청할 수 없나요?",
-    p1: `eVisitor(subclass 651)는 호주가 유럽 ${F.eligibleCountries}개국(EU 회원국 전체와 영국·아이슬란드·노르웨이·스위스 등) 여권 소지자에게만 제공하는 무료 방문 비자입니다. 국적 요건이므로, 한국에서 오래 거주했거나 유럽에 체류 중이더라도 여권이 한국 여권이라면 신청 자격이 없습니다.`,
+    p1: `eVisitor(subclass 651)는 호주가 유럽 ${F.eligibleCountries}개국(EU 회원국 전체와 영국(British Citizen 여권만 해당)·아이슬란드·노르웨이·스위스 등) 여권 소지자에게만 제공하는 무료 방문 비자입니다. 국적 요건이므로, 한국에서 오래 거주했거나 유럽에 체류 중이더라도 여권이 한국 여권이라면 신청 자격이 없습니다.`,
     p2: `한국 여권 소지자를 위한 제도는 ETA(subclass 601)입니다. 비용은 ${F.etaFee}, 유효 기간은 ${F.validMonths}개월, 1회 체류는 최대 ${F.stayMonths}개월로 eVisitor와 조건 자체는 거의 같습니다. 다른 점은 비용이 든다는 것과, 신청 창구가 웹사이트가 아니라 공식 앱이라는 점입니다.`,
   },
   features: [
@@ -72,7 +73,7 @@ export const ko: LangContent = {
         "공식 앱 전용",
       ],
       [
-        `EU·영국·아이슬란드·노르웨이·스위스 등 유럽 ${F.eligibleCountries}개국`,
+        `EU·영국(British Citizen 여권만)·아이슬란드·노르웨이·스위스 등 유럽 ${F.eligibleCountries}개국`,
         "eVisitor(subclass 651)",
         F.fee,
         "내무부 웹사이트(ImmiAccount)",
@@ -240,7 +241,7 @@ export const ko: LangContent = {
       blocks: [
         { h2: "보통은 몇 분" },
         {
-          p: `대부분의 신청은 자동 심사로 처리되어 몇 분 안에 결과가 나옵니다. 당국이 안내하는 일반적인 범위는 ${F.decisionTypical}입니다. 다만 이는 경험치이며 보장된 시간이 아닙니다.`,
+          p: `대부분의 신청은 자동 심사로 처리되어 몇 분 안에 결과가 나옵니다. 당국이 안내하는 일반적인 범위는 ${DECISION}입니다. 다만 이는 경험치이며 보장된 시간이 아닙니다.`,
         },
         { h2: "늦어지는 경우" },
         {
@@ -426,7 +427,7 @@ export const ko: LangContent = {
         { h2: "eVisitor(subclass 651)" },
         {
           ul: [
-            `유럽 ${F.eligibleCountries}개국 여권 전용(EU 전체·영국·아이슬란드·노르웨이·스위스 등)`,
+            `유럽 ${F.eligibleCountries}개국 여권 전용(EU 전체·영국·아이슬란드·노르웨이·스위스 등). 영국은 British Citizen 여권만 해당하며, BN(O) 등 다른 종류의 영국 여권은 대상이 아닙니다`,
             `비용 ${F.fee}`,
             "신청은 내무부 웹사이트(ImmiAccount). 전용 앱은 없습니다",
           ],

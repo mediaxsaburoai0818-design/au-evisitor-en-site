@@ -1,4 +1,5 @@
 import { FACTS as F, type LangContent } from "./_schema";
+const DECISION = "幾分鐘到幾天"; // = F.decisionTypical（表示用）
 
 /**
  * 繁体字（/zh-tw/）。読者＝台湾のパスポート保持者。
@@ -43,7 +44,7 @@ export const zhTw: LangContent = {
   ],
   whatIs: {
     h2: "為什麼台灣護照不能申請 eVisitor？",
-    p1: `因為 eVisitor（subclass 651）的適用範圍被限定在 ${F.eligibleCountries} 個國家，幾乎全部是歐盟成員國加上英國、冰島、挪威與瑞士。它的最大特色是完全免費（${F.fee}），也正因為如此，網路上大量「澳洲簽證免費」的說法會讓非歐洲護照的讀者誤會。`,
+    p1: `因為 eVisitor（subclass 651）的適用範圍被限定在 ${F.eligibleCountries} 個國家，幾乎全部是歐盟成員國加上英國（僅限英國公民 British Citizen 護照）、冰島、挪威與瑞士。它的最大特色是完全免費（${F.fee}），也正因為如此，網路上大量「澳洲簽證免費」的說法會讓非歐洲護照的讀者誤會。`,
     p2: `台灣護照持有人適用的是 ETA（subclass 601）。條件其實幾乎一樣——效期 ${F.validMonths} 個月、可多次入境、每次最多停留 ${F.stayMonths} 個月——差別在於費用 ${F.etaFee}，以及只能用官方 App 申請（網站辦不了）。`,
   },
   features: [
@@ -78,7 +79,7 @@ export const zhTw: LangContent = {
         "僅限官方手機應用程式",
       ],
       [
-        `歐盟、英國、冰島、挪威、瑞士等歐洲國家（共 ${F.eligibleCountries} 國）`,
+        `歐盟、英國（僅限英國公民 British Citizen 護照，BN(O) 等其他英國護照不適用）、冰島、挪威、瑞士等歐洲國家（共 ${F.eligibleCountries} 國）`,
         "eVisitor（subclass 651）",
         F.fee,
         "內政部（Department of Home Affairs）網站",
@@ -104,7 +105,7 @@ export const zhTw: LangContent = {
       },
       {
         h: `支付 ${F.etaFee} 並等待結果`,
-        p: `在 App 內以信用卡支付服務費。多數申請會在 ${F.decisionTypical} 內有結果，但不保證。請勿等到出發當天才辦。`,
+        p: `在 App 內以信用卡支付服務費。多數申請會在${DECISION}內有結果，但不保證。請勿等到出發當天才辦。`,
       },
     ],
     cta: "到官方網站確認 ETA 說明",
@@ -193,7 +194,7 @@ export const zhTw: LangContent = {
         { h2: `eVisitor（subclass 651）：免費，但不含台灣` },
         {
           ul: [
-            `適用 ${F.eligibleCountries} 個歐洲國家（歐盟、英國、冰島、挪威、瑞士等）`,
+            `適用 ${F.eligibleCountries} 個歐洲國家（歐盟、英國〔僅限英國公民 British Citizen 護照，BN(O) 等其他英國護照不適用〕、冰島、挪威、瑞士等）`,
             `費用 ${F.fee}`,
             "申請管道：內政部網站（沒有 App）",
           ],
@@ -242,7 +243,7 @@ export const zhTw: LangContent = {
           p: `官方沒有付費加急服務。收費明顯高於 ${F.etaFee} 的網站，多出來的是代填服務費，不會改變審核順序，也不會提高通過率。`,
         },
         {
-          note: `多數申請在 ${F.decisionTypical} 內有結果，但沒有保證。行程確定後就先辦，是唯一有效的對策。`,
+          note: `多數申請在${DECISION}內有結果，但沒有保證。行程確定後就先辦，是唯一有效的對策。`,
         },
       ],
     },
@@ -487,7 +488,7 @@ export const zhTw: LangContent = {
         },
         { h2: "4. 出發前一兩天才辦" },
         {
-          p: `多數申請雖然在 ${F.decisionTypical} 內有結果，但需要人工審核時就來不及了。行程確定後就先辦。`,
+          p: `多數申請雖然在${DECISION}內有結果，但需要人工審核時就來不及了。行程確定後就先辦。`,
         },
         {
           note: "5. 人在澳洲境內時申請。申請與核發時都必須人在境外，這是簽證條件，不是系統限制。",

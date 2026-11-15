@@ -9,6 +9,10 @@ import type { PracticalPack } from "./_schema";
  */
 
 const CHECKED = "12. Oktober 2026";
+/** Prüfdatum der am 2026-11-15 ergänzten Seiten (englisch: 15 November 2026) */
+const CHECKED_NOV = "15. November 2026";
+/** Anzeige auf Deutsch = F.seqFlatFare („50 cent“) */
+const SEQ_FLAT_FARE = "50 Cent";
 
 export const dePractical: PracticalPack = {
   ui: { faq: "Häufige Fragen", source: "Quelle", related: "Weitere Themen" },
@@ -27,17 +31,17 @@ export const dePractical: PracticalPack = {
           p: `Das eVisitor (oder die ETA, falls Ihr Pass nicht auf der eVisitor-Liste steht) beantwortet nur eine Frage: ob Sie nach Australien reisen und jeweils bis zu ${F.stayMonths} Monate bleiben dürfen. Was am Flughafen passiert, was Sie mitnehmen dürfen, wie Sie bezahlen oder was Sie tun, wenn etwas schiefgeht, steht darin nicht. Darum geht es auf diesen Seiten. Jede Seite ist anhand der zuständigen australischen Behörde geprüft und verlinkt auf sie.`,
         },
         { h2: "An der Grenze" },
-        { links: ["smartgate-australien", "medikamente-mitnehmen"] },
+        { links: ["flughaefen-australien", "smartgate-australien", "fragen-bei-der-einreise", "biosicherheit-australien", "zollfreimengen-australien", "medikamente-mitnehmen", "transit-durch-australien"] },
         { h2: "Geld" },
         { links: ["geld-und-trinkgeld", "steuerrueckerstattung-trs"] },
         { h2: "Unterwegs und erreichbar" },
-        { links: ["autofahren-in-australien", "handy-und-sim-karte", "steckdosen-und-strom", "feiertage-australien"] },
+        { links: ["oeffentlicher-nahverkehr", "autofahren-in-australien", "handy-und-sim-karte", "steckdosen-und-strom", "feiertage-australien"] },
         { h2: "Gesundheit und Sicherheit" },
         { links: ["gesundheitsversorgung-australien", "notrufnummern-australien", "rauchen-vapes-alkohol"] },
         { h2: "Rückflug" },
-        { links: ["fluessigkeiten-handgepaeck"] },
+        { links: ["fluessigkeiten-handgepaeck", "evisitor-gueltigkeit-und-aufenthalt", "aus-und-wiedereinreise"] },
         {
-          note: "Wozu wir keine eigene Seite geschrieben haben: öffentlicher Nahverkehr. Es gibt kein landesweites System – jede Stadt hat ihre eigene Karte und eigene Tarife (Opal in Sydney, myki in Melbourne, go card im Südosten von Queensland). Informieren Sie sich bei der Verkehrsbehörde der Stadt, die Sie besuchen.",
+          note: "Ein landesweites Nahverkehrssystem gibt es nicht – jede Stadt hat ihre eigene Karte und eigene Tarifregeln. Unsere Seite zum öffentlichen Nahverkehr behandelt Sydney, den Südosten von Queensland und Perth. Für Melbourne, Adelaide und andere Städte informieren Sie sich bei der Verkehrsbehörde der Stadt, die Sie besuchen.",
         },
       ],
     },
@@ -735,6 +739,132 @@ export const dePractical: PracticalPack = {
         {
           q: "Wie lange darf ich mit meinem deutschen, österreichischen oder Schweizer Führerschein fahren?",
           a: `Das hängt vom Bundesstaat ab: bis zu ${F.driveNswMonths} Monate in NSW, weniger als ${F.driveNswMonths} Monate Aufenthalt in Victoria, bis zu ${F.driveNtMonths} Monate im NT. Andere Staaten nennen keine feste Frist für Besucher.`,
+        },
+      ],
+    },
+    /* ── 2026-11-15 ergänzt (englisch: major-airports / public-transport). Geprüft am 15. November 2026. ── */
+    {
+      slug: "flughaefen-australien",
+      enSlug: "major-airports",
+      added: "2026-11-15",
+      title: "Ankunft an den Flughäfen Sydney, Melbourne und Brisbane: was die Betreiber sagen",
+      description:
+        "Vom internationalen Terminal in die Stadt: Sydney, Melbourne, Brisbane und Western Sydney International – nach Angaben der Flughäfen und Verkehrsbehörden.",
+      checked: CHECKED_NOV,
+      practical: true,
+      related: ["oeffentlicher-nahverkehr", "smartgate-australien", "fragen-bei-der-einreise", "ankunft-in-australien"],
+      blocks: [
+        {
+          p: `An welchem Flughafen Sie auch landen, die Schritte an der Grenze sind dieselben: Passkontrolle (SmartGate oder Beamter), dann Gepäck, dann Biosicherheit und Zoll. Die ABF beschreibt SmartGates als Schleusen, die „use facial recognition technology and your passport to check your identity and process you through Passport Control“ – also Gesichtserkennung und Ihren Pass nutzen, um Ihre Identität zu prüfen und Sie durch die Passkontrolle zu leiten. Unterschiedlich ist der Weg in die Stadt. Diese Seite gibt nur wieder, was die Flughafenbetreiber und die Verkehrsbehörden der Bundesstaaten veröffentlichen.`,
+        },
+        { h2: "Sydney (SYD)" },
+        {
+          ul: [
+            "Laut Sydney Airport liegt der Flughafen 8 km vom Stadtzentrum (CBD) entfernt und ist mit Zug, Bus, Taxi und Fahrdiensten erreichbar. Internationale Flüge nutzen das Terminal T1 International.",
+            "Die Bahnhöfe liegen unter den Terminals. Die Züge der Linie T8 Airport & South fahren täglich zwischen 5 Uhr und Mitternacht.",
+            "An den Flughafenbahnhöfen wird zusätzlich zum Fahrpreis eine Bahnhofsgebühr (station access fee) erhoben – von dem Unternehmen, dem die Bahnhöfe privat gehören. Sie wird nicht auf die Opal-Höchstbeträge pro Tag, Woche oder Freitag/Wochenende angerechnet.",
+            `Zwischen dem Inlands- und dem internationalen Flughafenbahnhof beträgt die Bahnhofsgebühr ${F.sydneyStationFeeDomIntl} zuzüglich Fahrpreis. Für den Wechsel zwischen Inlands- und internationalem Terminal verweist Transport for NSW auf den Zug T8 oder den Bus der Linie 420.`,
+            `Wenn Sie an einem Flughafenbahnhof eine Opal-Karte kaufen oder aufladen, beträgt der Mindestbetrag ${F.opalAirportMinTopUp}. Der 60-Minuten-Umstieg von Opal gilt an den Bahnhöfen des Sydney Airport nicht.`,
+            "Fahrpreise für Erwachsene lassen sich ohne vorherige Einrichtung mit einer kontaktlosen Kredit- oder Debitkarte bezahlen.",
+          ],
+        },
+        { source: { label: "Sydney Airport", url: "https://www.sydneyairport.com.au/" } },
+        { source: { label: "Transport for NSW — Getting to and from Sydney Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-sydney-airport" } },
+        { h2: "Western Sydney International (WSI)" },
+        {
+          p: `Transport for NSW nennt als Eröffnungsdatum des Flughafens Sonntag, den 25. Oktober 2026. Direkte Zugverbindungen zum WSI gibt es laut Behörde derzeit nicht. Der kostenlose Bus WSI Link fährt alle ${F.wsiLinkEveryMinutes} Minuten zwischen dem Bahnhof St Marys und dem Flughafen, sonntags bis donnerstags von 4:30 Uhr bis Mitternacht, freitags und samstags von 4:30 Uhr bis 1 Uhr. Die Sydney-Metro-Linie zum Flughafen ist noch im Bau, und feste Taxitarife gibt es am WSI nicht.`,
+        },
+        {
+          p: "Die Australian Border Force bietet ein Webformular für die Australia Travel Declaration an, das laut ABF „only available for flights arriving at Western Sydney International Airport“ ist – also nur für Flüge mit Ankunft am Western Sydney International Airport. Wer an einem anderen australischen Flughafen ankommt, soll es nicht ausfüllen.",
+        },
+        {
+          note: "Den aktuellen Betrieb am WSI konnten wir auf der Website des Flughafens selbst nicht bestätigen. Erkundigen Sie sich vor der Reise bei Ihrer Fluggesellschaft und beim Flughafen.",
+        },
+        { source: { label: "Transport for NSW — Getting to and from Western Sydney International Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-western-sydney-international-airport-wsi" } },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
+        { h2: "Melbourne (MEL)" },
+        {
+          ul: [
+            "Laut Melbourne Airport ist der Flughafen durch regelmäßige öffentliche Buslinien, den SkyBus sowie Regional- und Charterbusse mit dem Stadtzentrum und dem Umland verbunden.",
+            "Das Stadtzentrum ist nach Angaben des Flughafens etwa 30 Minuten Taxifahrt entfernt. Nehmen Sie kein Taxiangebot außerhalb der ausgewiesenen Taxistände an den Terminals 1, 2 und 4 an.",
+          ],
+        },
+        { source: { label: "Melbourne Airport — Getting to and from the airport", url: "https://www.melbourneairport.com.au/getting-to-from-the-airport" } },
+        { h2: "Brisbane (BNE)" },
+        {
+          ul: [
+            "Nach der Landung gehen Sie zur Einwanderungs- und Passkontrolle, entweder an ein SmartGate oder zu einem Beamten.",
+            "Jeder Passagier erhält ein Passport-Control-Ticket, das Sie vor dem Verlassen des Terminals den Beamten von Biosicherheit und Zoll vorzeigen.",
+            "Brisbane Airport erinnert daran, dass bestimmte Gegenstände auf der Incoming Passenger Card angemeldet werden müssen und dass bei Versäumnis Strafen drohen können.",
+            "Zum Airtrain fahren Sie mit dem Aufzug auf Ebene 3, verlassen das Terminal und gehen über die Brücke zum Bahnhof. Die Züge fahren zu Stoßzeiten alle 15 Minuten, sonst alle 30 Minuten.",
+            "Taxis fahren rund um die Uhr vom Taxistand an der Ankunftsstraße auf Ebene 2 ab.",
+          ],
+        },
+        { source: { label: "Brisbane Airport — International arrivals", url: "https://www.bne.com.au/passenger/passenger-information/international-arrivals" } },
+        { source: { label: "Australian Border Force — SmartGates on arrival", url: "https://www.abf.gov.au/entering-and-leaving-australia/smartgates/arrivals" } },
+        {
+          note: "Perth, Adelaide, Cairns, Gold Coast, Darwin, Hobart und Canberra behandeln wir hier nicht, weil wir deren offizielle Seiten nicht prüfen konnten. Nutzen Sie die Website des jeweiligen Flughafenbetreibers.",
+        },
+      ],
+    },
+    {
+      slug: "oeffentlicher-nahverkehr",
+      enSlug: "public-transport",
+      added: "2026-11-15",
+      title: "Öffentlicher Nahverkehr in Sydney, Südost-Queensland und Perth: Opal, go card, SmartRider",
+      description:
+        "Jede australische Stadt hat ihr eigenes Tarifsystem. So bezahlen Besucher in Sydney (Opal), Südost-Queensland (go card) und Perth (SmartRider).",
+      checked: CHECKED_NOV,
+      practical: true,
+      related: ["flughaefen-australien", "autofahren-in-australien", "geld-und-trinkgeld", "ankunft-in-australien"],
+      blocks: [
+        {
+          p: "Eine landesweite Nahverkehrskarte gibt es in Australien nicht. Jeder Bundesstaat betreibt sein eigenes System mit eigenen Regeln, und eine Karte aus einer Stadt funktioniert in einer anderen nicht. Diese Seite behandelt die drei Systeme, deren offizielle Seiten wir prüfen konnten: Sydney und New South Wales, den Südosten von Queensland und Perth.",
+        },
+        { h2: "Sydney und NSW – Opal" },
+        {
+          ul: [
+            "Opal ist das Ticketsystem für den öffentlichen Nahverkehr in Sydney, den Blue Mountains, an der Central Coast, im Hunter und in der Illawarra-Region.",
+            "Sie checken mit einer Opal-Karte oder bei den meisten Tarifarten mit einer kontaktlosen Kredit- oder Debitkarte (American Express, Mastercard, Visa) ein und aus (tap on, tap off). Nutzen Sie für die gesamte Fahrt dieselbe Karte bzw. dasselbe Gerät.",
+            "Kontaktlos zu bezahlen kostet denselben Opal-Fahrpreis und bringt dieselben Opal-Vorteile.",
+            "Ohne Opal-Karte oder kontaktlose Zahlung brauchen Sie ein Opal Single Trip Ticket, das es nur für Metro, Zug, Fähre und Stadtbahn gibt.",
+            "Erwachsene erhalten für jeden Umstieg zwischen Verkehrsmitteln innerhalb einer Fahrt $2 Rabatt, und außerhalb der Stoßzeiten sind die Fahrpreise 30 % günstiger.",
+            "Bewahren Sie Karten im Portemonnaie getrennt auf: Transport for NSW warnt vor „card clash“, bei dem das Lesegerät die falsche Karte erfasst.",
+          ],
+        },
+        {
+          note: "An den Bahnhöfen des Sydney Airport fällt zusätzlich zum Fahrpreis eine eigene Bahnhofsgebühr an – siehe die Seite zu den Flughäfen.",
+        },
+        { source: { label: "Transport for NSW — Opal", url: "https://transportnsw.info/tickets-fares/opal" } },
+        { source: { label: "Transport for NSW — Fares", url: "https://transportnsw.info/tickets-fares/fares" } },
+        { source: { label: "Transport for NSW — Contactless payments", url: "https://transportnsw.info/tickets-fares/contactless-payments" } },
+        { h2: "Südost-Queensland – go card (Translink)" },
+        {
+          ul: [
+            `Laut Translink gilt auf allen Linien ein Einheitstarif von ${SEQ_FLAT_FARE} – unabhängig von der Entfernung und der Zahlungsart.`,
+            "Die go card gilt in allen Bussen, Zügen (einschließlich Airtrain), Fähren und Straßenbahnen von Translink im Großraum Brisbane, in Ipswich, Moreton Bay, den Redlands, an der Sunshine Coast und der Gold Coast. Im Airtrain werden die Airtrain-Tarife berechnet.",
+            "Kontaktlose Zahlung wird in allen Zügen, Straßenbahnen, Fähren und Bussen im Südosten von Queensland akzeptiert.",
+            `Wenn Sie vergessen, ein- oder auszuchecken, kann ein Standardfahrpreis von ${F.seqDefaultFare} berechnet werden.`,
+            "Apple Pay, Samsung Pay und Google Pay gelten als andere Zahlungsmittel als die physische Karte dahinter – checken Sie also mit demselben Mittel ein und aus.",
+            "Translink verschickt nach eigenen Angaben niemals Strafbescheide oder Bußgelder per SMS.",
+          ],
+        },
+        { source: { label: "Translink — go card", url: "https://translink.com.au/tickets-and-fares/go-card" } },
+        { source: { label: "Translink — Contactless payments", url: "https://translink.com.au/tickets-and-fares/contactless-payments" } },
+        { h2: "Perth – SmartRider (Transperth)" },
+        {
+          ul: [
+            "SmartRider ist die wiederaufladbare Chipkarte von Transperth. Kontaktlose Bankkarten werden ebenfalls akzeptiert, zum regulären Bartarif; Ermäßigungen gelten bei kontaktloser Zahlung nicht.",
+            "Der Go-Anywhere-Tarif deckt Fahrten im gesamten Netz innerhalb von drei Stunden ab, und SmartRider- und Kontaktlos-Fahrpreise werden automatisch auf diesen Betrag gedeckelt.",
+            "Sonntags fahren SmartRider-Inhaber und Fahrgäste, die kontaktlos bezahlen, kostenlos.",
+            "In den Bussen von Transperth nehmen die Fahrer kein Bargeld an.",
+            "Transperth betreibt eine Airport Line zum Flughafen.",
+          ],
+        },
+        { source: { label: "Transperth — What is SmartRider", url: "https://www.transperth.wa.gov.au/SmartRider/What-is-SmartRider" } },
+        { source: { label: "Transperth — Fares", url: "https://www.transperth.wa.gov.au/Tickets-Fares/Fares" } },
+        {
+          note: "Nicht behandelt: Melbourne (myki) und Adelaide (metroCARD), weil wir die offiziellen Seiten nicht lesen konnten, sowie Fahrpreise, die wir nicht bestätigen konnten. Informieren Sie sich dazu auf der Website der jeweiligen Verkehrsbehörde.",
         },
       ],
     },

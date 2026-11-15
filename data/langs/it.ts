@@ -9,6 +9,9 @@ import { FACTS as F, type LangContent } from "./_schema";
  *    対象外の言語版（ko/zh/zh-tw）とは主張が逆なので文面を流用しない。
  * ⚠️ 二人称は Lei（敬称）。行政手続きの説明なので口語に崩さない。
  */
+/** 表示用の訳語（= F.decisionTypical "minutes to a few days"）。英語のまま本文に入っていたのを 2026-11-15 に修正 */
+const DECISION_TYPICAL = "pochi minuti o qualche giorno";
+
 export const it: LangContent = {
   code: "it",
   htmlLang: "it",
@@ -52,7 +55,7 @@ export const it: LangContent = {
     },
     {
       h: "L'Italia è tra i Paesi ammessi",
-      p: `Tutti gli Stati membri dell'UE, oltre a Regno Unito, Islanda, Norvegia e Svizzera, rientrano tra i ${F.eligibleCountries} Paesi ammessi. Chi non ha uno di questi passaporti usa invece l'ETA.`,
+      p: `Tutti gli Stati membri dell'UE, oltre a Regno Unito (solo passaporti British Citizen), Islanda, Norvegia e Svizzera, rientrano tra i ${F.eligibleCountries} Paesi ammessi. Chi non ha uno di questi passaporti usa invece l'ETA.`,
     },
     {
       h: "Gratuito — ma solo sul sito ufficiale",
@@ -65,7 +68,7 @@ export const it: LangContent = {
     th: ["Il suo passaporto", "Visto", "Costo", "Dove richiederlo"],
     rows: [
       [
-        `UE, Regno Unito, Islanda, Norvegia, Svizzera e altri Paesi europei (${F.eligibleCountries} in tutto) — Italia inclusa`,
+        `UE, Regno Unito (solo passaporti British Citizen), Islanda, Norvegia, Svizzera e altri Paesi europei (${F.eligibleCountries} in tutto) — Italia inclusa`,
         "eVisitor (subclass 651)",
         F.fee,
         "Sito del Department of Home Affairs (ImmiAccount)",
@@ -97,7 +100,7 @@ export const it: LangContent = {
       },
       {
         h: "Attenda l'email di conferma",
-        p: `Molte domande vengono decise in ${F.decisionTypical}, ma non è garantito. Richieda il visto prima di effettuare prenotazioni non rimborsabili e conservi la conferma con i documenti di viaggio.`,
+        p: `Molte domande vengono decise in ${DECISION_TYPICAL}, ma non è garantito. Richieda il visto prima di effettuare prenotazioni non rimborsabili e conservi la conferma con i documenti di viaggio.`,
       },
     ],
     cta: "Inizia sulla pagina ufficiale eVisitor",
@@ -256,10 +259,10 @@ export const it: LangContent = {
     {
       slug: "evisitor-tempi",
       title: "Quanto tempo richiede una domanda di eVisitor?",
-      description: `Molte domande vengono decise in ${F.decisionTypical}. Che cosa rallenta l'istruttoria e perché non esiste una procedura d'urgenza.`,
+      description: `Molte domande vengono decise in ${DECISION_TYPICAL}. Che cosa rallenta l'istruttoria e perché non esiste una procedura d'urgenza.`,
       blocks: [
         {
-          p: `Gran parte delle domande viene decisa in automatico, spesso in ${F.decisionTypical}. È un dato d'esperienza, non un impegno.`,
+          p: `Gran parte delle domande viene decisa in automatico, spesso in ${DECISION_TYPICAL}. È un dato d'esperienza, non un impegno.`,
         },
         { h2: "Che cosa rallenta l'istruttoria" },
         {
@@ -429,7 +432,7 @@ export const it: LangContent = {
           p: "Deve trovarsi fuori dall'Australia sia alla domanda sia al rilascio. Non è una formalità: è una condizione del visto.",
         },
         {
-          note: `Molte decisioni arrivano in ${F.decisionTypical}, ma non costruisca il programma su questo. Faccia domanda appena il viaggio è deciso.`,
+          note: `Molte decisioni arrivano in ${DECISION_TYPICAL}, ma non costruisca il programma su questo. Faccia domanda appena il viaggio è deciso.`,
         },
       ],
     },
@@ -479,9 +482,9 @@ export const it: LangContent = {
         {
           p: `Ogni soggiorno può durare fino a ${F.stayMonths} mesi. Durante la validità può viaggiare quante volte vuole, purché ogni singolo soggiorno resti sotto questo limite.`,
         },
-        { h2: "Uscire e rientrare non azzera il conteggio" },
+        { h2: "Uscire e rientrare: il conteggio riparte, ma con dei limiti" },
         {
-          p: "Lasciare brevemente il Paese per far ripartire il conteggio è uno schema noto e riconosciuto come tale. L'Australian Border Force guarda l'insieme dei suoi spostamenti, non solo l'ultimo timbro.",
+          p: `Ogni nuovo ingresso apre un nuovo periodo fino a ${F.stayMonths} mesi. Ma lasciare brevemente il Paese più volte per vivere di fatto in Australia è uno schema noto e riconosciuto come tale: l'Australian Border Force guarda l'insieme dei Suoi spostamenti, non solo l'ultimo timbro, e può fare domande o negare l'ingresso.`,
         },
         { h2: "Restare più a lungo" },
         {

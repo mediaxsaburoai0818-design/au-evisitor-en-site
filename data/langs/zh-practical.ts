@@ -10,6 +10,8 @@ import type { PracticalPack } from "./_schema";
  */
 
 const CHECKED = "2026年10月12日";
+/** 2026-11-15 追加ページ（主要空港・公共交通）の確認日 */
+const CHECKED_1115 = "2026年11月15日";
 
 export const zhPractical: PracticalPack = {
   ui: { faq: "常见问题", source: "出处", related: "相关内容" },
@@ -25,17 +27,17 @@ export const zhPractical: PracticalPack = {
           p: `ETA（subclass 601；欧洲护照则为 eVisitor）解决的只是一个问题：你能否前往澳大利亚，并且每次停留最长 ${F.stayMonths} 个月。至于在机场会遇到什么、可以携带什么、怎样付款、出了问题怎么办，签证都不会告诉你。下面这些页面就是为此而写，每一页都对照了负责该事项的澳大利亚政府机构，并附上链接。`,
         },
         { h2: "入境时" },
-        { links: ["smartgate-australia", "bringing-medicines"] },
+        { links: ["major-airports", "smartgate-australia", "border-questions", "biosecurity", "customs-allowances", "bringing-medicines", "transit"] },
         { h2: "钱" },
         { links: ["money-and-tipping", "tourist-refund-scheme"] },
         { h2: "交通与通讯" },
-        { links: ["driving-in-australia", "phones-and-sim-cards", "power-plugs", "public-holidays"] },
+        { links: ["public-transport", "driving-in-australia", "phones-and-sim-cards", "power-plugs", "public-holidays"] },
         { h2: "健康与安全" },
         { links: ["healthcare-for-visitors", "emergency-and-safety", "smoking-vaping-and-alcohol"] },
         { h2: "回程" },
-        { links: ["airport-security-liquids"] },
+        { links: ["airport-security-liquids", "eta-three-months-per-visit", "leaving-and-returning"] },
         {
-          note: "我们没有单独写公共交通。澳大利亚没有全国统一的系统——每个城市各有自己的交通卡和票价规则（悉尼是 Opal，墨尔本是 myki，昆士兰东南部是 go card）。请查看你要去的城市的交通管理机构。",
+          note: "澳大利亚没有全国统一的公共交通系统——每个城市各有自己的交通卡和票价规则。我们的公共交通页面介绍悉尼、昆士兰东南部和珀斯。墨尔本、阿德莱德等其他城市，请查看当地交通管理机构的信息。",
         },
       ],
       checked: CHECKED,
@@ -729,6 +731,129 @@ export const zhPractical: PracticalPack = {
         },
       ],
       checked: CHECKED,
+      practical: true,
+    },
+    {
+      slug: "major-airports",
+      enSlug: "major-airports",
+      added: "2026-11-15",
+      title: "抵达悉尼、墨尔本和布里斯班机场：机场运营方怎么说",
+      description: "从悉尼、墨尔本、布里斯班的国际航站楼进城的方式，以及西悉尼国际机场的情况，依据机场运营方和交通机构发布的信息。",
+      related: ["public-transport", "smartgate-australia", "border-questions", "arriving-in-australia"],
+      blocks: [
+        {
+          p: "无论在哪个机场降落，入境步骤都一样：先过护照检查（SmartGate 或人工柜台），然后取行李，再接受生物安全和海关检查。ABF 对 SmartGate 的描述是：闸口“使用面部识别技术和你的护照核实身份，为你办理护照检查”。各机场不同的是进城的方式。本页只写机场运营方和州交通管理机构公开发布的内容。",
+        },
+        { h2: "悉尼机场（SYD）" },
+        {
+          ul: [
+            "悉尼机场表示，机场距悉尼中央商务区（CBD）8 公里，可乘火车、巴士、出租车和网约车前往。国际航班使用 T1 国际航站楼。",
+            "火车站位于航站楼地下。T8 机场及南线（T8 Airport & South Line）每天早上 5 点至午夜运营。",
+            "在机场站乘车，除车费外还要另付车站使用费，由私人拥有这些车站的公司收取。该费用不计入 Opal 的每日、每周以及周五/周末封顶额。",
+            `国内航站楼站与国际航站楼站之间，车站使用费为 ${F.sydneyStationFeeDomIntl}，另加车费。在国内与国际航站楼之间往来，新南威尔士州交通局建议乘 T8 线火车或 420 路巴士。`,
+            `在机场站购买或充值 Opal 卡，最低充值额为 ${F.opalAirportMinTopUp}。Opal 的 60 分钟换乘优惠不适用于悉尼机场的车站。`,
+            "成人票可直接用非接触式信用卡或借记卡支付，无需事先设置。",
+          ],
+        },
+        { source: { label: "Sydney Airport", url: "https://www.sydneyairport.com.au/" } },
+        { source: { label: "Transport for NSW — Getting to and from Sydney Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-sydney-airport" } },
+        { h2: "西悉尼国际机场（WSI）" },
+        {
+          p: `新南威尔士州交通局给出的机场开放日期为 2026年10月25日（周日）。该机构表示目前没有直达 WSI 的火车。免费的 WSI Link 巴士往返于 St Marys 火车站与机场之间，每 ${F.wsiLinkEveryMinutes} 分钟一班，周日至周四早上 4:30 至午夜运营，周五和周六早上 4:30 至凌晨 1 点运营。通往机场的悉尼地铁（Sydney Metro）线路仍在建设中，WSI 也没有固定的出租车车费。`,
+        },
+        {
+          p: "澳大利亚边防部队提供 Australia Travel Declaration 网页表格，并表示该表格“仅适用于抵达西悉尼国际机场的航班”，要求在其他澳大利亚机场入境的旅客不要填写。",
+        },
+        {
+          note: "我们无法从机场官方网站确认 WSI 目前的运营情况。出发前请向航空公司和机场确认。",
+        },
+        { source: { label: "Transport for NSW — Getting to and from Western Sydney International Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-western-sydney-international-airport-wsi" } },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
+        { h2: "墨尔本机场（MEL）" },
+        {
+          ul: [
+            "墨尔本机场表示，机场与中央商务区及其他地区之间有定期公共巴士、SkyBus 以及区域和包租巴士连接。",
+            "机场称乘出租车到中央商务区约需 30 分钟，并提醒不要接受 T1、T2、T4 航站楼指定出租车候车区以外的任何拉客。",
+          ],
+        },
+        { source: { label: "Melbourne Airport — Getting to and from the airport", url: "https://www.melbourneairport.com.au/getting-to-from-the-airport" } },
+        { h2: "布里斯班机场（BNE）" },
+        {
+          ul: [
+            "下飞机后前往移民和护照检查，使用 SmartGate 或由官员办理。",
+            "每位旅客都会拿到一张护照检查票据（Passport Control ticket），离开航站楼前要出示给生物安全和海关官员。",
+            "布里斯班机场提醒入境旅客：某些物品必须在入境旅客卡上申报，不申报可能受到处罚。",
+            "乘 Airtrain：搭电梯到 3 楼，走出航站楼，经天桥前往车站。高峰时段每 15 分钟一班，非高峰时段每 30 分钟一班。",
+            "出租车 24 小时运营，候车处在 2 楼到达层车道。",
+          ],
+        },
+        { source: { label: "Brisbane Airport — International arrivals", url: "https://www.bne.com.au/passenger/passenger-information/international-arrivals" } },
+        { source: { label: "Australian Border Force — SmartGates on arrival", url: "https://www.abf.gov.au/entering-and-leaving-australia/smartgates/arrivals" } },
+        {
+          note: "珀斯、阿德莱德、凯恩斯、黄金海岸、达尔文、霍巴特和堪培拉的机场未在本页介绍，因为我们无法核对其官方页面。请查看各机场运营方的网站。",
+        },
+      ],
+      checked: CHECKED_1115,
+      practical: true,
+    },
+    {
+      slug: "public-transport",
+      enSlug: "public-transport",
+      added: "2026-11-15",
+      title: "悉尼、昆士兰东南部和珀斯的公共交通：Opal、go card、SmartRider",
+      description: "澳大利亚各城市的票价系统各不相同。依据官方信息，说明访客在悉尼（Opal）、昆士兰东南部（go card）和珀斯（SmartRider）如何付费。",
+      related: ["major-airports", "driving-in-australia", "money-and-tipping", "arriving-in-australia"],
+      blocks: [
+        {
+          p: "澳大利亚没有全国通用的公共交通卡。各州运营各自的系统、规则各异，一个城市的交通卡在另一个城市不能用。本页介绍我们能够核对官方页面的三个系统：悉尼及新南威尔士州、昆士兰东南部和珀斯。",
+        },
+        { h2: "悉尼及新南威尔士州——Opal" },
+        {
+          ul: [
+            "Opal 是悉尼、蓝山、中央海岸、亨特和伊拉瓦拉地区公共交通的票务系统。",
+            "上车和下车时用 Opal 卡拍卡（tap on / tap off），大多数票种也可以用非接触式信用卡或借记卡（American Express、Mastercard、Visa）。整段行程请使用同一张卡或同一部设备。",
+            "用非接触式银行卡支付，票价与 Opal 相同，也享有同样的 Opal 优惠。",
+            "没有 Opal 卡也不用非接触式支付时，需要购买 Opal 单程票（Opal single trip ticket），该票只适用于地铁、火车、渡轮和轻轨。",
+            "成人票在同一段行程内换乘不同交通方式时，每次换乘优惠 $2；非高峰时段票价便宜 30%。",
+            "钱包里的卡请分开放：新南威尔士州交通局提醒注意“卡片冲突”（card clash）。",
+          ],
+        },
+        {
+          note: "在悉尼机场的车站乘车，除车费外还要另付车站使用费——详见机场页面。",
+        },
+        { source: { label: "Transport for NSW — Opal", url: "https://transportnsw.info/tickets-fares/opal" } },
+        { source: { label: "Transport for NSW — Fares", url: "https://transportnsw.info/tickets-fares/fares" } },
+        { source: { label: "Transport for NSW — Contactless payments", url: "https://transportnsw.info/tickets-fares/contactless-payments" } },
+        { h2: "昆士兰东南部——go card（Translink）" },
+        {
+          ul: [
+            `Translink 表示，旗下所有服务统一票价 ${F.seqFlatFare}，与距离和支付方式无关。`,
+            "go card 适用于大布里斯班、伊普斯威奇、莫顿湾、雷德兰兹、阳光海岸和黄金海岸的所有 Translink 巴士、火车（包括 Airtrain）、渡轮和有轨电车。乘 Airtrain 时按 Airtrain 票价收费。",
+            "昆士兰东南部所有火车、有轨电车、渡轮和巴士都接受非接触式支付。",
+            `忘记拍卡上车或下车时，可能会被收取 ${F.seqDefaultFare} 的默认票价。`,
+            "Apple Pay、Samsung Pay 和 Google Pay 与其绑定的实体卡算作不同的支付方式，因此上车和下车请使用同一种方式拍卡。",
+            "Translink 表示绝不会通过短信发送罚款通知。",
+          ],
+        },
+        { source: { label: "Translink — go card", url: "https://translink.com.au/tickets-and-fares/go-card" } },
+        { source: { label: "Translink — Contactless payments", url: "https://translink.com.au/tickets-and-fares/contactless-payments" } },
+        { h2: "珀斯——SmartRider（Transperth）" },
+        {
+          ul: [
+            "SmartRider 是 Transperth 的可重复使用智能卡。也接受非接触式银行卡，按标准现金票价收费；优惠票价不适用于非接触式支付。",
+            "Go Anywhere 票价可在三小时内乘坐全网任意路线，SmartRider 和非接触式支付的车费会自动以该金额封顶。",
+            "每周日，持 SmartRider 或用非接触式支付的乘客免费乘车。",
+            "Transperth 巴士司机不收现金。",
+            "Transperth 运营机场线（Airport line）。",
+          ],
+        },
+        { source: { label: "Transperth — What is SmartRider", url: "https://www.transperth.wa.gov.au/SmartRider/What-is-SmartRider" } },
+        { source: { label: "Transperth — Fares", url: "https://www.transperth.wa.gov.au/Tickets-Fares/Fares" } },
+        {
+          note: "未介绍：墨尔本（myki）和阿德莱德（metroCARD），因为我们无法读取其官方页面；无法确认的票价金额也未列出。请查看当地交通管理机构的网站。",
+        },
+      ],
+      checked: CHECKED_1115,
       practical: true,
     },
   ],

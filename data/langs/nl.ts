@@ -1,5 +1,8 @@
 import { FACTS as F, type LangContent } from "./_schema";
 
+/** = F.decisionTypical（表記だけオランダ語。英語の文字列が本文に混ざっていたため） */
+const BESLISTIJD = "enkele minuten tot een paar dagen";
+
 /**
  * オランダ語（/nl/）。読者＝オランダのパスポート保持者。
  *
@@ -52,7 +55,7 @@ export const nl: LangContent = {
     },
     {
       h: "Nederland komt in aanmerking",
-      p: `Alle EU-lidstaten plus het Verenigd Koninkrijk, IJsland, Noorwegen en Zwitserland vallen onder de ${F.eligibleCountries} landen. Wie geen van die paspoorten heeft, gebruikt de ETA.`,
+      p: `Alle EU-lidstaten plus het Verenigd Koninkrijk (alleen British Citizen-paspoorten), IJsland, Noorwegen en Zwitserland vallen onder de ${F.eligibleCountries} landen. Wie geen van die paspoorten heeft, gebruikt de ETA.`,
     },
     {
       h: "Gratis — maar alleen via de officiële website",
@@ -65,7 +68,7 @@ export const nl: LangContent = {
     th: ["Uw paspoort", "Visum", "Kosten", "Waar aanvragen"],
     rows: [
       [
-        `EU, Verenigd Koninkrijk, IJsland, Noorwegen, Zwitserland en andere Europese landen (${F.eligibleCountries} in totaal) — Nederland inbegrepen`,
+        `EU, Verenigd Koninkrijk (alleen British Citizen-paspoorten), IJsland, Noorwegen, Zwitserland en andere Europese landen (${F.eligibleCountries} in totaal) — Nederland inbegrepen`,
         "eVisitor (subclass 651)",
         F.fee,
         "Website van het Department of Home Affairs (ImmiAccount)",
@@ -97,7 +100,7 @@ export const nl: LangContent = {
       },
       {
         h: "Wacht op de bevestigingsmail",
-        p: `Veel aanvragen worden beslist in ${F.decisionTypical}, maar gegarandeerd is dat niet. Vraag het visum aan vóór u niet-restitueerbare boekingen doet, en bewaar de bevestiging bij uw reisdocumenten.`,
+        p: `Veel aanvragen worden beslist in ${BESLISTIJD}, maar gegarandeerd is dat niet. Vraag het visum aan vóór u niet-restitueerbare boekingen doet, en bewaar de bevestiging bij uw reisdocumenten.`,
       },
     ],
     cta: "Beginnen op de officiële eVisitor-pagina",
@@ -256,10 +259,10 @@ export const nl: LangContent = {
     {
       slug: "evisitor-behandeltijd",
       title: "Hoe lang duurt een eVisitor-aanvraag?",
-      description: `Veel aanvragen worden beslist in ${F.decisionTypical}. Wat de behandeling vertraagt en waarom er geen spoedprocedure bestaat.`,
+      description: `Veel aanvragen worden beslist in ${BESLISTIJD}. Wat de behandeling vertraagt en waarom er geen spoedprocedure bestaat.`,
       blocks: [
         {
-          p: `Een groot deel van de aanvragen wordt automatisch beslist, vaak binnen ${F.decisionTypical}. Dat is een ervaringsgegeven, geen toezegging.`,
+          p: `Een groot deel van de aanvragen wordt automatisch beslist, vaak binnen ${BESLISTIJD}. Dat is een ervaringsgegeven, geen toezegging.`,
         },
         { h2: "Wat de behandeling vertraagt" },
         {
@@ -429,7 +432,7 @@ export const nl: LangContent = {
           p: "U moet zich bij de aanvraag én bij de verlening buiten Australië bevinden. Dit is geen formaliteit, maar een voorwaarde van het visum.",
         },
         {
-          note: `Veel beslissingen komen binnen ${F.decisionTypical}, maar plan er niet op. Vraag aan zodra de reis vaststaat.`,
+          note: `Veel beslissingen komen binnen ${BESLISTIJD}, maar plan er niet op. Vraag aan zodra de reis vaststaat.`,
         },
       ],
     },

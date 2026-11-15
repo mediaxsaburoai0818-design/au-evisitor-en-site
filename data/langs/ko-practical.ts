@@ -8,6 +8,10 @@ import type { PracticalPack } from "./_schema";
  * ⚠️ 数値は F 経由。事実は英語版と同一にする。
  */
 const CHECKED = "2026년 10월 12일";
+/** 2026-11-15 追加ページ（major-airports / public-transport）の確認日（英語 15 November 2026） */
+const CHECKED_NOV = "2026년 11월 15일";
+/** = F.seqFlatFare（"50 cent"）の韓国語表記 */
+const SEQ_FLAT_FARE = "50센트";
 
 export const koPractical: PracticalPack = {
   ui: { faq: "자주 묻는 질문", source: "출처", related: "관련 안내" },
@@ -23,17 +27,17 @@ export const koPractical: PracticalPack = {
           p: `ETA(subclass 601)가 해결해 주는 것은 한 가지입니다. 호주로 여행해 한 번에 최대 ${F.stayMonths}개월까지 머물 수 있는지 여부입니다. 공항에서 무슨 일이 있는지, 무엇을 가져갈 수 있는지, 어떻게 결제하는지, 문제가 생기면 어떻게 해야 하는지는 알려 주지 않습니다. 이 페이지들이 그 부분을 다룹니다. 각 페이지는 담당 호주 정부 기관의 정보로 확인했으며, 해당 기관 페이지로 연결됩니다.`,
         },
         { h2: "입국할 때" },
-        { links: ["smartgate-australia", "bringing-medicines"] },
+        { links: ["major-airports", "smartgate-australia", "border-questions", "biosecurity", "customs-allowances", "bringing-medicines", "australia-transit"] },
         { h2: "돈" },
         { links: ["money-and-tipping", "tourist-refund-scheme"] },
         { h2: "이동과 통신" },
-        { links: ["driving-in-australia", "phones-and-sim-cards", "power-plugs", "public-holidays"] },
+        { links: ["public-transport", "driving-in-australia", "phones-and-sim-cards", "power-plugs", "public-holidays"] },
         { h2: "건강과 안전" },
         { links: ["healthcare-for-visitors", "emergency-and-safety", "smoking-vaping-and-alcohol"] },
         { h2: "돌아오는 비행기" },
-        { links: ["airport-security-liquids"] },
+        { links: ["airport-security-liquids", "three-months-per-visit", "leaving-and-returning"] },
         {
-          note: "대중교통에 대한 페이지는 만들지 않았습니다. 전국 공통 제도가 없고 도시마다 교통카드와 요금 규칙이 다르기 때문입니다(시드니는 Opal, 멜버른은 myki, 퀸즐랜드 남동부는 go card). 방문하는 도시의 교통 당국 안내를 확인하십시오.",
+          note: "호주에는 전국 공통 대중교통 제도가 없으며, 도시마다 교통카드와 요금 규칙이 다릅니다. 대중교통 페이지에서는 시드니, 퀸즐랜드 남동부, 퍼스를 다룹니다. 멜버른, 애들레이드 등 다른 도시는 방문하는 도시의 교통 당국 안내를 확인하십시오.",
         },
       ],
       faq: [
@@ -736,6 +740,130 @@ export const koPractical: PracticalPack = {
         },
       ],
       checked: CHECKED,
+      practical: true,
+    },
+    /* ── 2026-11-15 追加（英語 major-airports / public-transport の韓国語版）。確認日は英語と同じ 15 November 2026 ── */
+    {
+      slug: "major-airports",
+      enSlug: "major-airports",
+      added: "2026-11-15",
+      title: "시드니·멜버른·브리즈번 공항 도착 안내 — 공항 운영사가 밝힌 내용",
+      description: "시드니, 멜버른, 브리즈번 국제선 터미널에서 시내로 가는 방법과 웨스턴 시드니 국제공항을 공항 운영사와 교통 당국의 정보로 정리했습니다.",
+      related: ["public-transport", "smartgate-australia", "australia-entry-checklist", "arriving-in-australia"],
+      blocks: [
+        {
+          p: "어느 공항에 내리든 국경 절차는 같습니다. 출입국 심사(SmartGate 또는 심사관), 수하물 수취, 검역과 세관 순서입니다. ABF는 SmartGate를 \"안면 인식 기술과 여권으로 신원을 확인하고 출입국 심사를 처리하는\" 게이트라고 설명합니다. 공항마다 다른 것은 시내로 가는 방법입니다. 이 페이지는 공항 운영사와 주 교통 당국이 공개한 내용만 다룹니다.",
+        },
+        { h2: "시드니(SYD)" },
+        {
+          ul: [
+            "시드니 공항은 시드니 도심(CBD)에서 8 km 떨어져 있으며 기차, 버스, 택시, 승차 공유로 갈 수 있다고 밝히고 있습니다. 국제선은 T1 International을 이용합니다.",
+            "기차역은 터미널 지하에 있습니다. T8 Airport & South Line은 매일 오전 5시부터 자정까지 운행합니다.",
+            "공항역에서는 역을 소유한 민간 회사가 기차 요금과 별도로 역 이용료(station access fee)를 받습니다. 이 이용료는 Opal의 일일·주간·금요일/주말 요금 상한에 포함되지 않습니다.",
+            `국내선 공항역과 국제선 공항역 사이의 역 이용료는 ${F.sydneyStationFeeDomIntl}에 기차 요금이 더해집니다. 국내선 터미널과 국제선 터미널 사이의 이동에 대해 뉴사우스웨일스 교통부(Transport for NSW)는 T8 기차나 420번 버스를 안내합니다.`,
+            `공항역에서 Opal 카드를 사거나 충전할 때 최소 충전액은 ${F.opalAirportMinTopUp}입니다. 시드니 공항역에서는 Opal의 60분 환승 혜택이 적용되지 않습니다.`,
+            "성인 요금은 별도 등록 없이 비접촉식 신용카드나 체크카드로 낼 수 있습니다.",
+          ],
+        },
+        { source: { label: "Sydney Airport", url: "https://www.sydneyairport.com.au/" } },
+        { source: { label: "Transport for NSW — Getting to and from Sydney Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-sydney-airport" } },
+        { h2: "웨스턴 시드니 국제공항(WSI)" },
+        {
+          p: `뉴사우스웨일스 교통부는 공항 개항일을 2026년 10월 25일(일)로 안내하며, 현재 WSI로 가는 직통 기차는 없다고 밝히고 있습니다. 무료 버스인 WSI Link가 St Marys 역과 공항 사이를 ${F.wsiLinkEveryMinutes}분 간격으로 운행하며, 운행 시간은 일요일~목요일 오전 4시 30분부터 자정까지, 금요일과 토요일은 오전 4시 30분부터 새벽 1시까지입니다. 공항으로 가는 시드니 메트로 노선은 아직 공사 중이며, WSI에는 정액 택시 요금이 없습니다.`,
+        },
+        {
+          p: "호주국경군(ABF)은 Australia Travel Declaration 웹 양식을 제공하며, 이 양식은 \"웨스턴 시드니 국제공항에 도착하는 항공편에만 제공된다\"고 밝히고, 다른 호주 공항에 도착하는 여행자에게는 작성하지 말라고 안내합니다.",
+        },
+        {
+          note: "WSI의 현재 운영 상황은 공항 자체 사이트에서 확인하지 못했습니다. 여행 전에 항공사와 공항에 확인하십시오.",
+        },
+        { source: { label: "Transport for NSW — Getting to and from Western Sydney International Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-western-sydney-international-airport-wsi" } },
+        { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
+        { h2: "멜버른(MEL)" },
+        {
+          ul: [
+            "멜버른 공항은 정기 시내버스, SkyBus, 지역·전세 버스로 도심(CBD)과 그 너머까지 연결된다고 밝히고 있습니다.",
+            "도심까지는 택시로 약 30분 거리라고 설명하며, 터미널 1, 2, 4의 지정 택시 승강장 밖에서 받는 택시 제안에는 응하지 말라고 안내합니다.",
+          ],
+        },
+        { source: { label: "Melbourne Airport — Getting to and from the airport", url: "https://www.melbourneairport.com.au/getting-to-from-the-airport" } },
+        { h2: "브리즈번(BNE)" },
+        {
+          ul: [
+            "착륙 후 출입국 심사(SmartGate 또는 심사관)로 갑니다.",
+            "모든 승객에게 출입국 심사 티켓(Passport Control ticket)이 발급되며, 터미널을 나가기 전에 검역·세관 담당관에게 보여 줍니다.",
+            "브리즈번 공항은 특정 물품은 입국카드(Incoming Passenger Card)에 신고해야 하며, 신고하지 않으면 처벌을 받을 수 있다고 안내합니다.",
+            "Airtrain을 타려면 엘리베이터로 3층에 올라가 터미널을 나온 뒤 다리를 건너 역으로 갑니다. 열차는 혼잡 시간대에 15분, 그 밖의 시간대에 30분 간격으로 운행합니다.",
+            "택시는 2층 도착 도로의 승강장에서 24시간 운행합니다.",
+          ],
+        },
+        { source: { label: "Brisbane Airport — International arrivals", url: "https://www.bne.com.au/passenger/passenger-information/international-arrivals" } },
+        { source: { label: "Australian Border Force — SmartGates on arrival", url: "https://www.abf.gov.au/entering-and-leaving-australia/smartgates/arrivals" } },
+        {
+          note: "퍼스, 애들레이드, 케언스, 골드코스트, 다윈, 호바트, 캔버라는 공식 페이지를 확인하지 못해 다루지 않았습니다. 해당 공항 운영사의 사이트를 이용하십시오.",
+        },
+      ],
+      checked: CHECKED_NOV,
+      practical: true,
+    },
+    {
+      slug: "public-transport",
+      enSlug: "public-transport",
+      added: "2026-11-15",
+      title: "시드니·퀸즐랜드 남동부·퍼스의 대중교통: Opal, go card, SmartRider",
+      description: "호주는 도시마다 요금 제도가 다릅니다. 시드니(Opal), 퀸즐랜드 남동부(go card), 퍼스(SmartRider)에서 방문객이 요금을 내는 방법을 공식 정보로 정리했습니다.",
+      related: ["major-airports", "driving-in-australia", "money-and-tipping", "arriving-in-australia"],
+      blocks: [
+        {
+          p: "호주에는 전국 공통 교통카드가 없습니다. 주마다 자체 제도와 규칙이 있으며, 한 도시의 카드는 다른 도시에서 쓸 수 없습니다. 이 페이지는 공식 페이지를 확인할 수 있었던 세 제도, 즉 시드니와 뉴사우스웨일스, 퀸즐랜드 남동부, 퍼스를 다룹니다.",
+        },
+        { h2: "시드니와 뉴사우스웨일스 — Opal" },
+        {
+          ul: [
+            "Opal은 시드니, 블루마운틴, 센트럴코스트, 헌터, 일라와라 지역 대중교통의 승차권 제도입니다.",
+            "Opal 카드, 또는 대부분의 요금 유형에서 비접촉식 신용카드·체크카드(American Express, Mastercard, Visa)로 탈 때와 내릴 때 단말기에 태그합니다. 한 번의 이동에는 같은 카드나 기기를 사용하십시오.",
+            "비접촉식 카드로 내도 Opal과 같은 요금이며 같은 Opal 혜택을 받습니다.",
+            "Opal 카드나 비접촉식 결제 수단이 없다면 Opal 1회권(single trip ticket)이 필요하며, 이는 메트로, 기차, 페리, 경전철에서만 살 수 있습니다.",
+            "성인 요금은 한 번의 이동 중 교통수단을 갈아탈 때마다 $2가 할인되며, 비혼잡 시간대에는 요금이 30% 저렴합니다.",
+            "지갑 안에서 카드끼리 겹치지 않게 하십시오. 뉴사우스웨일스 교통부는 카드 충돌(card clash)에 대해 경고합니다.",
+          ],
+        },
+        {
+          note: "시드니 공항역에서는 요금과 별도로 역 이용료가 붙습니다. 공항 페이지를 참고하십시오.",
+        },
+        { source: { label: "Transport for NSW — Opal", url: "https://transportnsw.info/tickets-fares/opal" } },
+        { source: { label: "Transport for NSW — Fares", url: "https://transportnsw.info/tickets-fares/fares" } },
+        { source: { label: "Transport for NSW — Contactless payments", url: "https://transportnsw.info/tickets-fares/contactless-payments" } },
+        { h2: "퀸즐랜드 남동부 — go card(Translink)" },
+        {
+          ul: [
+            `Translink는 모든 서비스의 요금이 거리나 결제 방법과 관계없이 ${SEQ_FLAT_FARE} 균일 요금이라고 밝히고 있습니다.`,
+            "go card는 브리즈번 광역권, 입스위치, 모턴베이, 레드랜즈, 선샤인코스트, 골드코스트의 모든 Translink 버스, 기차(Airtrain 포함), 페리, 트램에서 쓸 수 있습니다. Airtrain에서는 Airtrain 요금이 적용됩니다.",
+            "퀸즐랜드 남동부의 모든 기차, 트램, 페리, 버스에서 비접촉식 결제를 받습니다.",
+            `탈 때나 내릴 때 태그를 잊으면 기본 요금 ${F.seqDefaultFare}가 부과될 수 있습니다.`,
+            "Apple Pay, Samsung Pay, Google Pay는 연결된 실물 카드와 다른 결제 수단으로 취급되므로, 탈 때와 내릴 때 같은 것으로 태그하십시오.",
+            "Translink는 벌금이나 위반 통지를 문자 메시지로 보내지 않는다고 밝히고 있습니다.",
+          ],
+        },
+        { source: { label: "Translink — go card", url: "https://translink.com.au/tickets-and-fares/go-card" } },
+        { source: { label: "Translink — Contactless payments", url: "https://translink.com.au/tickets-and-fares/contactless-payments" } },
+        { h2: "퍼스 — SmartRider(Transperth)" },
+        {
+          ul: [
+            "SmartRider는 Transperth의 재사용 가능한 교통카드입니다. 비접촉식 은행 카드도 표준 현금 요금으로 받으며, 비접촉식 결제에는 할인 요금(concession)이 적용되지 않습니다.",
+            "Go Anywhere 요금으로 3시간 안에 노선망 어디든 이동할 수 있으며, SmartRider와 비접촉식 요금은 자동으로 이 금액을 상한으로 합니다.",
+            "매주 일요일에는 SmartRider 소지자와 비접촉식으로 결제하는 승객의 이용이 무료입니다.",
+            "Transperth 버스 기사는 현금을 받지 않습니다.",
+            "Transperth는 공항선(Airport line)을 운행합니다.",
+          ],
+        },
+        { source: { label: "Transperth — What is SmartRider", url: "https://www.transperth.wa.gov.au/SmartRider/What-is-SmartRider" } },
+        { source: { label: "Transperth — Fares", url: "https://www.transperth.wa.gov.au/Tickets-Fares/Fares" } },
+        {
+          note: "멜버른(myki)과 애들레이드(metroCARD)는 공식 페이지를 읽을 수 없어 다루지 않았으며, 확인하지 못한 요금 금액도 싣지 않았습니다. 해당 교통 당국의 사이트에서 확인하십시오.",
+        },
+      ],
+      checked: CHECKED_NOV,
       practical: true,
     },
   ],
