@@ -34,17 +34,17 @@ const RAW: Page[] = [
         p: `The eVisitor (or the ETA, if your passport is not on the eVisitor list) settles one question: whether you may travel to Australia and stay for up to ${F.stayMonths} months at a time. It does not tell you what happens at the airport, what you can carry, how to pay, or what to do if something goes wrong. These pages do. Each one is checked against the Australian government body responsible and links to it.`,
       },
       { h2: "At the border" },
-      { links: ["smartgate-australia", "border-questions", "biosecurity", "customs-allowances", "bringing-medicines"] },
+      { links: ["major-airports", "smartgate-australia", "border-questions", "biosecurity", "customs-allowances", "bringing-medicines", "transit"] },
       { h2: "Money" },
       { links: ["money-and-tipping", "tourist-refund-scheme"] },
       { h2: "Getting around and staying connected" },
-      { links: ["driving-in-australia", "phones-and-sim-cards", "power-plugs", "public-holidays"] },
+      { links: ["public-transport", "driving-in-australia", "phones-and-sim-cards", "power-plugs", "public-holidays"] },
       { h2: "Health and safety" },
       { links: ["healthcare-for-visitors", "emergency-and-safety", "smoking-vaping-and-alcohol"] },
       { h2: "Flying home" },
       { links: ["airport-security-liquids", "three-months-per-visit", "leaving-and-returning"] },
       {
-        note: "What we did not write a page about: public transport. There is no national system — each city runs its own card and fare rules (Opal in Sydney, myki in Melbourne, go card in South East Queensland). Check the transport authority of the city you are visiting.",
+        note: "There is no national public transport system — each city runs its own card and fare rules. Our public transport page covers Sydney, South East Queensland and Perth. For Melbourne, Adelaide and other cities, check the transport authority of the city you are visiting.",
       },
     ],
   },
@@ -709,6 +709,127 @@ const RAW: Page[] = [
       },
     ],
   },
+  /* ── 2026-11-15 追加（facts-au.md §6・§7）。⚠️ パース・アデレードの空港、メルボルンの myki、
+        SkyBus・Airtrain の運賃、Opal の上限額、WSI が実際に開港したかは確認できていないので書かない ── */
+  {
+    slug: "major-airports",
+    checked: "15 November 2026",
+    nav: "Major airports",
+    title: "Arriving at Sydney, Melbourne and Brisbane airports: what the operators say",
+    description: "Getting from the international terminal into Sydney, Melbourne and Brisbane, plus Western Sydney International, from airport operators and transport bodies.",
+    related: ["public-transport", "smartgate-australia", "border-questions", HUB_SLUG],
+    blocks: [
+      {
+        p: `Whichever airport you land at, the border steps are the same: passport control (a SmartGate or an officer), then baggage, then biosecurity and customs. The ABF describes SmartGates as gates that "use facial recognition technology and your passport to check your identity and process you through Passport Control." What differs between airports is the way into the city. This page covers only what the airport operators and state transport authorities publish.`,
+      },
+      { h2: "Sydney (SYD)" },
+      {
+        ul: [
+          "Sydney Airport states that it is located 8 km from the Sydney CBD and is accessible by train, bus, taxi and rideshare. International flights use T1 International.",
+          "The train stations are underneath the terminals. T8 Airport & South Line services run every day between 5am and midnight.",
+          "A station access fee is charged on top of the train fare at the airport stations, by the company that privately owns them. It is not included in Opal daily, weekly or Friday/weekend caps.",
+          `Between the domestic and international airport stations the access fee is ${F.sydneyStationFeeDomIntl} plus the train fare. To move between the domestic and international terminals, Transport for NSW points to the T8 train or the route 420 bus.`,
+          `If you buy or top up an Opal card at an airport station, the minimum top-up is ${F.opalAirportMinTopUp}. The Opal 60-minute transfer does not apply at Sydney Airport stations.`,
+          "Adult fares can be paid with a contactless credit or debit card with no set-up.",
+        ],
+      },
+      { source: { label: "Sydney Airport", url: "https://www.sydneyairport.com.au/" } },
+      { source: { label: "Transport for NSW — Getting to and from Sydney Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-sydney-airport" } },
+      { h2: "Western Sydney International (WSI)" },
+      {
+        p: `Transport for NSW gives the airport's opening date as Sunday 25 October 2026. It states that there are currently no direct train services to WSI. The fare-free WSI Link bus runs between St Marys Station and the airport every ${F.wsiLinkEveryMinutes} minutes, from 4:30am to midnight Sunday to Thursday and from 4:30am to 1am on Friday and Saturday. The Sydney Metro line to the airport is still under construction, and there are no fixed taxi fares at WSI.`,
+      },
+      {
+        p: `The Australian Border Force offers an Australia Travel Declaration web form that it says is "only available for flights arriving at Western Sydney International Airport", and it asks travellers arriving at any other Australian airport not to complete it.`,
+      },
+      {
+        note: "We could not confirm current operations at WSI from the airport's own site. Check with your airline and the airport before you travel.",
+      },
+      { source: { label: "Transport for NSW — Getting to and from Western Sydney International Airport", url: "https://transportnsw.info/travel-info/airport-travel/getting-to-from-western-sydney-international-airport-wsi" } },
+      { source: { label: "Australian Border Force — Australia Travel Declaration", url: "https://www.abf.gov.au/entering-and-leaving-australia/australia-travel-declaration" } },
+      { h2: "Melbourne (MEL)" },
+      {
+        ul: [
+          "Melbourne Airport states that it is connected to the CBD and beyond by regular public bus services, SkyBus and regional and charter buses.",
+          "It describes the CBD as approximately a 30-minute taxi fare away, and advises against accepting any taxi offer outside the designated taxi ranks at Terminals 1, 2 and 4.",
+        ],
+      },
+      { source: { label: "Melbourne Airport — Getting to and from the airport", url: "https://www.melbourneairport.com.au/getting-to-from-the-airport" } },
+      { h2: "Brisbane (BNE)" },
+      {
+        ul: [
+          "After landing you go to immigration and passport control, either a SmartGate or an officer.",
+          "Every passenger is issued a Passport Control ticket, which you show to Biosecurity and Customs officers before leaving the terminal.",
+          "Brisbane Airport reminds arrivals that certain items must be declared on the Incoming Passenger Card and that penalties may apply for failing to do so.",
+          "For the Airtrain, take the lift to level 3, leave the terminal and cross the bridge to the station. Trains run every 15 minutes at peak times and every 30 minutes off-peak.",
+          "Taxis run 24/7 from the rank on the Level 2 arrivals roadway.",
+        ],
+      },
+      { source: { label: "Brisbane Airport — International arrivals", url: "https://www.bne.com.au/passenger/passenger-information/international-arrivals" } },
+      { source: { label: "Australian Border Force — SmartGates on arrival", url: "https://www.abf.gov.au/entering-and-leaving-australia/smartgates/arrivals" } },
+      {
+        note: "Perth, Adelaide, Cairns, Gold Coast, Darwin, Hobart and Canberra are not covered here because we could not check their official pages. Use the airport operator's own site.",
+      },
+    ],
+  },
+  {
+    slug: "public-transport",
+    checked: "15 November 2026",
+    nav: "Public transport",
+    title: "Public transport in Sydney, South East Queensland and Perth: Opal, go card, SmartRider",
+    description: `Each Australian city runs its own fare system. How visitors pay in Sydney (Opal), South East Queensland (go card) and Perth (SmartRider), from official sources.`,
+    related: ["major-airports", "driving-in-australia", "money-and-tipping", HUB_SLUG],
+    blocks: [
+      {
+        p: "There is no national public transport card in Australia. Each state runs its own system with its own rules, and a card from one city does not work in another. This page covers the three systems whose official pages we could check: Sydney and NSW, South East Queensland and Perth.",
+      },
+      { h2: "Sydney and NSW — Opal" },
+      {
+        ul: [
+          "Opal is the ticketing system for public transport in Sydney, the Blue Mountains, the Central Coast, the Hunter and the Illawarra.",
+          "You tap on and tap off with an Opal card, or with a contactless credit or debit card (American Express, Mastercard, Visa) for most fare types. Use the same card or device for the whole trip.",
+          "Paying by contactless card costs the same Opal fare and gives the same Opal benefits.",
+          "Without an Opal card or contactless payment you need an Opal single trip ticket, which is only available for metro, train, ferry and light rail.",
+          "Adult fares get a $2 discount for each transfer between modes within one journey, and fares are 30% cheaper in off-peak times.",
+          "Keep cards apart in your wallet: Transport for NSW warns about card clash.",
+        ],
+      },
+      {
+        note: `At Sydney Airport's stations a separate station access fee applies on top of the fare — see the airports page.`,
+      },
+      { source: { label: "Transport for NSW — Opal", url: "https://transportnsw.info/tickets-fares/opal" } },
+      { source: { label: "Transport for NSW — Fares", url: "https://transportnsw.info/tickets-fares/fares" } },
+      { source: { label: "Transport for NSW — Contactless payments", url: "https://transportnsw.info/tickets-fares/contactless-payments" } },
+      { h2: "South East Queensland — go card (Translink)" },
+      {
+        ul: [
+          `Translink states that fares are a ${F.seqFlatFare} flat rate across all its services, regardless of distance or how you pay.`,
+          "The go card works on all Translink bus, train (including Airtrain), ferry and tram services in greater Brisbane, Ipswich, Moreton Bay, Redlands, the Sunshine Coast and the Gold Coast. On the Airtrain, Airtrain fares are charged.",
+          "Contactless payment is accepted on all trains, trams, ferries and buses in South East Queensland.",
+          `If you forget to tap on or off, you may be charged a default fare of ${F.seqDefaultFare}.`,
+          "Apple Pay, Samsung Pay and Google Pay count as different payment methods from the physical card behind them, so tap on and off with the same one.",
+          "Translink says it will never send penalty notices or fines by text message.",
+        ],
+      },
+      { source: { label: "Translink — go card", url: "https://translink.com.au/tickets-and-fares/go-card" } },
+      { source: { label: "Translink — Contactless payments", url: "https://translink.com.au/tickets-and-fares/contactless-payments" } },
+      { h2: "Perth — SmartRider (Transperth)" },
+      {
+        ul: [
+          "SmartRider is Transperth's reusable smart card. Contactless bank cards are also accepted, at the standard cash rate; concession fares do not apply to contactless payments.",
+          "The Go Anywhere fare covers travel anywhere on the network within three hours, and SmartRider and contactless fares are capped at that amount automatically.",
+          "Every Sunday, travel is free for SmartRider holders and for passengers paying by contactless.",
+          "Bus drivers do not handle cash on Transperth buses.",
+          "Transperth runs an Airport line.",
+        ],
+      },
+      { source: { label: "Transperth — What is SmartRider", url: "https://www.transperth.wa.gov.au/SmartRider/What-is-SmartRider" } },
+      { source: { label: "Transperth — Fares", url: "https://www.transperth.wa.gov.au/Tickets-Fares/Fares" } },
+      {
+        note: "Not covered: Melbourne (myki) and Adelaide (metroCARD), because we could not read the official pages, and fare amounts we could not confirm. Check the transport authority's own site for those.",
+      },
+    ],
+  },
 ];
 
-export const PRACTICAL: Page[] = RAW.map((p) => ({ ...p, checked: CHECKED, practical: p.slug !== HUB_SLUG }));
+export const PRACTICAL: Page[] = RAW.map((p) => ({ ...p, checked: p.checked ?? CHECKED, practical: p.slug !== HUB_SLUG }));

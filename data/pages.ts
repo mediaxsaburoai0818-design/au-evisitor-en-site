@@ -53,7 +53,7 @@ export function pickRelated<T extends { slug: string }>(all: T[], self: string, 
 const CORE: Page[] = [
   {
     slug: "what-is-evisitor",
-    related: ["arriving-in-australia"],
+    related: ["arriving-in-australia", "eligible-passports"],
     nav: "What is the eVisitor",
     title: "What is the eVisitor (subclass 651)? Australia's free visitor visa explained",
     description:
@@ -85,6 +85,7 @@ const CORE: Page[] = [
   },
   {
     slug: "how-to-apply",
+    related: ["official-site", "common-mistakes", "australian-eta-app"],
     nav: "How to apply",
     title: "How to apply for an eVisitor: the official process step by step",
     description:
@@ -566,6 +567,7 @@ const CORE: Page[] = [
   },
   {
     slug: "evisitor-or-eta",
+    related: ["eligible-passports", "australian-eta-app", "transit"],
     nav: "eVisitor or ETA?",
     title: `eVisitor or ETA? The free visa and the ${F.etaFee} one, and who gets which`,
     description:
@@ -697,6 +699,280 @@ const CORE: Page[] = [
           label: "Department of Home Affairs — eVisitor (subclass 651)",
           url: F.officialUrl,
         },
+      },
+    ],
+  },
+  /* ── 2026-11-15 追加（ファクト＝~/projects/eta-expansion-20261115/facts-au.md §1〜§5）。
+        ⚠️ 両方の一覧に載る旅券について「どちらを使わなければならない」とは書かない（公式は "may be eligible" だけ）。
+        ⚠️ eVisitor をアプリで申請できる、と読める書き方をしない（アプリは ETA 専用）。 ── */
+  {
+    slug: "eligible-passports",
+    checked: "15 November 2026",
+    related: ["evisitor-or-eta", "what-is-evisitor", "transit", "australian-eta-app"],
+    nav: "Eligible passports",
+    title: `Which passports can get an eVisitor? The ${F.eligibleCountries} countries, and who uses the ETA`,
+    description: `The eVisitor is open to citizens of ${F.eligibleCountries} European countries. The full list, the British passports that do not qualify, and how it compares with the ETA.`,
+    blocks: [
+      {
+        p: `Eligibility for the eVisitor (subclass 651) depends on your citizenship and the passport you hold, not on where you live. The Department of Home Affairs says you must be a citizen of, and hold a valid passport from, one of ${F.eligibleCountries} countries.`,
+      },
+      { h2: `The ${F.eligibleCountries} eVisitor countries` },
+      {
+        p: "Andorra, Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Monaco, the Netherlands, Norway, Poland, Portugal, Romania, the Republic of San Marino, Slovakia, Slovenia, Spain, Sweden, Switzerland, the United Kingdom (British Citizen) and Vatican City.",
+      },
+      { h2: "Passports that do not qualify" },
+      {
+        ul: [
+          "For the United Kingdom, only British Citizen passports are on the list",
+          "British National (Overseas), British Dependent Territories Citizen, British Overseas Citizen, British Protected Person and British Subject passports cannot be used",
+          "A non-citizen passport, a certificate of identity or another travel document such as a Titre de Voyage cannot be used",
+          "For Vatican City, the passport must show that you are a national of the Vatican City (Holy See)",
+        ],
+      },
+      { h2: "If your passport is not on the list" },
+      {
+        p: `The ETA (subclass 601) has its own list of ${F.etaEligibleCountries} passports. It includes, among others, Brunei, Canada, Hong Kong (SAR of China), Japan, Malaysia, Singapore, South Korea, Taiwan (excluding official or diplomatic passports), the United States and United Kingdom — British National (Overseas). The ETA costs ${F.etaFee} as an app service fee. Other passport holders may be eligible for a Visitor visa (subclass 600).`,
+      },
+      { h2: "Passports on both lists" },
+      {
+        p: `By our comparison of the two official lists, ${F.bothListsCountries} passports appear on both. The other ${F.eligibleCountries - F.bothListsCountries} eVisitor countries are not on the ETA list: Bulgaria, Croatia, Cyprus, the Czech Republic, Estonia, Hungary, Latvia, Lithuania, Poland, Romania, Slovakia and Slovenia. For passports on both lists, the ETA page states that European passport holders "may be eligible" for the eVisitor and that there is no charge to apply for it.`,
+      },
+      { h2: "Situations where Home Affairs points elsewhere" },
+      {
+        ul: [
+          "A criminal conviction in any country: Home Affairs says to apply for a Visitor visa (subclass 600) instead, and that arriving on an eVisitor with a conviction may lead to refused entry",
+          "Training at a childcare centre, studying to be a doctor, dentist, nurse or paramedic, or entering health care or hospital environments: apply for the Visitor visa (subclass 600) and complete the health checks",
+          "Australian citizens cannot apply for an eVisitor or an ETA, even if they also hold an eligible passport — they do not need a visa to enter Australia",
+          "Families: each member needs a separate application, including children listed on a parent's passport",
+        ],
+      },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      { source: { label: "Department of Home Affairs — Electronic Travel Authority (subclass 601)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601" } },
+      {
+        note: "The lists can change. Check the official page for the passport you will actually travel on before you apply.",
+      },
+    ],
+    faq: [
+      {
+        q: "I have a British National (Overseas) passport. Can I get an eVisitor?",
+        a: "No. BN(O) passports are excluded from the eVisitor. The BN(O) passport is on the ETA (subclass 601) list instead.",
+      },
+      {
+        q: "I live in Germany but hold a non-European passport. Am I eligible?",
+        a: "No. The eVisitor requires citizenship of, and a valid passport from, one of the listed countries. Where you live does not change this.",
+      },
+    ],
+  },
+  {
+    slug: "common-mistakes",
+    checked: "15 November 2026",
+    related: ["passport-and-details", "if-your-application-is-refused", "how-to-apply", "official-site"],
+    nav: "Common mistakes",
+    title: "eVisitor mistakes to avoid, in the Department of Home Affairs' own words",
+    description: "Misspelt names, the wrong date format, applying from inside Australia, booking before the grant — the eVisitor errors Home Affairs warns about.",
+    blocks: [
+      {
+        p: "The eVisitor is free and usually quick, which makes it easy to rush. The Department of Home Affairs lists the points to check. Each one below is taken from its eVisitor page.",
+      },
+      { h2: "Before you submit" },
+      {
+        ul: [
+          "Your name is spelt as it appears in your passport, including your middle name, and has not been auto-corrected by your device",
+          "Your passport is from one of the countries eligible for the eVisitor",
+          "Your date of birth is entered in dd/mm/yy format",
+          "Your email address is entered correctly",
+        ],
+      },
+      {
+        p: "Home Affairs warns that if a visa is granted with incorrect information, you may experience delays or be refused entry to Australia.",
+      },
+      { h2: "Applying from the wrong place" },
+      {
+        p: "You must be outside Australia when you apply, and outside Australia when the decision is made.",
+      },
+      { h2: "Booking before the grant" },
+      {
+        p: "Home Affairs says not to arrange travel to Australia until it has told you in writing that the visa has been granted.",
+      },
+      { h2: "Waiting for an email that is not coming" },
+      {
+        p: "If no email arrives within 12 hours of applying, check your application status in ImmiAccount.",
+      },
+      { h2: "Leaving out a conviction" },
+      {
+        p: "If you have a criminal conviction in any country, Home Affairs says to apply for a Visitor visa (subclass 600) instead. If you still apply for an eVisitor, you must declare all criminal conduct and answer every question truthfully.",
+      },
+      { h2: "Mistakes during the stay" },
+      {
+        ul: [
+          "Working: the eVisitor is not a work visa. Paid work for an Australian employer is not allowed, and working or intending to work can lead to cancellation",
+          "Assuming a round-trip cruise resets your stay: Home Affairs says it does not",
+          "Long or frequent stays: you may be asked about your travel purpose on your next arrival, and the visa may be cancelled if you are found not to be a genuine visitor",
+          "Staying after the visa ceases without another visa: you become an unlawful non-citizen and may be removed",
+        ],
+      },
+      { h2: "If you are actually applying for the ETA" },
+      {
+        p: "Holders of ETA passports should note three points from the ETA page: the ETA details must exactly match the passport, and Home Affairs cannot change them once the ETA is issued; a new passport ends the ETA and requires a new application; and after a referral, submitting further ETA applications in the app gives the same result.",
+      },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      { source: { label: "Department of Home Affairs — Electronic Travel Authority (subclass 601)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601" } },
+      {
+        note: "If your phone number, email, address or passport changes after you apply, the eVisitor page asks you to tell the Department. Follow the steps on that page.",
+      },
+    ],
+  },
+  {
+    slug: "transit",
+    checked: "15 November 2026",
+    related: ["eligible-passports", "airport-security-liquids", "major-airports", "evisitor-or-eta"],
+    nav: "Transit",
+    title: `Transiting through Australia: the ${F.twovHours}-hour rule and the Transit visa`,
+    description: `Even in transit you need a visa or permission. When an eVisitor covers it, the ${F.twovHours}-hour visa-free transit rule, and the ${F.transitVisaHours}-hour Transit visa.`,
+    blocks: [
+      {
+        p: "The Department of Home Affairs states that all non-citizens need a visa or permission to enter Australia, including those staying for a short time or transiting without leaving the airport. There are three ways that permission can come about.",
+      },
+      { h2: "1. You already hold an eVisitor (or are eligible for one)" },
+      {
+        p: "Home Affairs lists the eVisitor, the ETA, the Visitor visa and the APEC Business Travel Card among the visas that permit transit through Australia, and they also allow a longer stay. If your trip includes a stopover in Australia, an eVisitor covers it.",
+      },
+      { h2: "2. Transit without a visa (TWOV)" },
+      {
+        p: "You may transit without a visa only if all of the following apply:",
+      },
+      {
+        ul: [
+          "You arrive in Australia by aircraft",
+          `You have a confirmed ticket to leave Australia for a third country by aircraft within ${F.twovHours} hours of arriving`,
+          "You have a valid travel document to enter the country you are going to",
+          "You do not need to clear immigration or leave the airport transit lounge for any reason before your onward flight",
+          "You hold a passport from a country on the TWOV list",
+        ],
+      },
+      {
+        p: "By our comparison of the two official lists, every country on the eVisitor list is also on the TWOV list, which covers other countries too. Home Affairs states that the information does not apply to stateless persons and refugees.",
+      },
+      { h2: "When you have to clear immigration" },
+      {
+        p: "Home Affairs gives collecting and transferring baggage, and boarding an onward flight from a different terminal, as common reasons for needing to clear immigration — and you must have a visa to do that. It advises that if you are still not sure whether you are TWOV eligible, you should consider applying for a visa just in case.",
+      },
+      { h2: `3. Transit visa (subclass 771)` },
+      {
+        ul: [
+          `For transit through Australia for no longer than ${F.transitVisaHours} hours`,
+          "Free of charge",
+          "A separate application is needed for each traveller, including babies on a parent's passport",
+          "You must be outside Australia when you apply and when the decision is made",
+        ],
+      },
+      {
+        note: "Home Affairs warns that if you already hold a visa to Australia, being granted a Transit visa will likely end your other visa. An eVisitor already permits transit.",
+      },
+      { source: { label: "Department of Home Affairs — Transit visa (subclass 771)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/transit-771" } },
+      { source: { label: "Department of Home Affairs — Travellers eligible to transit without a visa", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/transit-771/travellers-eligible-to-transit-without-visa" } },
+      { source: { label: "Department of Home Affairs — Transit facilities at Australian airports", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/transit-771/transit-facilities-at-australian-airports" } },
+    ],
+    faq: [
+      {
+        q: "My connection in Sydney is 10 hours. Can I transit without a visa?",
+        a: `Not under TWOV, which requires a confirmed onward flight within ${F.twovHours} hours of arriving. You need a visa — an eVisitor if your passport is eligible, or a Transit visa (subclass 771).`,
+      },
+      {
+        q: "Does each airport have a transit area?",
+        a: "Home Affairs publishes a page on transit facilities at Australian airports. Check it, and your airline, for the airport you will use.",
+      },
+    ],
+  },
+  {
+    slug: "australian-eta-app",
+    checked: "15 November 2026",
+    related: ["evisitor-or-eta", "how-to-apply", "official-site", "eligible-passports"],
+    nav: "Is there an app?",
+    title: "Is there an eVisitor app? No — the Australian ETA app is for the ETA only",
+    description: `The eVisitor is applied for online in ImmiAccount. The Australian ETA app is for the ETA (subclass 601) only and has a ${F.etaFee} service fee.`,
+    blocks: [
+      {
+        p: "There is no app for the eVisitor. Home Affairs' eVisitor guide tells you to apply online, through ImmiAccount, and to check your application status there. The government app you may see in the app stores — the Australian ETA app — is for a different visa: the Electronic Travel Authority (subclass 601).",
+      },
+      { h2: "Who must use the Australian ETA app" },
+      {
+        p: `Home Affairs states that you must use the Australian ETA app to apply for an ETA if you hold an ETA-eligible passport. There is no visa application charge for the ETA, but there is a non-refundable application service fee of ${F.etaFee} for using the app. If you cannot use the app, Home Affairs says you can apply for another suitable visa through ImmiAccount, and that European passport holders may be eligible for an eVisitor, which has no application charge.`,
+      },
+      { h2: "About the app" },
+      {
+        ul: [
+          "Publisher: Department of Home Affairs (shown as the seller on the App Store)",
+          "Download is free from the Apple App Store and Google Play; the App Store lists iOS 17.6 or later",
+          "You need a phone with a camera, NFC turned on, location services turned on, a valid email address and a payment method for the service fee",
+        ],
+      },
+      { h2: "What you do in the app" },
+      {
+        ul: [
+          "Scan your passport to pre-fill your name, date of birth, passport number and other details",
+          "Take a live photo of yourself on the same phone; the photo is captured automatically when the oval on screen turns green",
+          "Answer the questions, pay the service fee and submit",
+          "Families applying on the same device can submit and pay at the same time",
+          "Someone can help you apply, but they must be physically with you",
+          "The app's \"Visa check\" function shows the status of your application",
+        ],
+      },
+      { source: { label: "Department of Home Affairs — Electronic Travel Authority (subclass 601)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601" } },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      { source: { label: "Department of Home Affairs — ETA and AIA video guides", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/eta-and-aia-video-guides" } },
+      { source: { label: "App Store — AustralianETA", url: "https://apps.apple.com/au/app/australianeta/id1527982364" } },
+      { source: { label: "Google Play — AustralianETA", url: "https://play.google.com/store/apps/details?id=au.gov.homeaffairs.eta" } },
+      {
+        note: `If your passport is on the eVisitor list, you do not need the app. Apply in ImmiAccount, where the eVisitor costs ${F.fee}.`,
+      },
+    ],
+  },
+  {
+    slug: "official-site",
+    checked: "15 November 2026",
+    related: ["how-to-apply", "cost", "status-check", "common-mistakes"],
+    nav: "Official site",
+    title: "The official eVisitor site is ImmiAccount: how to recognise it and avoid scams",
+    description: "Home Affairs calls ImmiAccount the only official website for Australian visa applications. The official addresses and the scam warnings it publishes.",
+    blocks: [
+      {
+        p: "The Department of Home Affairs describes ImmiAccount as its immigration portal and \"the only official website to use when applying for an Australian visa\". The eVisitor application form is in ImmiAccount.",
+      },
+      { h2: "The official addresses" },
+      {
+        ul: [
+          "eVisitor information: immi.homeaffairs.gov.au",
+          "ImmiAccount sign-in and applications: online.immi.gov.au",
+          "The Australian ETA app (for the ETA only): published by the Department of Home Affairs",
+        ],
+      },
+      { h2: "What the official route costs" },
+      {
+        p: `Home Affairs states: "The eVisitor is free." There is no application charge to pay on the official site.`,
+      },
+      { h2: "Scam warnings from Home Affairs" },
+      {
+        ul: [
+          "An email claiming to be from the Department of Home Affairs whose address does not end in .gov.au is a scam",
+          "If someone asks for an extra fee to have your visa issued (sometimes called a \"CIS charge\"), walk away — the Australian Government does not charge extra fees to issue visas",
+          "If someone refuses to let you check your application in ImmiAccount, they are hiding something from you",
+          "A grant letter for a visa you cannot find in VEVO (Visa Entitlement Verification Online) is probably fake",
+          "Home Affairs staff always identify themselves on the phone and never ask for credit card details or passwords",
+          "Deal only with official Australian Government channels: the Home Affairs website, Australian Biometric Collection Centres, or the Australian High Commission, Embassy or Consulate in your country",
+        ],
+      },
+      { h2: "If someone else applies for you" },
+      {
+        p: "An ImmiAccount can be set up by the applicant, a family member acting for the applicant, or a friend helping with the application. Home Affairs states that in Australia it is illegal for a third party to provide paid immigration assistance unless they are a registered migration agent or an Australian legal practitioner, and that you remain responsible for checking the conditions of the visa even if someone else submits the application.",
+      },
+      { source: { label: "Department of Home Affairs — How to avoid being scammed", url: "https://immi.homeaffairs.gov.au/help-support/visa-scams/what-you-need-to-know" } },
+      { source: { label: "Department of Home Affairs — Visa scams", url: "https://immi.homeaffairs.gov.au/help-support/visa-scams" } },
+      { source: { label: "Department of Home Affairs — Applying online in ImmiAccount", url: "https://immi.homeaffairs.gov.au/help-support/applying-online-or-on-paper/online" } },
+      { source: { label: "Department of Home Affairs — Who can help with your application", url: "https://immi.homeaffairs.gov.au/help-support/who-can-help-with-your-application/overview" } },
+      { source: { label: "Department of Home Affairs — eVisitor (subclass 651)", url: "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/evisitor-651" } },
+      {
+        note: "This site is an independent guide, not a government website. We do not take applications or payments.",
       },
     ],
   },

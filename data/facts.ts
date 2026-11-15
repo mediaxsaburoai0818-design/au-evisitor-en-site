@@ -84,6 +84,24 @@ export const FACTS = {
   emergencyMobile: "112",
   policeAssistance: "131 444",
   ses: "132 500",
+  /* ── 2026-11-15 追加ページ（対象旅券・乗継・アプリ・公式サイト・空港・公共交通）。
+        ファクト＝~/projects/eta-expansion-20261115/facts-au.md（出典URL・確認日つき） ── */
+  /** ETA（601）の対象旅券の数（Home Affairs の一覧を 2026-11-15 に数えた値） */
+  etaEligibleCountries: 34,
+  /** eVisitor・ETA の両方の一覧に載っている旅券の数（2つの公式一覧を突き合わせた値） */
+  bothListsCountries: 24,
+  /** ビザなし乗継（TWOV）: 到着から8時間以内に第三国行きの便に乗ること */
+  twovHours: 8,
+  /** Transit visa（subclass 771）: 72時間以内の乗継・無料 */
+  transitVisaHours: 72,
+  /** シドニー空港駅の駅利用料（国内線駅⇔国際線駅の区間・運賃とは別）と、空港駅でのOpalチャージ最低額（TfNSW） */
+  sydneyStationFeeDomIntl: "$5.20",
+  opalAirportMinTopUp: "$35",
+  /** 南東クイーンズランド（Translink）の均一運賃と、タッチ忘れの既定運賃 */
+  seqFlatFare: "50 cent",
+  seqDefaultFare: "$2.50",
+  /** WSI Link（St Marys駅⇔WSI空港の無料バス）の運行間隔（TfNSW） */
+  wsiLinkEveryMinutes: 30,
   updated: "2026-08-17",
   updatedLabel: "17 August 2026",
   /** 申請先。公式以外に窓口は無いので、CTAは全部ここを指す */

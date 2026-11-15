@@ -15,11 +15,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const d = new Date("2026-08-17");
   /** 入国後の実用ページ（2026-10-12 追加・確認）。lastmod を実際の確認日にする */
   const dPractical = new Date("2026-10-12");
+  /** 2026-11-15 追加ページ（対象旅券・乗継・アプリ・公式サイト・空港・公共交通）の確認日 */
+  const dNov2026 = new Date("2026-11-15");
   const out: MetadataRoute.Sitemap = [
     { url: `${SITE}/`, lastModified: d, changeFrequency: "weekly", priority: 1 },
     ...PAGES.map((p) => ({
       url: `${SITE}/${p.slug}/`,
-      lastModified: p.checked ? dPractical : d,
+      lastModified: p.checked === "15 November 2026" ? dNov2026 : p.checked ? dPractical : d,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
